@@ -1,0 +1,243 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+MERGED from [:react-native-vector-icons] /home/talhakanyilmaz/frontend/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-camera] /home/talhakanyilmaz/frontend/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-18:12
+MERGED from [:react-native-gesture-handler] /home/talhakanyilmaz/frontend/node_modules/react-native-gesture-handler/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.57.5] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/react-native-0.57.5.aar/8e2abc84ccbec4d850a91b3846d507f1/AndroidManifest.xml:2:1-15:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/0774c3d507f50dc7afde69b76a93a2e0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-vision:15.0.2] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.2.aar/bd95bea47ddea7934e69d73f732e85fb/AndroidManifest.xml:2:1-9:12
+MERGED from [com.android.support:exifinterface:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.1.aar/33ad13286ba126ba237cbb8987a2fb32/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-vision-common:15.0.2] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-15.0.2.aar/752923f03513b56f0f2ad94aec2b4a22/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-clearcut:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-clearcut-15.0.1.aar/d4b95ac331476a11032db713a844b943/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-flags:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/3ce4992375b8ffdc288c1258a3aa7ccf/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-phenotype:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-phenotype-15.0.1.aar/16d76de6533cbdf267209ea540c14cc0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d4fe772ce12e5c70330937b3eba02bfb/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/5bb1702cb1c07f901f4aaf0d8ab146cb/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/352f9aa65e60b78a6cbb7fcfc87db6bd/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/e9830c644e20642a2c4c8bca870cc246/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/5b1f31eaf004a611c87380a5e412b7b3/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/7689dad3ecb6531dd3dd013c8b468a72/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/d6771eed75c9c0e3e3edc089c4098e91/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/b50b799b1b11e11fead8715749d4f117/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/11111c9c7ab0a3af9c4717fbecb981cc/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/a58febb931b656be3e07619c4b660b48/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/04dbba56e02a79e8258e45345addcbbb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fresco:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/34361ce6cc0c6649442c3a550c2748d8/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/866baa2f6cd9dc58a3c03f35d51c71f6/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/835002e74d11954acbfdccbbb5a310e6/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/581768a57275c02aca8f18638d67dc93/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/47ce74d3331b83a164f6eafa57593e48/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.5.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/d9f93da75e20ab061183677e84d41bbf/AndroidManifest.xml:2:1-13:12
+MERGED from [org.webkit:android-jsc:r174650] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/5d76ee54c7885a8ee5a56b269cd95c24/AndroidManifest.xml:1:1-3:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/2123c6a87c0d1ed59eb29d35759af58d/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/a04c74992c00bdfc301eb461fa4641fa/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fbcore:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/a19b4478ae6c6228dd0437faa2e93b40/AndroidManifest.xml:2:1-9:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/349ca98743e132196839f8a328a75c8a/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/59d1bd49b53abbe90ccd8c3b68fcc5d3/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+	package
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:2:5-27
+		INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+		INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+		INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:4:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:5:5-77
+MERGED from [com.facebook.react:react-native:0.57.5] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/react-native-0.57.5.aar/8e2abc84ccbec4d850a91b3846d507f1/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.57.5] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/react-native-0.57.5.aar/8e2abc84ccbec4d850a91b3846d507f1/AndroidManifest.xml:11:5-78
+	android:name
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:5:22-75
+uses-permission#android.permission.VIBRATE
+ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:7:5-65
+	android:name
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:7:22-63
+application
+ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:8:5-25:19
+MERGED from [com.facebook.react:react-native:0.57.5] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/react-native-0.57.5.aar/8e2abc84ccbec4d850a91b3846d507f1/AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.57.5] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/react-native-0.57.5.aar/8e2abc84ccbec4d850a91b3846d507f1/AndroidManifest.xml:13:5-20
+MERGED from [com.google.android.gms:play-services-vision:15.0.2] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.2.aar/bd95bea47ddea7934e69d73f732e85fb/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision:15.0.2] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.2.aar/bd95bea47ddea7934e69d73f732e85fb/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:15.0.2] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-15.0.2.aar/752923f03513b56f0f2ad94aec2b4a22/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:15.0.2] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-15.0.2.aar/752923f03513b56f0f2ad94aec2b4a22/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-clearcut-15.0.1.aar/d4b95ac331476a11032db713a844b943/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-clearcut-15.0.1.aar/d4b95ac331476a11032db713a844b943/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-phenotype:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-phenotype-15.0.1.aar/16d76de6533cbdf267209ea540c14cc0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-phenotype:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-phenotype-15.0.1.aar/16d76de6533cbdf267209ea540c14cc0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d4fe772ce12e5c70330937b3eba02bfb/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d4fe772ce12e5c70330937b3eba02bfb/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/5bb1702cb1c07f901f4aaf0d8ab146cb/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/5bb1702cb1c07f901f4aaf0d8ab146cb/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/352f9aa65e60b78a6cbb7fcfc87db6bd/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/352f9aa65e60b78a6cbb7fcfc87db6bd/AndroidManifest.xml:22:5-26:19
+MERGED from [com.facebook.soloader:soloader:0.5.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/d9f93da75e20ab061183677e84d41bbf/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.5.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/d9f93da75e20ab061183677e84d41bbf/AndroidManifest.xml:11:5-20
+MERGED from [org.webkit:android-jsc:r174650] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/5d76ee54c7885a8ee5a56b269cd95c24/AndroidManifest.xml:2:3-17
+MERGED from [org.webkit:android-jsc:r174650] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/5d76ee54c7885a8ee5a56b269cd95c24/AndroidManifest.xml:2:3-17
+	android:label
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:10:7-39
+	android:icon
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:11:7-41
+	android:allowBackup
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:12:7-34
+	android:theme
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:13:7-38
+	android:name
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:9:7-38
+activity#com.digimenu.MainActivity
+ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:14:7-23:18
+	android:label
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:16:9-41
+	android:windowSoftInputMode
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:18:9-51
+	android:configChanges
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:17:9-79
+	android:name
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:15:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:19:9-22:25
+action#android.intent.action.MAIN
+ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:20:13-65
+	android:name
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:20:21-62
+category#android.intent.category.LAUNCHER
+ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:21:13-73
+	android:name
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:21:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:24:7-84
+	android:name
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:24:17-81
+uses-sdk
+INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-vector-icons] /home/talhakanyilmaz/frontend/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /home/talhakanyilmaz/frontend/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-camera] /home/talhakanyilmaz/frontend/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-camera] /home/talhakanyilmaz/frontend/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-gesture-handler] /home/talhakanyilmaz/frontend/node_modules/react-native-gesture-handler/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /home/talhakanyilmaz/frontend/node_modules/react-native-gesture-handler/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.57.5] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/react-native-0.57.5.aar/8e2abc84ccbec4d850a91b3846d507f1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.57.5] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/react-native-0.57.5.aar/8e2abc84ccbec4d850a91b3846d507f1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/0774c3d507f50dc7afde69b76a93a2e0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/0774c3d507f50dc7afde69b76a93a2e0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-vision:15.0.2] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.2.aar/bd95bea47ddea7934e69d73f732e85fb/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision:15.0.2] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.2.aar/bd95bea47ddea7934e69d73f732e85fb/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:exifinterface:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.1.aar/33ad13286ba126ba237cbb8987a2fb32/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:exifinterface:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.1.aar/33ad13286ba126ba237cbb8987a2fb32/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:15.0.2] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-15.0.2.aar/752923f03513b56f0f2ad94aec2b4a22/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:15.0.2] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-15.0.2.aar/752923f03513b56f0f2ad94aec2b4a22/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-clearcut:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-clearcut-15.0.1.aar/d4b95ac331476a11032db713a844b943/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-clearcut:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-clearcut-15.0.1.aar/d4b95ac331476a11032db713a844b943/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/3ce4992375b8ffdc288c1258a3aa7ccf/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/3ce4992375b8ffdc288c1258a3aa7ccf/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-phenotype:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-phenotype-15.0.1.aar/16d76de6533cbdf267209ea540c14cc0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-phenotype:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-phenotype-15.0.1.aar/16d76de6533cbdf267209ea540c14cc0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d4fe772ce12e5c70330937b3eba02bfb/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d4fe772ce12e5c70330937b3eba02bfb/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/5bb1702cb1c07f901f4aaf0d8ab146cb/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/5bb1702cb1c07f901f4aaf0d8ab146cb/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/352f9aa65e60b78a6cbb7fcfc87db6bd/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/352f9aa65e60b78a6cbb7fcfc87db6bd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/e9830c644e20642a2c4c8bca870cc246/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/e9830c644e20642a2c4c8bca870cc246/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/5b1f31eaf004a611c87380a5e412b7b3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/5b1f31eaf004a611c87380a5e412b7b3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/7689dad3ecb6531dd3dd013c8b468a72/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/7689dad3ecb6531dd3dd013c8b468a72/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/d6771eed75c9c0e3e3edc089c4098e91/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/d6771eed75c9c0e3e3edc089c4098e91/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/b50b799b1b11e11fead8715749d4f117/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/b50b799b1b11e11fead8715749d4f117/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/11111c9c7ab0a3af9c4717fbecb981cc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/11111c9c7ab0a3af9c4717fbecb981cc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/a58febb931b656be3e07619c4b660b48/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/a58febb931b656be3e07619c4b660b48/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/04dbba56e02a79e8258e45345addcbbb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/04dbba56e02a79e8258e45345addcbbb/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fresco:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/34361ce6cc0c6649442c3a550c2748d8/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/34361ce6cc0c6649442c3a550c2748d8/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/866baa2f6cd9dc58a3c03f35d51c71f6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/866baa2f6cd9dc58a3c03f35d51c71f6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/835002e74d11954acbfdccbbb5a310e6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/835002e74d11954acbfdccbbb5a310e6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/581768a57275c02aca8f18638d67dc93/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/581768a57275c02aca8f18638d67dc93/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/47ce74d3331b83a164f6eafa57593e48/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/47ce74d3331b83a164f6eafa57593e48/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/d9f93da75e20ab061183677e84d41bbf/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/d9f93da75e20ab061183677e84d41bbf/AndroidManifest.xml:7:5-9:41
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/2123c6a87c0d1ed59eb29d35759af58d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/2123c6a87c0d1ed59eb29d35759af58d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/a04c74992c00bdfc301eb461fa4641fa/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/a04c74992c00bdfc301eb461fa4641fa/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fbcore:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/a19b4478ae6c6228dd0437faa2e93b40/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.10.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/a19b4478ae6c6228dd0437faa2e93b40/AndroidManifest.xml:5:5-7:41
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/349ca98743e132196839f8a328a75c8a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/349ca98743e132196839f8a328a75c8a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/59d1bd49b53abbe90ccd8c3b68fcc5d3/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/59d1bd49b53abbe90ccd8c3b68fcc5d3/AndroidManifest.xml:20:5-44
+INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.CAMERA
+ADDED from [:react-native-camera] /home/talhakanyilmaz/frontend/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:9:5-65
+	android:name
+		ADDED from [:react-native-camera] /home/talhakanyilmaz/frontend/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:9:22-62
+uses-feature#android.hardware.camera
+ADDED from [:react-native-camera] /home/talhakanyilmaz/frontend/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-13:36
+	android:required
+		ADDED from [:react-native-camera] /home/talhakanyilmaz/frontend/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:13:9-33
+	android:name
+		ADDED from [:react-native-camera] /home/talhakanyilmaz/frontend/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:12:9-47
+uses-feature#android.hardware.camera.autofocus
+ADDED from [:react-native-camera] /home/talhakanyilmaz/frontend/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:14:5-16:36
+	android:required
+		ADDED from [:react-native-camera] /home/talhakanyilmaz/frontend/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:16:9-33
+	android:name
+		ADDED from [:react-native-camera] /home/talhakanyilmaz/frontend/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:15:9-57
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d4fe772ce12e5c70330937b3eba02bfb/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d4fe772ce12e5c70330937b3eba02bfb/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d4fe772ce12e5c70330937b3eba02bfb/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d4fe772ce12e5c70330937b3eba02bfb/AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/352f9aa65e60b78a6cbb7fcfc87db6bd/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/352f9aa65e60b78a6cbb7fcfc87db6bd/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:15.0.1] /home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/352f9aa65e60b78a6cbb7fcfc87db6bd/AndroidManifest.xml:24:13-58
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from /home/talhakanyilmaz/frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
