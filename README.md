@@ -1,0 +1,2 @@
+# digimenu-frontend
+react-native
