@@ -1,13 +1,44 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text,TextInput, View,Image,TouchableOpacity,ImageBackground} from 'react-native';
+import {Platform, StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ImageBackground, Modal} from 'react-native';
+import userInstance from '../Globals/globalUser';
+import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
 
 export default class LoginScreen extends Component{
     constructor(props){
       super(props);
+      this.state = {
+        modalVisible: false,
+        user: userInstance
+      }
     }
+
+    setModal(visible){
+      this.setState({modalVisible:visible});
+    }
+
     render() {
       return (
         <View style={styles.container}>
+
+          <Modal
+            animationType="slide"
+            transparent={false}
+            visible={this.state.modalVisible}
+            onRequestClose={() => {}}>
+            <View style={styles.container}>
+                <Text style={{fontSize:40}}>
+                  Giriş Yapılamadı!
+                  Lütfen Girdiğiniz Bilgileri Kontrol Edip Tekrar Deneyin.
+                </Text>
+                <AwesomeButtonRick
+                  onPress={() => {
+                    this.setModal(false);
+                  }}>
+                <Text>Kapat</Text>
+              </AwesomeButtonRick>
+            </View>
+          </Modal>
+
       <View
           style={{
             position: 'absolute',
@@ -29,31 +60,45 @@ export default class LoginScreen extends Component{
           <Image style={{width:262,height:120}} source={require('../Assets/logo.png')} />
           <Text style={styles.welcome}>Digimenu'ye Hoş Geldiniz</Text>
           <Text style={{marginLeft:55,marginRight:'auto'}}>Kullanıcı Adı</Text>
-          <TextInput style={styles.input}/>
+          <TextInput style={styles.input} placeholder={"Kullanıcı Adı"}/>
           <Text style={{marginLeft:55,marginRight:'auto'}}>Parola</Text>
-          <TextInput secureTextEntry={true} style={styles.input}/>
+          <TextInput secureTextEntry={true} style={styles.input} placeholder={"Parola"}/>
 
           <View style={{flexDirection:'row'}}>
-              <TouchableOpacity
-               style={{width:140,height:30,alignItems:'center',padding:10,backgroundColor:'yellow',
-                      margin:10,borderRadius:3,justifyContent:'center',borderColor:'grey',borderWidth:2}}
-               onPress={()=>{this.props.navigation.navigate('Qr')}}
+              <AwesomeButtonRick
+                style = {{margin: 5}}
+      /*         style={{width:140,height:30,alignItems:'center',padding:10,
+               margin:10,borderRadius:3,justifyContent:'center', borderWidth:2}}  */
+               width = { 300 }
+               height = { 35 }
+               onPress={() => {
+                 this.state.user.login((response) => {
+                   this.props.navigation.navigate('Qr');
+                 });
+               }}
               >
                 <Text>Giriş Yap</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-              style={{ justifyContent:'center',width:140,height:30,alignItems:'center',padding:10,backgroundColor:'yellow',
-                     margin:10,borderRadius:3,borderColor:'grey',borderWidth:2}}
-               onPress={()=>{this.props.navigation.navigate('SignUp')}}>
+              </AwesomeButtonRick>
+            </View>
+              <View style={{flexDirection:'row'}}>
+              <AwesomeButtonRick
+                style = {{margin: 5}}
+          /*    style={{ justifyContent:'center',width:140,height:30,alignItems:'center',padding:10,
+                     margin:10,borderRadius:3,borderWidth:2}} */
+               width = { 300 }
+               height = { 35 }
+               onPress = {()=>{
+                 this.props.navigation.navigate('SignUp');
+               }}>
                 <Text>Kayıt Ol</Text>
-              </TouchableOpacity>
+              </AwesomeButtonRick>
           </View>
 
         <TouchableOpacity
               style={{justfifyContent:'center',alignItems:'center',padding:5,backgroundColor:'#3b5999',width:300,height:30,
                       margin:5,borderRadius:3}}
               onPress={()=>{}}>
-        <Text style={{color:'white'}}>Login with Facebook</Text>
+        <Text style={{color:'white'}}>Facebook ile giriş yap</Text>
         </TouchableOpacity>
 
         </View>
