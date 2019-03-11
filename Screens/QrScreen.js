@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
-import { View, Dimensions, Text ,TouchableOpacity} from "react-native";
+import { View, Dimensions, Text ,TouchableOpacity, Modal} from "react-native";
 import QRCodeScanner from "react-native-qrcode-scanner";
 import Icon from "react-native-vector-icons/Ionicons";
+import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
 
 import * as Animatable from "react-native-animatable";
 
@@ -12,8 +13,17 @@ const SCREEN_WIDTH = Dimensions.get("window").width;
 console.disableYellowBox = true;
 
 export default class QrCodeCamera extends Component {
-  onSuccess(e) {
-    alert(e);
+
+  constructor(props){
+    super(props);
+    this.state = {
+      modalVisible: false,
+      qr_data: ''
+    }
+  }
+  onSuccess(code) {
+  //  this.setState({qr_data: code.data, modalVisible: true});
+  alert(JSON.stringify(code.data));
   }
 
   makeSlideOutTranslation(translationType, fromValue) {
@@ -37,7 +47,7 @@ export default class QrCodeCamera extends Component {
           <View style={styles.rectangleContainer}>
             <View style={styles.topOverlay}>
               <Text style={{ fontSize: 30, color: "white" }}>
-                Lütfen Qr Kodu Okutunuz
+                Lütfen Masada Bulunan Qr Kodu Okutunuz
               </Text>
             </View>
 
@@ -82,6 +92,7 @@ export default class QrCodeCamera extends Component {
           </View>
         }
       />
+
     );
   }
 }
