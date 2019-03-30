@@ -1,6 +1,7 @@
-
-
+//import base64 from 'react-native-base64';
+import base64 from 'base-64';
 module.exports = class User{
+
   constructor(){
     this.id = null;
     this.name = null;
@@ -26,23 +27,21 @@ module.exports = class User{
         password: this.password
       }),
     }).then(function(response){
-          response.status == "201" ? callback(true, "Bilgileriniz kaydedildi!\nE-Posta adresinize gelen Aktivasyon Bağlantısına tıklayarak E-Posta adresinizi doğrulamanız gerekmektedir!") : callback(false, "Bu mail adresine kayıtlı kullanıcı bulunmaktadır!");
+          return response.body()
+    }).then(function(data){
+       callback(true,data.string());
     });
   }
 
-  login(callback){
-    fetch('https://digimenu.herokuapp.com/user/login', {
+  login(){
+   return fetch('https://digimenu.herokuapp.com/user/login', {
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username: this.username,
-        password: this.password
-      }),
+
+        'Authorization': 'Basic ' + base64.encode(this.username + ":" + this.password),
+      }
     }).then(function(response){
-          callback(response.status);
+          return response.status;
     });
   }
 }

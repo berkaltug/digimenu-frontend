@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/talhakanyilmaz/frontend/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rAU/values-en-rAU.xml",
+            "outputFile": "/home/berk/Desktop/workspace/reactnative/github-digimenu/digimenu-frontend/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rAU/values-en-rAU.xml",
             "map": [
                 {
-                    "source": "/home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/04dbba56e02a79e8258e45345addcbbb/res/values-en-rAU/values-en-rAU.xml",
+                    "source": "/home/berk/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/0c35db4d0b446bacaf9aaf1053be3a7a/res/values-en-rAU/values-en-rAU.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/talhakanyilmaz/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/0774c3d507f50dc7afde69b76a93a2e0/res/values-en-rAU/values-en-rAU.xml",
+                    "source": "/home/berk/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/f2f61e1ed221633b5049cfdda8a7a836/res/values-en-rAU/values-en-rAU.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

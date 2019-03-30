@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ImageBackground, Modal} from 'react-native';
+import {Platform, StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ImageBackground, Modal,AsyncStorage} from 'react-native';
 import userInstance from '../Globals/globalUser';
 import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
 
@@ -8,7 +8,9 @@ export default class LoginScreen extends Component{
       super(props);
       this.state = {
         modalVisible: false,
-        user: userInstance
+        user: userInstance,
+        isLogging:false,
+        status:''
       }
     }
 
@@ -26,9 +28,10 @@ export default class LoginScreen extends Component{
             visible={this.state.modalVisible}
             onRequestClose={() => {}}>
             <View style={styles.container}>
-                <Text style={{fontSize:40}}>
+                <Text style={{fontSize:40,textAlign:'center'}}>
                   Giriş Yapılamadı!
                   Lütfen Girdiğiniz Bilgileri Kontrol Edip Tekrar Deneyin.
+                  {this.state.status}
                 </Text>
                 <AwesomeButtonRick
                   onPress={() => {
@@ -60,9 +63,11 @@ export default class LoginScreen extends Component{
           <Image style={{width:262,height:120}} source={require('../Assets/logo.png')} />
           <Text style={styles.welcome}>Digimenu'ye Hoş Geldiniz</Text>
           <Text style={{marginLeft:55,marginRight:'auto'}}>Kullanıcı Adı</Text>
-          <TextInput style={styles.input} placeholder={"Kullanıcı Adı"}/>
+          <TextInput style={styles.input} placeholder={"Kullanıcı Adı"}
+          onChangeText={(data) => { this.state.user.username = data; }}/>
           <Text style={{marginLeft:55,marginRight:'auto'}}>Parola</Text>
-          <TextInput secureTextEntry={true} style={styles.input} placeholder={"Parola"}/>
+          <TextInput secureTextEntry={true} style={styles.input} placeholder={"Parola"}
+          onChangeText={(data) => { this.state.user.password = data; }}/>
 
           <View style={{flexDirection:'row'}}>
               <AwesomeButtonRick
@@ -72,9 +77,16 @@ export default class LoginScreen extends Component{
                width = { 300 }
                height = { 35 }
                onPress={() => {
-                 this.state.user.login((response) => {
+                this.state.user.login().then((response)=>{
+                this.setState({status:response});
+                   if(response==202){
+                   AsyncStorage.setItem('username',this.state.user.username);
+                   AsyncStorage.setItem('password',this.state.user.password);
                    this.props.navigation.navigate('Qr');
-                 });
+                 }else{
+                   this.setModal(true);
+                 }
+               });
                }}
               >
                 <Text>Giriş Yap</Text>

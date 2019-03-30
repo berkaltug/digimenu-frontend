@@ -1,4 +1,4 @@
-#Mon Mar 04 12:39:59 EET 2019
-base.0=/home/talhakanyilmaz/frontend/android/app/build/intermediates/transforms/dexMerger/debug/0
+#Sat Mar 30 16:51:38 EET 2019
+base.0=/home/berk/Desktop/workspace/reactnative/github-digimenu/digimenu-frontend/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
