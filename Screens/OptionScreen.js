@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet,View,Text,ScrollView,TouchableOpacity,Image} from 'react-native';
+import {StyleSheet,View,Text,ScrollView,TouchableOpacity,Image,AsyncStorage} from 'react-native';
 export default class OptionScreen extends Component{
   state={
   options:[
@@ -13,6 +13,10 @@ export default class OptionScreen extends Component{
     {'option':'Lisans'}
   ]
 }
+_signOutAsync = async () => {
+    await  AsyncStorage.removeItem('userToken');
+    this.props.navigation.navigate('AuthLoading');
+  };
 
   render() {
       return(
@@ -46,6 +50,11 @@ export default class OptionScreen extends Component{
                    </View>
                     ))
                 }
+
+                   <TouchableOpacity  style={styles.optionbutton} onPress={this._signOutAsync} >
+                     <Text>Çıkış Yap</Text>
+                   </TouchableOpacity>
+
               </ScrollView>
       </View>
 

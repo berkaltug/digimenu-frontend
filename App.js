@@ -5,7 +5,7 @@ DigiMenu Inc.
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text,TextInput, View,Image,TouchableOpacity} from 'react-native';
-import { createAppContainer, createStackNavigator, StackActions, NavigationActions,createBottomTabNavigator } from 'react-navigation';
+import { createAppContainer, createStackNavigator, StackActions, NavigationActions,createBottomTabNavigator,createSwitchNavigator} from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LoginScreen from './Screens/LoginScreen';
 import SignUpScreen from './Screens/SignUpScreen';
@@ -14,6 +14,7 @@ import QrScreen from './Screens/QrScreen';
 import MenuScreen from './Screens/MenuScreen';
 import CartScreen from './Screens/CartScreen';
 import OptionScreen from './Screens/OptionScreen';
+import AuthLoadingScreen from './Screens/AuthLoadingScreen'
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -23,6 +24,13 @@ export default class App extends Component<Props> {
     );
   }
 }
+const AuthNavigator = createStackNavigator(
+  {
+    Login: LoginScreen,
+    SignUp: SignUpScreen,
+  }
+);
+
 const MenuNavigator = createBottomTabNavigator(
   {
     Menu:MenuScreen,
@@ -53,16 +61,20 @@ const MenuNavigator = createBottomTabNavigator(
   }
 
   );
-const AppNavigator = createStackNavigator(
+  const AppNavigator = createStackNavigator(
+    {
+      Qr:QrScreen,
+      Menu:MenuNavigator
+    }
+  );
+const MainNavigator = createSwitchNavigator(
   {
-    Login: LoginScreen,
-    SignUp: SignUpScreen,
-    Choice:ChoiceScreen,
-    Qr:QrScreen,
-    Menu:MenuNavigator
+    Auth:AuthNavigator,
+    App:AppNavigator,
+    AuthLoading:AuthLoadingScreen
   },
   {
-    initialRouteName: "Login"
+    initialRouteName: "AuthLoading"
   }
 );
-const AppContainer = createAppContainer(AppNavigator);
+const AppContainer = createAppContainer(MainNavigator);

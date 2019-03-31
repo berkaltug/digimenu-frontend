@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ImageBackground, Modal,AsyncStorage} from 'react-native';
 import userInstance from '../Globals/globalUser';
 import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
-
+import base64 from 'base-64';
 export default class LoginScreen extends Component{
     constructor(props){
       super(props);
@@ -80,8 +80,8 @@ export default class LoginScreen extends Component{
                 this.state.user.login().then((response)=>{
                 this.setState({status:response});
                    if(response==202){
-                   AsyncStorage.setItem('username',this.state.user.username);
-                   AsyncStorage.setItem('password',this.state.user.password);
+                   let userToken=base64.encode(this.state.user.username + ":" + this.state.user.password);
+                   AsyncStorage.setItem('userToken',userToken);
                    this.props.navigation.navigate('Qr');
                  }else{
                    this.setModal(true);

@@ -79,10 +79,10 @@ export default class SignUpScreen extends Component{
           style = {{margin: 10}}
           width = { 300 }
           progress
-          onPress={next => {
-            this.state.user.signUp((err, res) => { this.setState({status: res}); });
+          onPress={() => {
+             this.state.user.signUp().then( (res)=>{  this.setState({status:res.body.text()})  });
             this.setModal(true);
-            next();
+            //next();
           }}
         >
           <Text>Gönder</Text>

@@ -12,8 +12,8 @@ module.exports = class User{
     this.isEnabled = null;
     this.token = null;
   }
-  signUp(callback){
-    fetch('https://digimenu.herokuapp.com/user/register', {
+  signUp(){
+    return fetch('https://digimenu.herokuapp.com/user/register', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -27,9 +27,7 @@ module.exports = class User{
         password: this.password
       }),
     }).then(function(response){
-          return response.body()
-    }).then(function(data){
-       callback(true,data.string());
+          return response;
     });
   }
 
