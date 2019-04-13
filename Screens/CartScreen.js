@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {View,Text,StyleSheet,TouchableOpacity,Modal,Image} from 'react-native';
+import {View,Text,StyleSheet,TouchableOpacity,Modal,Image,AsyncStorage} from 'react-native';
 import MenuScreen from './MenuScreen';
 import {NavigationActions} from 'react-navigation';
+import cartInstance from '../Globals/globalCart';
 export default class CartScreen extends Component{
 
   constructor(props){
@@ -9,15 +10,11 @@ export default class CartScreen extends Component{
     this.state={
       sepetim:[],
       totalbill:0,
-      modalVisible:false
+      modalVisible:false,
     };
-    gecici=this.props.navigation.getParam('mycart');
-    if(gecici==null){
-      this.state.sepetim=[];
-    }else{
-      this.state.sepetim=gecici;
-    }
   }
+
+
 
 componentWillReceiveProps(nextProps){
     //this.state.sepetim.push(this.props.navigation.getParam('mycart'));
@@ -25,30 +22,15 @@ componentWillReceiveProps(nextProps){
 }
 
 shouldComponentUpdate(){
-
   return true;
 }
 
-
-componentWillUpdate(){
-  //let item=this.props.navigation.getParam('mycart');
-  //this.state.sepetim.push(item);
-  this.state.sepetim=this.props.navigation.getParam('mycart');
-}
-// componentDidMount(){
-//   //let item=this.props.navigation.getParam('mycart');
-//   //this.state.sepetim.push(item);
-//   this.state.sepetim=this.props.navigation.getParam('mycart');
-// }
-// calculateBill(){
-//   let bill=this.state.sepetim.map((item,index)=>{this.state.totalbill+=item.price;});
-//
-// }
-
   render(){
+    this.state.sepetim=this.props.navigation.getParam('mycart');
     return(
 
       <View style={styles.container}>
+
       <View
           style={{
             position: 'absolute',
@@ -70,35 +52,30 @@ componentWillUpdate(){
         <Text style={{fontSize:30,fontWeight:'bold',marginRight:'auto',marginLeft:20,color:'black'}}>Sepetim</Text>
         <View style={styles.sepet}>
         {
-          this.state.sepetim.map((item,index)=>{return (<View key={index} style={styles.cartrow}>
-          <Text key={index} style={{fontSize:23}}>{item.name}</Text>
-          <Text key={index} style={{fontSize:23,marginLeft:'auto'}}>{item.price} ₺</Text>
-        </View>
-      );
-    })
-  }
+          cart.map((item,index)=>{
+            console.log('cart screen cart');
+            console.log(global.cart);
+            return (<View key={Math.floor(Math.random() * 10000) + 1} style={styles.cartrow}>
+            <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:23}}>{item.name}</Text>
+            <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:23,marginLeft:'auto'}}>{item.price} ₺</Text>
+            </View>
+          );
+        })
+        }
         </View>
 
         <View style={{flex:1/2,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
         <TouchableOpacity style={styles.sepetbosaltbutton} onPress={()=>{
-          let x=[];
-          this.setState({sepetim:x});
-          console.log(this.state.sepetim);
-          this.props.navigation.dispatch(NavigationActions.setParams({
-            params: { mycart2: x },
-            key: "Menu",
-          }));
+          global.cart=[];
+          this.setState({sepetim:global.cart});
+
         }}>
         <Text style={{fontSize:17}}>Sepeti Boşalt</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.sepetonaybutton} onPress={()=>{
-          let x=[];
-          this.setState({sepetim:x,modalVisible:true});
-        this.props.navigation.dispatch(NavigationActions.setParams({
-  			             params: { mycart2: x },
-  			                key: "Menu",
-                      }));
-                    }}>
+        <TouchableOpacity style={styles.sepetonaybutton} onPress={  ()=>{
+            global.cart=[];
+            this.setState({modalVisible:true,sepetim:global.cart})
+        }}>
           <Text style={{fontSize:17}}>Sipariş Ver</Text>
         </TouchableOpacity>
         </View>

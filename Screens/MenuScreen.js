@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
-import {StyleSheet,View,Text,ScrollView,TouchableOpacity,Image,Modal} from 'react-native';
+import {StyleSheet,View,Text,ScrollView,TouchableOpacity,Image,Modal,AsyncStorage} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MenuItem from '../MenuItem';
 import {NavigationActions} from 'react-navigation';
 import CartScreen from './CartScreen';
+import cartInstance from '../Globals/globalCart';
+
 var menuArray=new Array(
   new MenuItem(1,"Ciğer şiş","dana ciğer,soğan,biber,domates",21,"yemek"),
   new MenuItem(2,"Ciğer Şiş Dürüm","dana ciğer,soğan,biber,domates,lavaş",15,"yemek"),
@@ -28,26 +30,20 @@ export default class MenuScreen extends Component{
     super(props);
     this.state={
       modalVisible:false,
-      menuItem:[],
-      menuItemAmount:0,
+      menuItem: [],
     }
   }
+
+  //calısmıyor
   componentWillReceiveProps(nextProps){
       //this.state.sepetim.push(this.props.navigation.getParam('mycart'));
       this.forceUpdate();
   }
 
   shouldComponentUpdate(){
-
     return true;
   }
 
-  componentWillUpdate(){
-    let x=this.props.navigation.getParam('mycart2');
-    if(x==[]){
-      this.state.menuItem=x;
-    }
-}
   setModal(visible){
     this.setState({modalVisible:visible});
   }
@@ -82,33 +78,39 @@ export default class MenuScreen extends Component{
         menuArray.map((item,index)=>{
           if(item.type=="yemek"){
             return(
-              <View key={index} style={styles.optionbutton}>
-              <View key={index} style={{}}>
-              <Text key={index} style={{fontSize:18}}>{item.name}</Text>
-              <Text key={index} style={{fontSize:14}}>{item.ingredients}</Text>
+              <View key={Math.floor(Math.random() * 10000) + 1} style={styles.optionbutton}>
+              <View key={Math.floor(Math.random() * 10000) + 1} style={{}}>
+              <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:18}}>{item.name}</Text>
+              <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:14}}>{item.ingredients}</Text>
               </View>
-              <Text key={index} style={{fontSize:18,marginLeft:'auto'}}>{item.price} ₺</Text>
-              <TouchableOpacity key={index} style={styles.addbutton} onPress={()=>{this.setModal(true);
-                  var menuitem={itemId:item.itemId,
+              <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:18,marginLeft:'auto'}}>{item.price} ₺</Text>
+              <TouchableOpacity key={index} style={styles.addbutton} onPress={
+                    ()=>{this.setModal(true);
+                    var menuitem={itemId:item.itemId,
                     name:item.name,
                     ingredients:item.ingredients,
                     price:item.price,
                     type:item.type};
-                    sepet.push(menuitem);
-                    this.setState({menuItem:sepet});
+
+                    console.log('before');
+                    console.log(global.cart);
+                    global.cart.push(menuitem);
+                    console.log('after');
+                    console.log(global.cart);
+                    this.setState({menuItem:global.cart});
                   }}>
-                  <Text key={index}> <Icon name='plus' color='white'/> </Text>
+                  <Text key={Math.floor(Math.random() * 10000) + 1}> <Icon name='plus' color='white'/> </Text>
                   </TouchableOpacity>
                   </View>
                 );
               }
               if(item.type=="icecek"){
                 return(
-                  <View key={index} style={styles.optionbutton}>
+                  <View key={Math.floor(Math.random() * 10000) + 1} style={styles.optionbutton}>
 
-                  <Text key={index} style={{fontSize:18}}>{item.name}</Text>
+                  <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:18}}>{item.name}</Text>
 
-                  <Text key={index} style={{fontSize:19,marginLeft:'auto'}}>{item.price} ₺</Text>
+                  <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:19,marginLeft:'auto'}}>{item.price} ₺</Text>
                   <TouchableOpacity key={index} style={styles.addbutton} onPress={()=>{
                       this.setModal(true);
                       var menuitem={itemId:item.itemId,
@@ -116,11 +118,10 @@ export default class MenuScreen extends Component{
                       ingredients:item.ingredients,
                       price:item.price,
                       type:item.type};
-                      sepet.push(menuitem);
-                      this.setState({menuItem:sepet});
-
+                      global.cart.push(menuitem);
+                      this.setState({menuItem:global.cart});
                   }}>
-                  <Text key={index} > <Icon name='plus' color='white'/> </Text>
+                  <Text key={Math.floor(Math.random() * 10000) + 1} > <Icon name='plus' color='white'/> </Text>
                   </TouchableOpacity>
                   </View>
                 );
@@ -141,10 +142,16 @@ export default class MenuScreen extends Component{
         <View style={styles.addcontainer}>
         <Text style={{fontSize:25,fontWeight:'bold',flex:1,margin:3,textAlign:'center'}}>Sepete Eklemek İstediğinizden Emin Misiniz ?</Text>
           <View style={{flex:1,flexDirection:'row',justifyContent:'space-around',margin:3}}>
+
             <TouchableOpacity style={styles.addcontainerbutton2}
-             onPress={()=>this.setModal(false)}>
+             onPress={()=>{
+               this.setModal(false);
+               // en son ekleneni globalden çıkar
+               global.cart.pop();
+             }}>
             <Text style={{fontSize:16}}>İptal</Text>
             </TouchableOpacity>
+
             <TouchableOpacity style={styles.addcontainerbutton}
             onPress={() => {
               this.setModal(false);
