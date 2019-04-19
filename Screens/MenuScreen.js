@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {StyleSheet,View,Text,ScrollView,TouchableOpacity,Image,Modal,AsyncStorage} from 'react-native';
+import {StyleSheet,View,Text,ScrollView,TouchableOpacity,Image,Modal,AsyncStorage,ActivityIndicator} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MenuItem from '../MenuItem';
 import {NavigationActions} from 'react-navigation';
 import CartScreen from './CartScreen';
 import cartInstance from '../Globals/globalCart';
+import base64 from 'base-64';
 
 var menuArray=new Array(
   new MenuItem(1,"Ciğer şiş","dana ciğer,soğan,biber,domates",21,"yemek"),
@@ -31,9 +32,48 @@ export default class MenuScreen extends Component{
     this.state={
       modalVisible:false,
       menuItem: [],
+      menuArr:new Array(),
+      isLoading:false
     }
   }
+  //menuyu çek
+  async componentWillMount(){
+    this.setState({menuArr: await this.getItems()});
+    console.log(this.state.menuArr);
+    console.log('willmount cagrıldııı');
+  }
 
+  async getItems() {
+    var URL=global.URL[0]+"//"+global.URL[2]+"/"+global.URL[3]+"/"+global.resNo;
+    // console.log(URL);
+    this.setState({isLoading:true});
+    var token = await AsyncStorage.getItem('userToken');
+    var tokenStr=JSON.parse(token);
+    //console.log(token);
+    const response= await fetch( URL , {
+      method:'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + tokenStr,
+      }
+    })
+    .then(function(res){
+      // console.log('----------------------------------------------------------------');
+      // console.log(JSON.stringify(res));
+      return res.json();
+    })
+    .then(function(data){
+      // console.log('-----------------------------------------------------');
+      // console.log(data);
+      return data;
+    });
+    // console.log('-----------------------------------------------------');
+    // console.log(response);
+    this.setState({isLoading:false});
+    return response;
+
+}
   //calısmıyor
   componentWillReceiveProps(nextProps){
       //this.state.sepetim.push(this.props.navigation.getParam('mycart'));
@@ -71,26 +111,27 @@ export default class MenuScreen extends Component{
           />
       </View>
       <ScrollView >
-      <Image style={{width:300,height:128,margin:5}} source={require("../Assets/aydın-ciğerci.png")}/>
+      <Image style={{width:300,height:128,margin:5}} source={require("../Assets/logo.png")}/>
       <Text style={{fontSize:22,fontWeight:'bold',color:'black'}}>Menü</Text>
-
+      <ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
       {
-        menuArray.map((item,index)=>{
-          if(item.type=="yemek"){
+      this.state.menuArr.map((item,index)=>{
+          //her türlü itemi yazdır şu anlık
+          if(true){
             return(
               <View key={Math.floor(Math.random() * 10000) + 1} style={styles.optionbutton}>
               <View key={Math.floor(Math.random() * 10000) + 1} style={{}}>
-              <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:18}}>{item.name}</Text>
+              <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:18}}>{item.item}</Text>
               <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:14}}>{item.ingredients}</Text>
               </View>
               <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:18,marginLeft:'auto'}}>{item.price} ₺</Text>
               <TouchableOpacity key={index} style={styles.addbutton} onPress={
                     ()=>{this.setModal(true);
-                    var menuitem={itemId:item.itemId,
-                    name:item.name,
+                    var menuitem={id:item.id,
+                    item:item.item,
                     ingredients:item.ingredients,
                     price:item.price,
-                    type:item.type};
+                    category:item.category};
 
                     console.log('before');
                     console.log(global.cart);
@@ -113,11 +154,11 @@ export default class MenuScreen extends Component{
                   <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:19,marginLeft:'auto'}}>{item.price} ₺</Text>
                   <TouchableOpacity key={index} style={styles.addbutton} onPress={()=>{
                       this.setModal(true);
-                      var menuitem={itemId:item.itemId,
-                      name:item.name,
+                      var menuitem={id:item.id,
+                      item:item.item,
                       ingredients:item.ingredients,
                       price:item.price,
-                      type:item.type};
+                      category:item.category};
                       global.cart.push(menuitem);
                       this.setState({menuItem:global.cart});
                   }}>

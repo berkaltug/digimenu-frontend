@@ -28,7 +28,7 @@ export default class SignUpScreen extends Component{
           visible={this.state.modalVisible}
           onRequestClose={() => {}}>
           <View style={styles.container}>
-              <Text style={{fontSize:40}}>{this.state.status}</Text>
+              <Text style={{fontSize:40,textAlign:'center'}}>{this.state.status}</Text>
               <AwesomeButtonRick
                 style = {{margin: 5}}
                 width = { 100 }
@@ -79,8 +79,8 @@ export default class SignUpScreen extends Component{
           style = {{margin: 10}}
           width = { 300 }
           progress
-          onPress={() => {
-             this.state.user.signUp().then( (res)=>{  this.setState({status:res.body.text()})  });
+          onPress={async () => {
+            await this.state.user.signUp().then( (res)=>{  this.setState({status:res})  });
             this.setModal(true);
             //next();
           }}

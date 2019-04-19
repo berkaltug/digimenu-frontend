@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ImageBackground, Modal,AsyncStorage} from 'react-native';
+import {Platform, StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ImageBackground, Modal,AsyncStorage,ActivityIndicator} from 'react-native';
 import userInstance from '../Globals/globalUser';
 import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
 import base64 from 'base-64';
@@ -16,6 +16,9 @@ export default class LoginScreen extends Component{
 
     setModal(visible){
       this.setState({modalVisible:visible});
+    }
+    setIndicator(visible){
+      this.setState({isLogging:visible});
     }
 
     render() {
@@ -64,11 +67,11 @@ export default class LoginScreen extends Component{
           <Text style={styles.welcome}>Digimenu'ye Hoş Geldiniz</Text>
           <Text style={{marginLeft:55,marginRight:'auto'}}>Kullanıcı Adı</Text>
           <TextInput style={styles.input} placeholder={"Kullanıcı Adı"}
-          onChangeText={(data) => { this.state.user.username = data; }}/>
+              onChangeText={(data) => { this.state.user.username = data; }}/>
           <Text style={{marginLeft:55,marginRight:'auto'}}>Parola</Text>
           <TextInput secureTextEntry={true} style={styles.input} placeholder={"Parola"}
-          onChangeText={(data) => { this.state.user.password = data; }}/>
-
+              onChangeText={(data) => { this.state.user.password = data; }}/>
+          <ActivityIndicator animating={this.state.isLogging} size="large" color="#0000ff" />
           <View style={{flexDirection:'row'}}>
               <AwesomeButtonRick
                 style = {{margin: 5}}
@@ -77,16 +80,19 @@ export default class LoginScreen extends Component{
                width = { 300 }
                height = { 35 }
                onPress={() => {
+
                 this.state.user.login().then((response)=>{
                 this.setState({status:response});
+
                    if(response==202){
                    let userToken=base64.encode(this.state.user.username + ":" + this.state.user.password);
-                   AsyncStorage.setItem('userToken',userToken);
+                   AsyncStorage.setItem('userToken',JSON.stringify(userToken));
                    this.props.navigation.navigate('Qr');
                  }else{
                    this.setModal(true);
                  }
                });
+
                }}
               >
                 <Text>Giriş Yap</Text>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { View, Dimensions, Text ,TouchableOpacity, Modal} from "react-native";
+import { View, Dimensions, Text ,TouchableOpacity, Modal,AsyncStorage} from "react-native";
 import QRCodeScanner from "react-native-qrcode-scanner";
 import Icon from "react-native-vector-icons/Ionicons";
 import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
@@ -21,9 +21,16 @@ export default class QrCodeCamera extends Component {
       qr_data: ''
     }
   }
-  onSuccess(code) {
-  //  this.setState({qr_data: code.data, modalVisible: true});
-  alert(JSON.stringify(code.data));
+   onSuccess(code) {
+     //globalCart içinde tanımlı
+    global.URL=code.data.split("/");
+    global.masaNo=global.URL[5];
+    global.resNo=global.URL[4];
+     //alert(global.masaNo);
+    // console.log("url "+global.URL);
+    // console.log("masa "+global.masaNo);
+    // console.log("res "+global.resNo);
+    this.props.navigation.navigate('Menu');
   }
 
   makeSlideOutTranslation(translationType, fromValue) {
@@ -79,10 +86,12 @@ export default class QrCodeCamera extends Component {
 
 
             <View style={styles.bottomOverlay}>
+            {/*
             <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Menu')}}
             style={{backgroundColor:'blue',padding:3,marginTop:6}}>
               <Text>Demo Button</Text>
             </TouchableOpacity>
+            */}
             <TouchableOpacity style={styles.choicebutton2} onPress={()=>{}}>
               <Text style={{fontSize: 26,fontWeight:'bold'}}>Restorana</Text>
               <Text style={{fontSize: 26,fontWeight:'bold'}}>Gidiyorum</Text>

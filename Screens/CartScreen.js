@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View,Text,StyleSheet,TouchableOpacity,Modal,Image,AsyncStorage} from 'react-native';
+import {View,Text,StyleSheet,TouchableOpacity,Modal,Image,AsyncStorage,ActivityIndicator} from 'react-native';
 import MenuScreen from './MenuScreen';
 import {NavigationActions} from 'react-navigation';
 import cartInstance from '../Globals/globalCart';
@@ -11,6 +11,7 @@ export default class CartScreen extends Component{
       sepetim:[],
       totalbill:0,
       modalVisible:false,
+      isLoading:false
     };
   }
 
@@ -23,6 +24,24 @@ componentWillReceiveProps(nextProps){
 
 shouldComponentUpdate(){
   return true;
+}
+
+async sendOrder(){
+  var URL=global.URL[0]+"//"+global.URL[2]+"/table_orders/"+global.resNo+"/"+global.masaNo;
+  var token = await AsyncStorage.getItem('userToken');
+  var tokenStr=JSON.parse(token);
+  console.log(URL);
+  this.setState({isLoading:true});
+  await fetch(URL, {
+    method: 'POST',
+    headers: {
+      'Accept' : 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization' : 'Basic ' + tokenStr
+    },
+    body: JSON.stringify( this.state.sepetim ),
+  });
+ this.setState({isLoading:false});
 }
 
   render(){
@@ -56,14 +75,14 @@ shouldComponentUpdate(){
             console.log('cart screen cart');
             console.log(global.cart);
             return (<View key={Math.floor(Math.random() * 10000) + 1} style={styles.cartrow}>
-            <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:23}}>{item.name}</Text>
+            <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:23}}>{item.item}</Text>
             <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:23,marginLeft:'auto'}}>{item.price} ₺</Text>
             </View>
           );
         })
         }
         </View>
-
+        <ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
         <View style={{flex:1/2,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
         <TouchableOpacity style={styles.sepetbosaltbutton} onPress={()=>{
           global.cart=[];
@@ -73,8 +92,13 @@ shouldComponentUpdate(){
         <Text style={{fontSize:17}}>Sepeti Boşalt</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.sepetonaybutton} onPress={  ()=>{
+          if(global.cart.length==0){
+            alert('Sepetiniz Boş');
+          }else{
             global.cart=[];
-            this.setState({modalVisible:true,sepetim:global.cart})
+            this.sendOrder();
+            this.setState({modalVisible:true,sepetim:global.cart});
+          }
         }}>
           <Text style={{fontSize:17}}>Sipariş Ver</Text>
         </TouchableOpacity>

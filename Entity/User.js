@@ -27,7 +27,11 @@ module.exports = class User{
         password: this.password
       }),
     }).then(function(response){
+      console.log(response);
           return response;
+    }).then(function(data){
+      console.log(data._bodyText);
+      return data._bodyText;
     });
   }
 
