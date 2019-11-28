@@ -15,7 +15,7 @@ import MenuScreen from './Screens/MenuScreen';
 import CartScreen from './Screens/CartScreen';
 import OptionScreen from './Screens/OptionScreen';
 import AuthLoadingScreen from './Screens/AuthLoadingScreen'
-
+import ForgetPasswordScreen from './Screens/ForgetPasswordScreen'
 type Props = {};
 export default class App extends Component<Props> {
   render() {
@@ -28,6 +28,14 @@ const AuthNavigator = createStackNavigator(
   {
     Login: LoginScreen,
     SignUp: SignUpScreen,
+    ForgetPassword:ForgetPasswordScreen
+  },
+  {
+    defaultNavigationOptions:{
+      headerStyle:{
+        backgroundColor:'rgb(226, 54, 45)'
+      }
+    }
   }
 );
 
@@ -54,10 +62,13 @@ const MenuNavigator = createBottomTabNavigator(
         // icon component from react-native-vector-icons
         return <Icon name={iconName} size={horizontal ? 20 : 25} color={tintColor} />;
     },
-    }),tabBarOptions: {
+
+    }),
+    tabBarOptions: {
       activeTintColor: 'tomato',
       inactiveTintColor: 'gray',
     },
+
   }
 
   );

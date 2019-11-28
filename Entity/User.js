@@ -35,6 +35,24 @@ module.exports = class User{
     });
   }
 
+  forgetPassword(){
+    return fetch('https://digimenu.herokuapp.com/user/forgetpassword/' + this.email , {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+      }),
+    }).then(function(response){
+      console.log(response);
+          return response;
+    }).then(function(data){
+      console.log(data._bodyText);
+      return data._bodyText;
+    });
+  }
+
   login(){
    return fetch('https://digimenu.herokuapp.com/user/login', {
       method: 'POST',

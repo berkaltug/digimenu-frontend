@@ -3,6 +3,8 @@ import {View,Text,StyleSheet,TouchableOpacity,Modal,Image,AsyncStorage,ActivityI
 import MenuScreen from './MenuScreen';
 import {NavigationActions} from 'react-navigation';
 import cartInstance from '../Globals/globalCart';
+import LinearGradient from 'react-native-linear-gradient';
+
 export default class CartScreen extends Component{
 
   constructor(props){
@@ -47,36 +49,17 @@ async sendOrder(){
   render(){
     this.state.sepetim=this.props.navigation.getParam('mycart');
     return(
-
+    <LinearGradient colors={['rgb(226, 54, 45)','rgb(245, 193, 153)']} style={{flex:1}}>
       <View style={styles.container}>
-
-      <View
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-          }}
-        >
-          <Image
-            style={{
-              flex: 1,
-              resizeMode:'repeat',
-              backgroundColor:'rgb(164, 154, 83)'
-            }}
-            source={require('../Assets/foodpattern.png')}
-          />
-      </View>
-        <Text style={{fontSize:30,fontWeight:'bold',marginRight:'auto',marginLeft:20,color:'black'}}>Sepetim</Text>
+        <Text style={styles.textshadow}>Sepetim</Text>
         <View style={styles.sepet}>
         {
           cart.map((item,index)=>{
             console.log('cart screen cart');
             console.log(global.cart);
             return (<View key={Math.floor(Math.random() * 10000) + 1} style={styles.cartrow}>
-            <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:23}}>{item.item}</Text>
-            <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:23,marginLeft:'auto'}}>{item.price} ₺</Text>
+            <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:19}}>{item.item}</Text>
+            <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:19,marginLeft:'auto'}}>{item.price} ₺</Text>
             </View>
           );
         })
@@ -89,7 +72,7 @@ async sendOrder(){
           this.setState({sepetim:global.cart});
 
         }}>
-        <Text style={{fontSize:17}}>Sepeti Boşalt</Text>
+        <Text style={{color:'rgb(237,237,237)',fontSize:17}}>Sepeti Boşalt</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.sepetonaybutton} onPress={  ()=>{
           if(global.cart.length==0){
@@ -100,7 +83,7 @@ async sendOrder(){
             this.setState({modalVisible:true,sepetim:global.cart});
           }
         }}>
-          <Text style={{fontSize:17}}>Sipariş Ver</Text>
+          <Text style={{color:'rgb(237,237,237)',fontSize:17}}>Sipariş Ver</Text>
         </TouchableOpacity>
         </View>
 
@@ -119,6 +102,7 @@ async sendOrder(){
           </View>
         </Modal>
       </View>
+    </LinearGradient>
     );
   }
 
@@ -129,14 +113,23 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFBAF',
+  },
+  textshadow:{
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: {width: 0, height: 2},
+    textShadowRadius: 10,
+    fontSize:30,
+    fontWeight:'bold',
+    marginRight:'auto',
+    marginLeft:20,
+    color:'rgb(237, 237, 237)'
   },
   sepet:{
-    flex:1/2,
+    flex:1/1.5,
     backgroundColor:'rgb(236, 236, 236)',
     borderRadius:10,
-    borderColor:'black',
-    borderWidth:3,
+    elevation:16,
+    marginTop:5,
     width:350
   },
   cartrow:{
@@ -147,12 +140,11 @@ const styles = StyleSheet.create({
     width:110,
     height:45,
     fontSize:20,
-    borderRadius:5,
-    borderColor:'rgb(31, 31, 31)',
-    borderWidth:2,
+    borderRadius:2,
+    elevation:10,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#95f98e',
+    backgroundColor:'#048223',
     margin:10
   },
   sepetbosaltbutton:{
@@ -161,10 +153,9 @@ const styles = StyleSheet.create({
     fontSize:20,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'tomato',
-    borderRadius:5,
-    borderColor:'rgb(31, 31, 31)',
-    borderWidth:2,
+    backgroundColor:'#db461f',
+    borderRadius:2,
+    elevation:10,
     margin:10
   }
 });

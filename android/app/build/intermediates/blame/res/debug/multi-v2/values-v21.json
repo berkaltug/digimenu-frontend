@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/berk/Desktop/workspace/reactnative/github-digimenu/digimenu-frontend/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
+            "outputFile": "/home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
             "map": [
                 {
                     "source": "/home/berk/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/7ef409f2afa2e91b55c50816a10237f1/res/values-v21/values-v21.xml",

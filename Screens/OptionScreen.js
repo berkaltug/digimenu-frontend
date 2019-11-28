@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet,View,Text,ScrollView,TouchableOpacity,Image,AsyncStorage} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 export default class OptionScreen extends Component{
   state={
   options:[
@@ -20,26 +21,8 @@ _signOutAsync = async () => {
 
   render() {
       return(
+      <LinearGradient colors={['rgb(226, 54, 45)','rgb(245, 193, 153)']} style={{flex:1}}>
         <View style={styles.container}>
-        <View
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-            }}
-          >
-            <Image
-              style={{
-                flex: 1,
-                resizeMode:'repeat',
-                backgroundColor:'rgb(164, 154, 83)'
-              }}
-              source={require('../Assets/foodpattern.png')}
-            />
-        </View>
-
               <ScrollView >
                 {
                   this.state.options.map((item, index) => (
@@ -57,7 +40,7 @@ _signOutAsync = async () => {
 
               </ScrollView>
       </View>
-
+    </LinearGradient>
     );
 
   }

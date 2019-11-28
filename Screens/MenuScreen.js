@@ -1,29 +1,30 @@
 import React, {Component} from 'react';
-import {StyleSheet,View,Text,ScrollView,TouchableOpacity,Image,Modal,AsyncStorage,ActivityIndicator} from 'react-native';
+import {StyleSheet,View,Text,ScrollView,TouchableOpacity,Image,Modal,AsyncStorage,ActivityIndicator,Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MenuItem from '../MenuItem';
 import {NavigationActions} from 'react-navigation';
 import CartScreen from './CartScreen';
 import cartInstance from '../Globals/globalCart';
 import base64 from 'base-64';
+import LinearGradient from 'react-native-linear-gradient';
 
-var menuArray=new Array(
-  new MenuItem(1,"Ciğer şiş","dana ciğer,soğan,biber,domates",21,"yemek"),
-  new MenuItem(2,"Ciğer Şiş Dürüm","dana ciğer,soğan,biber,domates,lavaş",15,"yemek"),
-  new MenuItem(3,"Et Şiş","dana et,soğan,biber,domates",25,"yemek"),
-  new MenuItem(4,"Adana Kebap","dana et,soğan,biber,domates",21,"yemek"),
-  new MenuItem(5,"Urfa Kebap","dana et,soğan,biber,domates",21,"yemek"),
-  new MenuItem(6,"Beyti","dana et,soğan,biber,domates,yoğurt",24,"yemek"),
-  new MenuItem(7,"Tavuk Kanat","tavuk eti,soğan,biber,domates,yoğurt",14,"yemek"),
-  new MenuItem(8,"Tavuk Şiş","tavuk eti,soğan,biber,domates,yoğurt",14,"yemek"),
-  new MenuItem(9,"Kaşarlı Pide","kaşar,biber,yoğurt",17,"yemek"),
-  new MenuItem(10,"Kıymalı Pide","dana kıyma,biber,yoğurt",19,"yemek"),
-  new MenuItem(11,"Karışık Pide","dana kıyma,kaşar,biber,yoğurt",21,"yemek"),
-  new MenuItem(12,"Ayran","",3,"icecek"),
-  new MenuItem(13,"Coca-Cola","",5,"icecek"),
-  new MenuItem(14,"Fanta","",5,"icecek"),
-  new MenuItem(15,"Şalgam","",4,"icecek"),
-);
+// var menuArray=new Array(
+//   new MenuItem(1,"Ciğer şiş","dana ciğer,soğan,biber,domates",21,"yemek"),
+//   new MenuItem(2,"Ciğer Şiş Dürüm","dana ciğer,soğan,biber,domates,lavaş",15,"yemek"),
+//   new MenuItem(3,"Et Şiş","dana et,soğan,biber,domates",25,"yemek"),
+//   new MenuItem(4,"Adana Kebap","dana et,soğan,biber,domates",21,"yemek"),
+//   new MenuItem(5,"Urfa Kebap","dana et,soğan,biber,domates",21,"yemek"),
+//   new MenuItem(6,"Beyti","dana et,soğan,biber,domates,yoğurt",24,"yemek"),
+//   new MenuItem(7,"Tavuk Kanat","tavuk eti,soğan,biber,domates,yoğurt",14,"yemek"),
+//   new MenuItem(8,"Tavuk Şiş","tavuk eti,soğan,biber,domates,yoğurt",14,"yemek"),
+//   new MenuItem(9,"Kaşarlı Pide","kaşar,biber,yoğurt",17,"yemek"),
+//   new MenuItem(10,"Kıymalı Pide","dana kıyma,biber,yoğurt",19,"yemek"),
+//   new MenuItem(11,"Karışık Pide","dana kıyma,kaşar,biber,yoğurt",21,"yemek"),
+//   new MenuItem(12,"Ayran","",3,"icecek"),
+//   new MenuItem(13,"Coca-Cola","",5,"icecek"),
+//   new MenuItem(14,"Fanta","",5,"icecek"),
+//   new MenuItem(15,"Şalgam","",4,"icecek"),
+// );
 var sepet=[];
 export default class MenuScreen extends Component{
 
@@ -74,6 +75,25 @@ export default class MenuScreen extends Component{
     return response;
 
 }
+
+async getWaitress(){
+  var URL=global.URL[0]+"//"+global.URL[2]+"/table_orders/garson/"+global.resNo+"/"+global.masaNo;
+  var token = await AsyncStorage.getItem('userToken');
+  var tokenStr=JSON.parse(token);
+  await fetch(URL ,{
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic ' + tokenStr,
+    }
+  }).then(function(res){
+        Alert.alert('İsteğiniz restoran ekranına iletildi');
+  }).catch(function(err){
+        Alert.alert('Sunucuda bir sorun oluştu');
+  });
+  }
+
   //calısmıyor
   componentWillReceiveProps(nextProps){
       //this.state.sepetim.push(this.props.navigation.getParam('mycart'));
@@ -88,32 +108,20 @@ export default class MenuScreen extends Component{
     this.setState({modalVisible:visible});
   }
 
+
+
   render(){
     return(
-
+    <LinearGradient colors={['rgb(226, 54, 45)','rgb(245, 193, 153)']} style={{flex:1}}>
       <View style={styles.container}>
-      <View
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-          }}
-        >
-          <Image
-            style={{
-              flex: 1,
-              resizeMode:'repeat',
-              backgroundColor:'rgb(164, 154, 83)'
-            }}
-            source={require('../Assets/foodpattern.png')}
-          />
-      </View>
+
       <ScrollView >
-      <Image style={{width:300,height:128,margin:5}} source={require("../Assets/logo.png")}/>
-      <Text style={{fontSize:22,fontWeight:'bold',color:'black'}}>Menü</Text>
+      <Image style={{width:300,height:128,margin:5}} source={require("../Assets/whitelogo.png")}/>
+      <Text style={{fontSize:22,fontWeight:'bold',color:'rgb(237, 237, 237)'}}>Menü</Text>
       <ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
+      <TouchableOpacity onPress={()=>{this.getWaitress()}} style={styles.waitressbutton}>
+        <Text> Garson Çağır </Text>
+      </TouchableOpacity>
       {
       this.state.menuArr.map((item,index)=>{
           //her türlü itemi yazdır şu anlık
@@ -121,10 +129,10 @@ export default class MenuScreen extends Component{
             return(
               <View key={Math.floor(Math.random() * 10000) + 1} style={styles.optionbutton}>
               <View key={Math.floor(Math.random() * 10000) + 1} style={{}}>
-              <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:18}}>{item.item}</Text>
-              <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:14}}>{item.ingredients}</Text>
+              <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'rgb(237, 237, 237)',fontSize:18}}>{item.item}</Text>
+              <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'rgb(237, 237, 237)',fontSize:14}}>{item.ingredients}</Text>
               </View>
-              <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:18,marginLeft:'auto'}}>{item.price} ₺</Text>
+              <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'rgb(237, 237, 237)',fontSize:18,marginLeft:'auto'}}>{item.price} ₺</Text>
               <TouchableOpacity key={index} style={styles.addbutton} onPress={
                     ()=>{this.setModal(true);
                     var menuitem={id:item.id,
@@ -140,19 +148,20 @@ export default class MenuScreen extends Component{
                     console.log(global.cart);
                     this.setState({menuItem:global.cart});
                   }}>
-                  <Text key={Math.floor(Math.random() * 10000) + 1}> <Icon name='plus' color='white'/> </Text>
+                  <Text key={Math.floor(Math.random() * 10000) + 1}> <Icon name='plus' color='#d7263d'/> </Text>
                   </TouchableOpacity>
                   </View>
                 );
               }
-              if(item.type=="icecek"){
+              if(item.type == "icecek"){
                 return(
                   <View key={Math.floor(Math.random() * 10000) + 1} style={styles.optionbutton}>
 
                   <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:18}}>{item.name}</Text>
 
                   <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:19,marginLeft:'auto'}}>{item.price} ₺</Text>
-                  <TouchableOpacity key={index} style={styles.addbutton} onPress={()=>{
+                  <TouchableOpacity key={index}
+                    style={styles.addbutton} onPress={()=>{
                       this.setModal(true);
                       var menuitem={id:item.id,
                       item:item.item,
@@ -209,7 +218,7 @@ export default class MenuScreen extends Component{
       </Modal>
 
       </View>
-
+    </LinearGradient>
     );
   }
 }
@@ -219,26 +228,24 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFBAF',
+    backgroundColor: 'transparent',
   },
   optionbutton:{
     flex:1,
     flexDirection:'row',
     alignItems:'center',
     width:320,
-    borderRadius:5,
-    borderWidth:2,
-    borderColor:'rgb(31, 31, 31)',
-    backgroundColor:'rgb(236, 236, 236)',
+    elevation:4,
+    backgroundColor:'darkgray',
     margin:5,
     padding:2,
     height:50
   },
   addbutton:{
-    backgroundColor:'tomato',
+    backgroundColor:'rgb(237, 237, 237)',
+    elevation:12,
     margin:3,
     padding:3,
-    color:'white',
     borderRadius:50,
     width:26,
     height:26,
@@ -269,6 +276,16 @@ const styles = StyleSheet.create({
     alignItems:'center',
     backgroundColor:'tomato',
     borderRadius:3
+  },
+  waitressbutton:{
+    width:320,
+    height:40,
+    backgroundColor:'rgb(249, 244, 147)',
+    elevation:8,
+    justifyContent:'center',
+    alignItems:'center',
+    margin:5,
+    padding:2
   }
 
 });

@@ -44,6 +44,11 @@ export default class QrCodeCamera extends Component {
     };
   }
 
+  _signOutAsync = async () => {
+      await  AsyncStorage.removeItem('userToken');
+      this.props.navigation.navigate('AuthLoading');
+    };
+
   render() {
     return (
       <QRCodeScanner
@@ -62,22 +67,22 @@ export default class QrCodeCamera extends Component {
               <View style={styles.leftAndRightOverlay} />
 
               <View style={styles.rectangle}>
-                <Icon
-                  name="ios-qr-scanner"
-                  size={SCREEN_WIDTH * 0.7}
-                  color={iconScanColor}
-                />
-                <Animatable.View
-                  style={styles.scanBar}
-                  direction="alternate-reverse"
-                  iterationCount="infinite"
-                  duration={1700}
-                  easing="linear"
-                  animation={this.makeSlideOutTranslation(
-                    "translateY",
-                    SCREEN_WIDTH * -0.54
-                  )}
-                />
+              <Icon
+              name="ios-qr-scanner"
+              size={SCREEN_WIDTH * 0.7}
+              color={iconScanColor}
+              />
+              <Animatable.View
+              style={styles.scanBar}
+              direction="alternate-reverse"
+              iterationCount="infinite"
+              duration={1700}
+              easing="linear"
+              animation={this.makeSlideOutTranslation(
+                "translateY",
+                SCREEN_WIDTH * -0.54
+              )}
+              />
               </View>
 
               <View style={styles.leftAndRightOverlay} />
@@ -95,7 +100,10 @@ export default class QrCodeCamera extends Component {
             <TouchableOpacity style={styles.choicebutton2} onPress={()=>{}}>
               <Text style={{fontSize: 26,fontWeight:'bold'}}>Restorana</Text>
               <Text style={{fontSize: 26,fontWeight:'bold'}}>Gidiyorum</Text>
-              <Text>(Yapım Aşamasında)</Text>
+              <Text>(Çok Yakında)</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.choicebutton3} onPress={this._signOutAsync}>
+              <Text style={{fontSize:18,fontWeight:'bold'}}>Çıkış Yap</Text>
             </TouchableOpacity>
             </View>
           </View>
@@ -169,12 +177,22 @@ const styles = {
     backgroundColor: scanBarColor
   },
   choicebutton2:{
-    flex:1,
+    flex:2,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor:'#a91101',
-    margin:20,
+    marginTop:10,
+    marginBottom:5,
     borderRadius:10,
     width:220
+  },
+  choicebutton3:{
+    flex:1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:'#015eaa',
+    margin:10,
+    borderRadius:10,
+    width:150
   }
 };
