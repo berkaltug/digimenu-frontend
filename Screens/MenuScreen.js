@@ -7,25 +7,11 @@ import CartScreen from './CartScreen';
 import cartInstance from '../Globals/globalCart';
 import base64 from 'base-64';
 import LinearGradient from 'react-native-linear-gradient';
+import {Collapse,CollapseHeader, CollapseBody, AccordionList} from 'accordion-collapse-react-native';
+import _ from 'lodash';
 
-// var menuArray=new Array(
-//   new MenuItem(1,"Ciğer şiş","dana ciğer,soğan,biber,domates",21,"yemek"),
-//   new MenuItem(2,"Ciğer Şiş Dürüm","dana ciğer,soğan,biber,domates,lavaş",15,"yemek"),
-//   new MenuItem(3,"Et Şiş","dana et,soğan,biber,domates",25,"yemek"),
-//   new MenuItem(4,"Adana Kebap","dana et,soğan,biber,domates",21,"yemek"),
-//   new MenuItem(5,"Urfa Kebap","dana et,soğan,biber,domates",21,"yemek"),
-//   new MenuItem(6,"Beyti","dana et,soğan,biber,domates,yoğurt",24,"yemek"),
-//   new MenuItem(7,"Tavuk Kanat","tavuk eti,soğan,biber,domates,yoğurt",14,"yemek"),
-//   new MenuItem(8,"Tavuk Şiş","tavuk eti,soğan,biber,domates,yoğurt",14,"yemek"),
-//   new MenuItem(9,"Kaşarlı Pide","kaşar,biber,yoğurt",17,"yemek"),
-//   new MenuItem(10,"Kıymalı Pide","dana kıyma,biber,yoğurt",19,"yemek"),
-//   new MenuItem(11,"Karışık Pide","dana kıyma,kaşar,biber,yoğurt",21,"yemek"),
-//   new MenuItem(12,"Ayran","",3,"icecek"),
-//   new MenuItem(13,"Coca-Cola","",5,"icecek"),
-//   new MenuItem(14,"Fanta","",5,"icecek"),
-//   new MenuItem(15,"Şalgam","",4,"icecek"),
-// );
 var sepet=[];
+
 export default class MenuScreen extends Component{
 
   constructor(props){
@@ -37,9 +23,12 @@ export default class MenuScreen extends Component{
       isLoading:false
     }
   }
+
   //menuyu çek
+  // _.groupBy lodash kütüphanesinde reduce fonk kullanan hazır bir fonk direk internetten bulduk
   async componentWillMount(){
-    this.setState({menuArr: await this.getItems()});
+    this.setState({menuArr: _.groupBy(await this.getItems(),'category')});
+    console.log("---------------------------------menu burada yazacak -----------------------------------------");
     console.log(this.state.menuArr);
     console.log('willmount cagrıldııı');
   }
@@ -122,64 +111,35 @@ async getWaitress(){
       <TouchableOpacity onPress={()=>{this.getWaitress()}} style={styles.waitressbutton}>
         <Text> Garson Çağır </Text>
       </TouchableOpacity>
+
       {
-      this.state.menuArr.map((item,index)=>{
-          //her türlü itemi yazdır şu anlık
-          if(true){
-            return(
-              <View key={Math.floor(Math.random() * 10000) + 1} style={styles.optionbutton}>
-              <View key={Math.floor(Math.random() * 10000) + 1} style={{}}>
-              <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'rgb(237, 237, 237)',fontSize:18}}>{item.item}</Text>
-              <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'rgb(237, 237, 237)',fontSize:14}}>{item.ingredients}</Text>
-              </View>
-              <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'rgb(237, 237, 237)',fontSize:18,marginLeft:'auto'}}>{item.price} ₺</Text>
-              <TouchableOpacity key={index} style={styles.addbutton} onPress={
-                    ()=>{this.setModal(true);
-                    var menuitem={id:item.id,
-                    item:item.item,
-                    ingredients:item.ingredients,
-                    price:item.price,
-                    category:item.category};
+        Object.keys(this.state.menuArr).forEach(function(category,index) {
+          return (
+              <Collapse>
+                <CollapseHeader>
+                    <View>
+                      <Text>{category}</Text>
+                    </View>
+                </CollapseHeader>
 
-                    console.log('before');
-                    console.log(global.cart);
-                    global.cart.push(menuitem);
-                    console.log('after');
-                    console.log(global.cart);
-                    this.setState({menuItem:global.cart});
-                  }}>
-                  <Text key={Math.floor(Math.random() * 10000) + 1}> <Icon name='plus' color='#d7263d'/> </Text>
-                  </TouchableOpacity>
-                  </View>
-                );
-              }
-              if(item.type == "icecek"){
-                return(
-                  <View key={Math.floor(Math.random() * 10000) + 1} style={styles.optionbutton}>
+                  {
+                    this.state.menuArr.category.map((item,index)=>{
+                      return(
+                        <CollapseBody>
+                        <View>
+                          <Text>{item.name}</Text>
+                        </View>
+                        </CollapseBody>
+                      )
+                    }
+                  )
+                  }
 
-                  <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:18}}>{item.name}</Text>
-
-                  <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:19,marginLeft:'auto'}}>{item.price} ₺</Text>
-                  <TouchableOpacity key={index}
-                    style={styles.addbutton} onPress={()=>{
-                      this.setModal(true);
-                      var menuitem={id:item.id,
-                      item:item.item,
-                      ingredients:item.ingredients,
-                      price:item.price,
-                      category:item.category};
-                      global.cart.push(menuitem);
-                      this.setState({menuItem:global.cart});
-                  }}>
-                  <Text key={Math.floor(Math.random() * 10000) + 1} > <Icon name='plus' color='white'/> </Text>
-                  </TouchableOpacity>
-                  </View>
-                );
-              }
-
-            }
-          )
-        }
+              </Collapse>
+            )
+         }
+       )
+    }
 
             </ScrollView>
       <Modal
