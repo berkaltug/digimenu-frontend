@@ -78,7 +78,7 @@ export default class ForgetPasswordScreen extends Component{
           transparent={false}
           visible={this.state.modalVisible}
           onRequestClose={() => {}}>
-          <ScrollView style={styles.container}>
+          <ScrollView contentContainerStyle={styles.container}>
               <Text style={{fontSize:40,textAlign:'center'}}>{this.state.status}</Text>
               <Button
                 buttonStyle = {{margin: 5,width:100}}

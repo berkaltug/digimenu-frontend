@@ -137,7 +137,8 @@ export default class SignUpScreen extends Component{
             <ScrollView >
 
             <Button
-            style={{ width:40,height:25,backgroundColor:'tomato',margin:5 }}
+            buttonStyle={styles.customAwesomeButton}
+            title="Kapat"
             onPress={()=>{this.setModal2(false)}}
             />
             <Text>

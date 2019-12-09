@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat May 18 15:38:12 EET 2019
+#Sun Dec 08 17:15:05 EET 2019
 5.base=/home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 22.path=fonts/Foundation.ttf
 32.set=NATIVE_RESOURCE

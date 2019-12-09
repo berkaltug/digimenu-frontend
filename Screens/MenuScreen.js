@@ -28,9 +28,6 @@ export default class MenuScreen extends Component{
   // _.groupBy lodash kütüphanesinde reduce fonk kullanan hazır bir fonk direk internetten bulduk
   async componentWillMount(){
     this.setState({menuArr: _.groupBy(await this.getItems(),'category')});
-    console.log("---------------------------------menu burada yazacak -----------------------------------------");
-    console.log(this.state.menuArr);
-    console.log('willmount cagrıldııı');
   }
 
   async getItems() {
@@ -49,17 +46,11 @@ export default class MenuScreen extends Component{
       }
     })
     .then(function(res){
-      // console.log('----------------------------------------------------------------');
-      // console.log(JSON.stringify(res));
-      return res.json();
+        return res.json();
     })
     .then(function(data){
-      // console.log('-----------------------------------------------------');
-      // console.log(data);
-      return data;
+        return data;
     });
-    // console.log('-----------------------------------------------------');
-    // console.log(response);
     this.setState({isLoading:false});
     return response;
 
@@ -85,7 +76,6 @@ async getWaitress(){
 
   //calısmıyor
   componentWillReceiveProps(nextProps){
-      //this.state.sepetim.push(this.props.navigation.getParam('mycart'));
       this.forceUpdate();
   }
 
@@ -98,7 +88,6 @@ async getWaitress(){
   }
 
 
-
   render(){
     return(
     <LinearGradient colors={['rgb(226, 54, 45)','rgb(245, 193, 153)']} style={{flex:1}}>
@@ -109,32 +98,54 @@ async getWaitress(){
       <Text style={{fontSize:22,fontWeight:'bold',color:'rgb(237, 237, 237)'}}>Menü</Text>
       <ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
       <TouchableOpacity onPress={()=>{this.getWaitress()}} style={styles.waitressbutton}>
-        <Text> Garson Çağır </Text>
+        <Text style={{color:'rgb(203, 102, 102)'}}> Garson Çağır </Text>
       </TouchableOpacity>
 
       {
-        Object.keys(this.state.menuArr).forEach(function(category,index) {
+        Object.keys(this.state.menuArr).map((category,index)=>{
           return (
-              <Collapse>
-                <CollapseHeader>
-                    <View>
-                      <Text>{category}</Text>
+              <Collapse key={Math.floor(Math.random() * 10000) + 1}>
+                <CollapseHeader key={Math.floor(Math.random() * 10000) + 1} style={styles.collapseHeader}>
+                    <View key={Math.floor(Math.random() * 10000) + 1} >
+
+                      <Text style={styles.categoryHeader}> {category} </Text>
+
                     </View>
                 </CollapseHeader>
+                <CollapseBody key={Math.floor(Math.random() * 10000) + 1}>
+                {
+                    this.state.menuArr[category].map((item,idx)=>{
+                    return(
 
-                  {
-                    this.state.menuArr.category.map((item,index)=>{
-                      return(
-                        <CollapseBody>
-                        <View>
-                          <Text>{item.name}</Text>
-                        </View>
-                        </CollapseBody>
-                      )
-                    }
-                  )
+                        <View key={Math.floor(Math.random() * 10000) + 1} style={styles.optionbutton}>
+                              <View key={Math.floor(Math.random() * 10000) + 1} style={{}}>
+                                <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'rgb(237, 237, 237)',fontSize:18}}>{item.item}</Text>
+                                <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'rgb(237, 237, 237)',fontSize:14}}>{item.ingredients}</Text>
+                              </View>
+                              <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'rgb(237, 237, 237)',fontSize:18,marginLeft:'auto'}}>{item.price} ₺</Text>
+                              <TouchableOpacity key={Math.floor(Math.random() * 10000) + 1} style={styles.addbutton} onPress={
+                                  ()=>{this.setModal(true);
+                                    var menuitem={id:item.id,
+                                      item:item.item,
+                                      ingredients:item.ingredients,
+                                      price:item.price,
+                                      category:item.category};
+
+
+                                      global.cart.push(menuitem);
+                                      console.log(item.item);
+                                      this.setState({menuItem:global.cart});
+                                    }}>
+                                  <Text key={Math.floor(Math.random() * 10000) + 1}> <Icon name='plus' color='#d7263d'/> </Text>
+                                </TouchableOpacity>
+                            </View>
+
+                    );
                   }
+                )
+               }
 
+               </CollapseBody>
               </Collapse>
             )
          }
@@ -200,6 +211,20 @@ const styles = StyleSheet.create({
     margin:5,
     padding:2,
     height:50
+  },
+  collapseHeader:{
+    flex:1,
+    alignItems:'center',
+    width:320,
+    elevation:4,
+    backgroundColor:'rgb(105, 105, 105)',
+    margin:5,
+    padding:2
+  },
+  categoryHeader:{
+    fontSize:19,
+    fontStyle:'italic',
+    color:'rgb(237, 237, 237)',
   },
   addbutton:{
     backgroundColor:'rgb(237, 237, 237)',
