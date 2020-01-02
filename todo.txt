@@ -1,0 +1,15 @@
+Git'te before starting update but alreay in 0.57.5 in broken  mesajlı bi commit var , bu commiten sonra localde rn 0.59'a manuel,
+0.59dan sonra react-native upgrade komutuyla 0.61.5 e yükseltildi.İhtiyacımız olan şey 0.61' den den sonra herhangi bir versiyon ile 
+apk derlemek çünkü play store artık aşağısını desteklemiyor.
+Yapılacaklar:
+ -bunu localinde before started update commitinden pull alıp kendin 0.61.x e güncellemeyi denemen.sonra localde ayağı kaldırmaya çalışmak.
+Benim localde hala kalkmıyor ve android türlü türlü hatalar veriyor.bunları çözdükten sonra dependencylerde uyumsuzluk 
+çıkaracak bankosu var.Kalkarsa negzel ama kalkmıcaktır.
+ -öncelikle globalde npm ve node.js 'ini güncelle son sürüme , npx diye bi cacık gelicek ,artık onunla rn projeleri init ve start oluyor.
+ -Boş bi proje başlatıp emülatörde açılıyor mu diye kontrol et (bende bu bile olmuyor)
+ -Eğer oluyorsa digimenu before started committinde kendi yazdığımız bütün js dosyalarını yeni boş projenin içine kopyalanacak, 
+uygulamadaki bütün 3rd party bağımlılıklar npm ile yüklenecek, hata verirse (daha doğrusu o bağımlılık artık 0.61 ile çalışmıyorsa)
+alternatifleri araştırılacak implemente edilmeye çalışılacak.
+
+NOT: buttonları başka butonlarla değiştirme bunların animasyonları düzgünce async çalışıyor.
+NOT: git kullanırken update diye branch aç orada yap denemeleri, master çorba oldu.
