@@ -3,7 +3,6 @@ import {Platform, StyleSheet, Text, TextInput, View, Image, TouchableOpacity, Im
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import userInstance from '../Globals/globalUser';
-import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
 import base64 from 'base-64';
 import LinearGradient from 'react-native-linear-gradient';
 export default class LoginScreen extends Component{

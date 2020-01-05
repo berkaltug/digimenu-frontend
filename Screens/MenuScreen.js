@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet,View,Text,ScrollView,TouchableOpacity,Image,Modal,AsyncStorage,ActivityIndicator,Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import MenuItem from '../MenuItem';
+
 import {NavigationActions} from 'react-navigation';
 import CartScreen from './CartScreen';
 import cartInstance from '../Globals/globalCart';

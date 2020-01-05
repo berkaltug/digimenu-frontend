@@ -5,11 +5,12 @@ DigiMenu Inc.
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text,TextInput, View,Image,TouchableOpacity} from 'react-native';
-import { createAppContainer, createStackNavigator, StackActions, NavigationActions,createBottomTabNavigator,createSwitchNavigator} from 'react-navigation';
+import { createAppContainer, StackActions, NavigationActions,createSwitchNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import {createBottomTabNavigator }  from 'react-navigation-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LoginScreen from './Screens/LoginScreen';
 import SignUpScreen from './Screens/SignUpScreen';
-import ChoiceScreen from './Screens/ChoiceScreen';
 import QrScreen from './Screens/QrScreen';
 import MenuScreen from './Screens/MenuScreen';
 import CartScreen from './Screens/CartScreen';

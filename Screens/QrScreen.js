@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { View, Dimensions, Text ,TouchableOpacity, Modal,AsyncStorage} from "react-native";
 import QRCodeScanner from "react-native-qrcode-scanner";
 import Icon from "react-native-vector-icons/Ionicons";
-import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
 
 import * as Animatable from "react-native-animatable";
 

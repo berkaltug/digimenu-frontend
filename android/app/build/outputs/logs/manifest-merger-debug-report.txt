@@ -1,153 +1,337 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-26:12
-MERGED from [com.facebook.react:react-native:0.57.5] /home/berk/.gradle/caches/transforms-1/files-1.1/react-native-0.57.5.aar/8792aff92b44a518d1d6f97ab33479e7/AndroidManifest.xml:2:1-15:12
-MERGED from [com.android.support:appcompat-v7:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/f2f61e1ed221633b5049cfdda8a7a836/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/c921ac9d191691f094fff3928d1840f3/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/713b50a8c827fc74515bf963a53879f6/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/c6f78a21fb47e7e68d248401d89b4af4/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/4e9209284eeaff9377422b255ded282a/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/6f9be100558d7dcb03aa2750267c6b91/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/0c35db4d0b446bacaf9aaf1053be3a7a/AndroidManifest.xml:17:1-22:12
-MERGED from [com.facebook.fresco:fresco:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/26f26f6e7c7bb1c56ca3f2d134cfd7f6/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/9c62327251e091b82bf600e657159866/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:drawee:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/48d94d5eca232afa6e294e3227e3c43a/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/473ae36d47b961ef4c90a37e89f1bfac/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/7b93503c8ee1dff756efdc482cf9ecb5/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.soloader:soloader:0.5.1] /home/berk/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/5057a412d9e8b2ac1df7c70e5aa549b5/AndroidManifest.xml:2:1-13:12
-MERGED from [org.webkit:android-jsc:r174650] /home/berk/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/052b8627072699d75352fb3f856e0654/AndroidManifest.xml:1:1-3:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/berk/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/e090a7883b54b7d7caa74ee07594db90/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/berk/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/870f049af1768210047b665f75cedf01/AndroidManifest.xml:17:1-22:12
-MERGED from [com.facebook.fresco:fbcore:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/08b685689d22b41f31c9f1e7acdb1ab8/AndroidManifest.xml:2:1-9:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/berk/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/04657de96c273792685589324768ca07/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.0] /home/berk/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/7af1e9c7b207e02737ec9d6ace70373d/AndroidManifest.xml:17:1-22:12
-INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-26:12
+ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+MERGED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+MERGED from [:@react-native-community_masked-view] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:2:1-18:12
+MERGED from [:react-native-gesture-handler] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-permissions] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-permissions/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-reanimated] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-safe-area-context] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-vector-icons] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/6b654b80ea6798bed1fc996aabb7ac8d/AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.appcompat:appcompat:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/b042c42958cd14ca4a41fd2047a0a37f/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-vision:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/8e1a49ac70c5c08f84856b649985feca/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/a05c392ef248ba93bd64b90e76481e06/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/dee504b72e08c6eb8f99ce8d7edf0255/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-flags:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/a79e78c35812342e14e4f60d9b5ad906/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/43aff87d24895cc70e2d4fc8b7995f9e/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/b6eb59a9901cc09fd1b23f2480a418c2/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/1b65285a8bde1ae66bee21ad5ae374a5/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/7fdc63ae6d1cb1a5e9f97e83faafe4e8/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02] /home/berk/.gradle/caches/transforms-2/files-2.1/80476c46f3258654d76aa9529f668f72/AndroidManifest.xml:17:1-24:12
+MERGED from [org.webkit:android-jsc:r245459] /home/berk/.gradle/caches/transforms-2/files-2.1/c9d49d2206c43f64e8b158f65060129e/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-linear-gradient] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.fresco:fresco:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/661980a4925c50ff738a5d92431ddc6e/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/b8162b6c44ac088517ecfabed1f6081b/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/211133e9773cd0b6a7036b5dd0b6a44b/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9328d50459a0967d28cedd81cb2cc072/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/ee035d04847fa0aa88d3ed8d40f81ed3/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9c98b977d49de97f3a6f19172e202c3b/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/a13488b8345f21cc04189e41b5213f0f/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/berk/.gradle/caches/transforms-2/files-2.1/0911d1a593fe96a61eb9b341208d9409/AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.fragment:fragment:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/71cb797e0b20585d82280781bfb5aec3/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/57741eecec446883840f125d3dcaa31e/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/fc3b702890a04f3a908b35fff577d28e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/562a836b62d0bb8f4060f2247005f696/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/45a9b844348d29d21c7ce74be1c4d46c/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/0af49aa955be3534fdfc4de8956cd80f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9e7325719715a22d04c4bbed33fb231d/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/fb5e4b9d18c5494024328ae04313806f/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/918bd88ab03da84ed42ece41dea9d96b/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/ec3e677164d8ad6a3de3fe04548c69fd/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9db1be3da2875e1d884853057194d21e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/689e746b900c0bed3468532677bdd1b2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/4dc4317feccc1ac0da66a02ad5739e32/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/28e83c17c932c93ccac43c5ce298db9b/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/5c987403d7801f4c9211c0dd39063cf8/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/46365332a7ff7900c7ca15c74fa7506c/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/a8c7ec6c848f6672c4d52f54561da88f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/f6ec1d0d3ab27a1eff462670acf44b2f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/4312feae8994a93c20f2982493fa3890/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/810b0111611b2f77dec659d00ba8984c/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/dc258277bbc42020d265ac177a119a67/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/971adbd41fb17676a90fb1d616c89fab/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/eb6669d4f6297790aea878f92cebbb78/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/8755927bfe0141d123234486cdd99c47/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/0171445a160163b7d5fca409d40d28a5/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9b60930d7ce508be4098587fc2a5f3a6/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/00e7444e1eb87be16a39905da911fd1d/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/ee9eb51ef4b800adaa8de090418ba9f0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/4fb61d0b965fc6976046b67ef7054e87/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/81cc465ede1353b11475a4c530748697/AndroidManifest.xml:2:1-9:12
+INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 	package
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:2:5-27
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:2:3-25
 		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:2:3-25
+		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-26:12
-		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-26:12
-		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-27:12
+		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
 ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:4:5-67
 	android:name
 		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:4:22-64
-uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:5:5-77
-MERGED from [com.facebook.react:react-native:0.57.5] /home/berk/.gradle/caches/transforms-1/files-1.1/react-native-0.57.5.aar/8792aff92b44a518d1d6f97ab33479e7/AndroidManifest.xml:11:5-78
-MERGED from [com.facebook.react:react-native:0.57.5] /home/berk/.gradle/caches/transforms-1/files-1.1/react-native-0.57.5.aar/8792aff92b44a518d1d6f97ab33479e7/AndroidManifest.xml:11:5-78
+uses-permission#android.permission.VIBRATE
+ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:5:5-65
 	android:name
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:5:22-75
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:5:22-63
 application
-ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:7:5-24:19
-MERGED from [com.facebook.react:react-native:0.57.5] /home/berk/.gradle/caches/transforms-1/files-1.1/react-native-0.57.5.aar/8792aff92b44a518d1d6f97ab33479e7/AndroidManifest.xml:13:5-20
-MERGED from [com.facebook.react:react-native:0.57.5] /home/berk/.gradle/caches/transforms-1/files-1.1/react-native-0.57.5.aar/8792aff92b44a518d1d6f97ab33479e7/AndroidManifest.xml:13:5-20
-MERGED from [com.facebook.soloader:soloader:0.5.1] /home/berk/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/5057a412d9e8b2ac1df7c70e5aa549b5/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.soloader:soloader:0.5.1] /home/berk/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/5057a412d9e8b2ac1df7c70e5aa549b5/AndroidManifest.xml:11:5-20
-MERGED from [org.webkit:android-jsc:r174650] /home/berk/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/052b8627072699d75352fb3f856e0654/AndroidManifest.xml:2:3-17
-MERGED from [org.webkit:android-jsc:r174650] /home/berk/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/052b8627072699d75352fb3f856e0654/AndroidManifest.xml:2:3-17
+ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:7:5-25:19
+MERGED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:7:5-25:19
+MERGED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:7:5-25:19
+MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/6b654b80ea6798bed1fc996aabb7ac8d/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/6b654b80ea6798bed1fc996aabb7ac8d/AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.gms:play-services-vision:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/8e1a49ac70c5c08f84856b649985feca/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/8e1a49ac70c5c08f84856b649985feca/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/a05c392ef248ba93bd64b90e76481e06/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/a05c392ef248ba93bd64b90e76481e06/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/dee504b72e08c6eb8f99ce8d7edf0255/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/dee504b72e08c6eb8f99ce8d7edf0255/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/43aff87d24895cc70e2d4fc8b7995f9e/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/43aff87d24895cc70e2d4fc8b7995f9e/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/b6eb59a9901cc09fd1b23f2480a418c2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/b6eb59a9901cc09fd1b23f2480a418c2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:22:5-26:19
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/berk/.gradle/caches/transforms-2/files-2.1/0911d1a593fe96a61eb9b341208d9409/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/berk/.gradle/caches/transforms-2/files-2.1/0911d1a593fe96a61eb9b341208d9409/AndroidManifest.xml:11:5-20
+MERGED from [androidx.core:core:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/46365332a7ff7900c7ca15c74fa7506c/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/46365332a7ff7900c7ca15c74fa7506c/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/810b0111611b2f77dec659d00ba8984c/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/810b0111611b2f77dec659d00ba8984c/AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/46365332a7ff7900c7ca15c74fa7506c/AndroidManifest.xml:24:18-86
 	android:label
 		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:9:7-39
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:9:7-39
+	tools:ignore
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml:7:75-114
+	android:roundIcon
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:11:7-52
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:11:7-52
+	tools:targetApi
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml:7:54-74
 	android:icon
 		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:10:7-41
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:10:7-41
 	android:allowBackup
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:11:7-34
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:12:7-34
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:12:7-34
 	android:theme
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:12:7-38
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:13:7-38
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:13:7-38
+	android:usesCleartextTraffic
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml:7:18-53
 	android:name
 		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:8:7-38
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:8:7-38
 activity#com.digimenu.MainActivity
-ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:13:7-22:18
+ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:14:7-23:18
 	android:label
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:15:9-41
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:16:9-41
 	android:windowSoftInputMode
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:17:9-51
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:18:9-51
 	android:configChanges
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:16:9-79
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:17:9-79
 	android:name
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:14:9-37
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:15:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:18:9-21:25
+ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:19:9-22:25
 action#android.intent.action.MAIN
-ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:19:13-65
+ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:20:13-65
 	android:name
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:19:21-62
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:20:21-62
 category#android.intent.category.LAUNCHER
-ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:20:13-73
+ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:21:13-73
 	android:name
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:20:23-70
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:21:23-70
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:23:7-84
+ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:24:7-84
 	android:name
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:23:17-81
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:24:17-81
 uses-sdk
 INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
 INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
-MERGED from [com.facebook.react:react-native:0.57.5] /home/berk/.gradle/caches/transforms-1/files-1.1/react-native-0.57.5.aar/8792aff92b44a518d1d6f97ab33479e7/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.57.5] /home/berk/.gradle/caches/transforms-1/files-1.1/react-native-0.57.5.aar/8792aff92b44a518d1d6f97ab33479e7/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/f2f61e1ed221633b5049cfdda8a7a836/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/f2f61e1ed221633b5049cfdda8a7a836/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/c921ac9d191691f094fff3928d1840f3/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/c921ac9d191691f094fff3928d1840f3/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/713b50a8c827fc74515bf963a53879f6/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/713b50a8c827fc74515bf963a53879f6/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/c6f78a21fb47e7e68d248401d89b4af4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/c6f78a21fb47e7e68d248401d89b4af4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/4e9209284eeaff9377422b255ded282a/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/4e9209284eeaff9377422b255ded282a/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/6f9be100558d7dcb03aa2750267c6b91/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/6f9be100558d7dcb03aa2750267c6b91/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/0c35db4d0b446bacaf9aaf1053be3a7a/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] /home/berk/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/0c35db4d0b446bacaf9aaf1053be3a7a/AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.fresco:fresco:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/26f26f6e7c7bb1c56ca3f2d134cfd7f6/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fresco:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/26f26f6e7c7bb1c56ca3f2d134cfd7f6/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/9c62327251e091b82bf600e657159866/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/9c62327251e091b82bf600e657159866/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/48d94d5eca232afa6e294e3227e3c43a/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/48d94d5eca232afa6e294e3227e3c43a/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/473ae36d47b961ef4c90a37e89f1bfac/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/473ae36d47b961ef4c90a37e89f1bfac/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/7b93503c8ee1dff756efdc482cf9ecb5/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/7b93503c8ee1dff756efdc482cf9ecb5/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.soloader:soloader:0.5.1] /home/berk/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/5057a412d9e8b2ac1df7c70e5aa549b5/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.soloader:soloader:0.5.1] /home/berk/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/5057a412d9e8b2ac1df7c70e5aa549b5/AndroidManifest.xml:7:5-9:41
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/berk/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/e090a7883b54b7d7caa74ee07594db90/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/berk/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/e090a7883b54b7d7caa74ee07594db90/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/berk/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/870f049af1768210047b665f75cedf01/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/berk/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/870f049af1768210047b665f75cedf01/AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.fresco:fbcore:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/08b685689d22b41f31c9f1e7acdb1ab8/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:1.10.0] /home/berk/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/08b685689d22b41f31c9f1e7acdb1ab8/AndroidManifest.xml:5:5-7:41
-MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/berk/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/04657de96c273792685589324768ca07/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/berk/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/04657de96c273792685589324768ca07/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] /home/berk/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/7af1e9c7b207e02737ec9d6ace70373d/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] /home/berk/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/7af1e9c7b207e02737ec9d6ace70373d/AndroidManifest.xml:20:5-44
-INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
-INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
+MERGED from [:@react-native-community_masked-view] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:@react-native-community_masked-view] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-gesture-handler] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-permissions] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-permissions/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-permissions] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-permissions/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-reanimated] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-safe-area-context] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-safe-area-context] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-vector-icons] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/6b654b80ea6798bed1fc996aabb7ac8d/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/6b654b80ea6798bed1fc996aabb7ac8d/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.appcompat:appcompat:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/b042c42958cd14ca4a41fd2047a0a37f/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/b042c42958cd14ca4a41fd2047a0a37f/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-vision:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/8e1a49ac70c5c08f84856b649985feca/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/8e1a49ac70c5c08f84856b649985feca/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/a05c392ef248ba93bd64b90e76481e06/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/a05c392ef248ba93bd64b90e76481e06/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/dee504b72e08c6eb8f99ce8d7edf0255/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/dee504b72e08c6eb8f99ce8d7edf0255/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/a79e78c35812342e14e4f60d9b5ad906/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/a79e78c35812342e14e4f60d9b5ad906/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/43aff87d24895cc70e2d4fc8b7995f9e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/43aff87d24895cc70e2d4fc8b7995f9e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/b6eb59a9901cc09fd1b23f2480a418c2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/b6eb59a9901cc09fd1b23f2480a418c2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/1b65285a8bde1ae66bee21ad5ae374a5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/1b65285a8bde1ae66bee21ad5ae374a5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/7fdc63ae6d1cb1a5e9f97e83faafe4e8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/7fdc63ae6d1cb1a5e9f97e83faafe4e8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02] /home/berk/.gradle/caches/transforms-2/files-2.1/80476c46f3258654d76aa9529f668f72/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02] /home/berk/.gradle/caches/transforms-2/files-2.1/80476c46f3258654d76aa9529f668f72/AndroidManifest.xml:20:5-22:41
+MERGED from [org.webkit:android-jsc:r245459] /home/berk/.gradle/caches/transforms-2/files-2.1/c9d49d2206c43f64e8b158f65060129e/AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] /home/berk/.gradle/caches/transforms-2/files-2.1/c9d49d2206c43f64e8b158f65060129e/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/661980a4925c50ff738a5d92431ddc6e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/661980a4925c50ff738a5d92431ddc6e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/b8162b6c44ac088517ecfabed1f6081b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/b8162b6c44ac088517ecfabed1f6081b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/211133e9773cd0b6a7036b5dd0b6a44b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/211133e9773cd0b6a7036b5dd0b6a44b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9328d50459a0967d28cedd81cb2cc072/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9328d50459a0967d28cedd81cb2cc072/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/ee035d04847fa0aa88d3ed8d40f81ed3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/ee035d04847fa0aa88d3ed8d40f81ed3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9c98b977d49de97f3a6f19172e202c3b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9c98b977d49de97f3a6f19172e202c3b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/a13488b8345f21cc04189e41b5213f0f/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/a13488b8345f21cc04189e41b5213f0f/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/berk/.gradle/caches/transforms-2/files-2.1/0911d1a593fe96a61eb9b341208d9409/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /home/berk/.gradle/caches/transforms-2/files-2.1/0911d1a593fe96a61eb9b341208d9409/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.fragment:fragment:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/71cb797e0b20585d82280781bfb5aec3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/71cb797e0b20585d82280781bfb5aec3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/57741eecec446883840f125d3dcaa31e/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/57741eecec446883840f125d3dcaa31e/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/fc3b702890a04f3a908b35fff577d28e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/fc3b702890a04f3a908b35fff577d28e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/562a836b62d0bb8f4060f2247005f696/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/562a836b62d0bb8f4060f2247005f696/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/45a9b844348d29d21c7ce74be1c4d46c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/45a9b844348d29d21c7ce74be1c4d46c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/0af49aa955be3534fdfc4de8956cd80f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/0af49aa955be3534fdfc4de8956cd80f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9e7325719715a22d04c4bbed33fb231d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9e7325719715a22d04c4bbed33fb231d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/fb5e4b9d18c5494024328ae04313806f/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/fb5e4b9d18c5494024328ae04313806f/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/918bd88ab03da84ed42ece41dea9d96b/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/918bd88ab03da84ed42ece41dea9d96b/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/ec3e677164d8ad6a3de3fe04548c69fd/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/ec3e677164d8ad6a3de3fe04548c69fd/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9db1be3da2875e1d884853057194d21e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9db1be3da2875e1d884853057194d21e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/689e746b900c0bed3468532677bdd1b2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/689e746b900c0bed3468532677bdd1b2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/4dc4317feccc1ac0da66a02ad5739e32/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/4dc4317feccc1ac0da66a02ad5739e32/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/28e83c17c932c93ccac43c5ce298db9b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/28e83c17c932c93ccac43c5ce298db9b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/5c987403d7801f4c9211c0dd39063cf8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/5c987403d7801f4c9211c0dd39063cf8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/46365332a7ff7900c7ca15c74fa7506c/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/46365332a7ff7900c7ca15c74fa7506c/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/a8c7ec6c848f6672c4d52f54561da88f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/a8c7ec6c848f6672c4d52f54561da88f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/f6ec1d0d3ab27a1eff462670acf44b2f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/f6ec1d0d3ab27a1eff462670acf44b2f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/4312feae8994a93c20f2982493fa3890/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/4312feae8994a93c20f2982493fa3890/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/810b0111611b2f77dec659d00ba8984c/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/810b0111611b2f77dec659d00ba8984c/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/dc258277bbc42020d265ac177a119a67/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/dc258277bbc42020d265ac177a119a67/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/971adbd41fb17676a90fb1d616c89fab/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/971adbd41fb17676a90fb1d616c89fab/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/eb6669d4f6297790aea878f92cebbb78/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/eb6669d4f6297790aea878f92cebbb78/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/8755927bfe0141d123234486cdd99c47/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/8755927bfe0141d123234486cdd99c47/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/0171445a160163b7d5fca409d40d28a5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/0171445a160163b7d5fca409d40d28a5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9b60930d7ce508be4098587fc2a5f3a6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/9b60930d7ce508be4098587fc2a5f3a6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/00e7444e1eb87be16a39905da911fd1d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/00e7444e1eb87be16a39905da911fd1d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/ee9eb51ef4b800adaa8de090418ba9f0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/ee9eb51ef4b800adaa8de090418ba9f0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/4fb61d0b965fc6976046b67ef7054e87/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/4fb61d0b965fc6976046b67ef7054e87/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/81cc465ede1353b11475a4c530748697/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/81cc465ede1353b11475a4c530748697/AndroidManifest.xml:5:5-7:41
+INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml
+INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml
 	android:targetSdkVersion
 		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml
-uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-IMPLIED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
-uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
-uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
+		INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml:5:5-77
+	android:name
+		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml:5:22-75
+uses-permission#android.permission.CAMERA
+ADDED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:9:5-65
+	android:name
+		ADDED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:9:22-62
+uses-feature#android.hardware.camera
+ADDED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:11:5-13:36
+	android:required
+		ADDED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:13:9-33
+	android:name
+		ADDED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:12:9-47
+uses-feature#android.hardware.camera.autofocus
+ADDED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:14:5-16:36
+	android:required
+		ADDED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:16:9-33
+	android:name
+		ADDED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:15:9-57
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:24:13-58
