@@ -4,6 +4,7 @@ import userInstance from '../Globals/globalUser';
 import { Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 export default class SignUpScreen extends Component{
+
   constructor(props){
     super(props);
     this.state={
@@ -58,7 +59,7 @@ export default class SignUpScreen extends Component{
           </ScrollView>
         </Modal>
         <View style={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-            <Image source={require("../Assets/path1017.png")} style={{height:80,width:80}} />
+            <Image style={{height:80,width:80}} source={require("../Assets/path1017.png")} />
             <Text style={{fontSize:25,color:'rgb(237, 237, 237)'}}>Kayıt Formu</Text>
         </View>
         <TextInput

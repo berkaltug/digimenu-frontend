@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {StyleSheet,View,Text,ScrollView,TouchableOpacity,Image,Modal,AsyncStorage,ActivityIndicator,Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 import {NavigationActions} from 'react-navigation';
 import CartScreen from './CartScreen';
 import cartInstance from '../Globals/globalCart';
 import base64 from 'base-64';
 import LinearGradient from 'react-native-linear-gradient';
+import NumericInput from 'react-native-numeric-input';
 import {Collapse,CollapseHeader, CollapseBody, AccordionList} from 'accordion-collapse-react-native';
 import _ from 'lodash';
 
@@ -18,9 +18,11 @@ export default class MenuScreen extends Component{
     super(props);
     this.state={
       modalVisible:false,
-      menuItem: [],
+      menuItem: {},
+      cartArr:new Array(),
       menuArr:new Array(),
-      isLoading:false
+      isLoading:false,
+      amount:1
     }
   }
 
@@ -94,7 +96,7 @@ async getWaitress(){
       <View style={styles.container}>
 
       <ScrollView >
-      <Image style={{width:300,height:128,margin:5}} source={require("../Assets/whitelogo.png")}/>
+      <Image style={{width:300,height:128,margin:7}} source={require("../Assets/whitelogo.png")}/>
       <Text style={{fontSize:22,fontWeight:'bold',color:'rgb(237, 237, 237)'}}>Menü</Text>
       <ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
       <TouchableOpacity onPress={()=>{this.getWaitress()}} style={styles.waitressbutton}>
@@ -124,17 +126,14 @@ async getWaitress(){
                               </View>
                               <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'rgb(237, 237, 237)',fontSize:18,marginLeft:'auto'}}>{item.price} ₺</Text>
                               <TouchableOpacity key={Math.floor(Math.random() * 10000) + 1} style={styles.addbutton} onPress={
-                                  ()=>{this.setModal(true);
-                                    var menuitem={id:item.id,
+                                  ()=>{
+                                      var menuitem={id:item.id,
                                       item:item.item,
                                       ingredients:item.ingredients,
                                       price:item.price,
                                       category:item.category};
-
-
-                                      global.cart.push(menuitem);
-                                      console.log(item.item);
-                                      this.setState({menuItem:global.cart});
+                                      this.setModal(true);
+                                      this.setState({menuItem:menuitem});
                                     }}>
                                   <Text key={Math.floor(Math.random() * 10000) + 1}> <Icon name='plus' color='#d7263d'/> </Text>
                                 </TouchableOpacity>
@@ -152,7 +151,7 @@ async getWaitress(){
        )
     }
 
-            </ScrollView>
+    </ScrollView>
       <Modal
       animationType="slide"
       transparent={false}
@@ -163,12 +162,18 @@ async getWaitress(){
         <View style={styles.addcontainer}>
         <Text style={{fontSize:25,fontWeight:'bold',flex:1,margin:3,textAlign:'center'}}>Sepete Eklemek İstediğinizden Emin Misiniz ?</Text>
           <View style={{flex:1,flexDirection:'row',justifyContent:'space-around',margin:3}}>
-
+            <NumericInput
+            initValue={1}
+            minValue={1}
+            maxValue={15}
+            onChange={value => {this.setState({amount:value});
+                                console.log(this.state.amount)}}
+            />
             <TouchableOpacity style={styles.addcontainerbutton2}
              onPress={()=>{
-               this.setModal(false);
-               // en son ekleneni globalden çıkar
-               global.cart.pop();
+               this.setModal(false)
+               // en son ekleneni state'ten çıkar
+               this.setState({menuItem:{}})
              }}>
             <Text style={{fontSize:16}}>İptal</Text>
             </TouchableOpacity>
@@ -176,9 +181,15 @@ async getWaitress(){
             <TouchableOpacity style={styles.addcontainerbutton}
             onPress={() => {
               this.setModal(false);
+              let arr=[];
+              for(let i=0;i<this.state.amount;i++){
+                arr.push(this.state.menuItem);
+              }
+              this.setState({cartArr:arr});
+              console.log(arr);
               this.props.navigation.dispatch(NavigationActions.setParams({
-			             params: { mycart: this.state.menuItem },
-			                key: "Cart",
+			             params: { mycart:arr},
+			                key: "Sepet",
                     }));
             }}>
             <Text style={{fontSize:16}}>Sepete Ekle</Text>

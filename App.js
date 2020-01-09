@@ -32,19 +32,16 @@ const AuthNavigator = createStackNavigator(
     ForgetPassword:ForgetPasswordScreen
   },
   {
-    defaultNavigationOptions:{
-      headerStyle:{
-        backgroundColor:'rgb(226, 54, 45)'
-      }
-    }
+    headerMode:'none',
+    header:null
   }
 );
 
 const MenuNavigator = createBottomTabNavigator(
   {
     Menu:MenuScreen,
-    Cart:CartScreen,
-    Options:OptionScreen
+    Sepet:CartScreen,
+    Ayarlar:OptionScreen
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -53,17 +50,16 @@ const MenuNavigator = createBottomTabNavigator(
         let iconName;
         if (routeName === 'Menu') {
           iconName = `list-alt`;
-        } else if (routeName === 'Cart') {
+        } else if (routeName === 'Sepet') {
           iconName = `shopping-cart`;
-        }else if(routeName ==='Options'){
+        }else if(routeName ==='Ayarlar'){
           iconName=`gears`;
         }
 
         // You can return any component that you like here! We usually use an
         // icon component from react-native-vector-icons
         return <Icon name={iconName} size={horizontal ? 20 : 25} color={tintColor} />;
-    },
-
+    }
     }),
     tabBarOptions: {
       activeTintColor: 'tomato',
@@ -77,6 +73,10 @@ const MenuNavigator = createBottomTabNavigator(
     {
       Qr:QrScreen,
       Menu:MenuNavigator
+    },
+    {
+        headerMode:'none',
+        header:null
     }
   );
 const MainNavigator = createSwitchNavigator(

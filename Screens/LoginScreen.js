@@ -6,6 +6,7 @@ import userInstance from '../Globals/globalUser';
 import base64 from 'base-64';
 import LinearGradient from 'react-native-linear-gradient';
 export default class LoginScreen extends Component{
+
     constructor(props){
       super(props);
       this.state = {

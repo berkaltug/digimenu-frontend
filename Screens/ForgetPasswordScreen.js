@@ -4,6 +4,7 @@ import userInstance from '../Globals/globalUser';
 import { Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 export default class ForgetPasswordScreen extends Component{
+
   constructor(props){
     super(props);
     this.state={

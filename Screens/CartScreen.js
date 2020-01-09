@@ -17,22 +17,11 @@ export default class CartScreen extends Component{
     };
   }
 
-
-
-componentWillReceiveProps(nextProps){
-    //this.state.sepetim.push(this.props.navigation.getParam('mycart'));
-    this.forceUpdate();
-}
-
-shouldComponentUpdate(){
-  return true;
-}
-
-async sendOrder(){
+  async sendOrder(){
   var URL=global.URL[0]+"//"+global.URL[2]+"/table_orders/"+global.resNo+"/"+global.masaNo;
+  let sepet=global.cart; //değişkene atamadan fetch te kullanılamıyor
   var token = await AsyncStorage.getItem('userToken');
   var tokenStr=JSON.parse(token);
-  console.log(URL);
   this.setState({isLoading:true});
   await fetch(URL, {
     method: 'POST',
@@ -41,50 +30,56 @@ async sendOrder(){
       'Content-Type': 'application/json',
       'Authorization' : 'Basic ' + tokenStr
     },
-    body: JSON.stringify( this.state.sepetim ),
+    body:JSON.stringify(this.state.sepetim),
+  }).then(function(response){
+    console.log(response)
   });
  this.setState({isLoading:false});
 }
 
+
+shouldComponentUpdate(){
+  return true;
+}
   render(){
-    this.state.sepetim=this.props.navigation.getParam('mycart');
+    this.state.sepetim.push(this.props.navigation.getParam('mycart'));
+    console.log("-----cart screen içinde sepetim" + this.state.sepetim)
     return(
     <LinearGradient colors={['rgb(226, 54, 45)','rgb(245, 193, 153)']} style={{flex:1}}>
       <View style={styles.container}>
         <Text style={styles.textshadow}>Sepetim</Text>
         <View style={styles.sepet}>
         {
-          cart.map((item,index)=>{
-            console.log('cart screen cart');
-            console.log(global.cart);
+          this.state.sepetim.map((item,index)=>{
             return (<View key={Math.floor(Math.random() * 10000) + 1} style={styles.cartrow}>
             <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:19}}>{item.item}</Text>
             <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:19,marginLeft:'auto'}}>{item.price} ₺</Text>
             </View>
           );
         })
-        }
+       }
         </View>
         <ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
         <View style={{flex:1/2,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
-        <TouchableOpacity style={styles.sepetbosaltbutton} onPress={()=>{
-          global.cart=[];
-          this.setState({sepetim:global.cart});
 
-        }}>
-        <Text style={{color:'rgb(237,237,237)',fontSize:17}}>Sepeti Boşalt</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.sepetonaybutton} onPress={  ()=>{
-          if(global.cart.length==0){
-            alert('Sepetiniz Boş');
-          }else{
-            global.cart=[];
-            this.sendOrder();
-            this.setState({modalVisible:true,sepetim:global.cart});
-          }
-        }}>
-          <Text style={{color:'rgb(237,237,237)',fontSize:17}}>Sipariş Ver</Text>
-        </TouchableOpacity>
+            <TouchableOpacity style={styles.sepetbosaltbutton} onPress={()=>{
+            this.setState({sepetim:[]})
+            }}>
+                  <Text style={{color:'rgb(237,237,237)',fontSize:17}}>Sepeti Boşalt</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.sepetonaybutton} onPress={  ()=>{
+              if(this.state.sepetim==0){
+                alert('Sepetiniz Boş');
+              }else{
+                this.sendOrder();
+                this.setState({modalVisible:true});
+                this.setState({sepetim:[]});
+              }
+            }}>
+                  <Text style={{color:'rgb(237,237,237)',fontSize:17}}>Sipariş Ver</Text>
+            </TouchableOpacity>
+
         </View>
 
 
