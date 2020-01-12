@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react';
 import React, {Component} from 'react';
 import {StyleSheet,View,Text,ScrollView,TouchableOpacity,Image,Modal,AsyncStorage,ActivityIndicator,Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -9,9 +10,10 @@ import LinearGradient from 'react-native-linear-gradient';
 import NumericInput from 'react-native-numeric-input';
 import {Collapse,CollapseHeader, CollapseBody, AccordionList} from 'accordion-collapse-react-native';
 import _ from 'lodash';
+import CartStore from '../Store/CartStore';
+import CounterStore from '../Store/CounterStore';
 
-var sepet=[];
-
+@observer
 export default class MenuScreen extends Component{
 
   constructor(props){
@@ -34,7 +36,7 @@ export default class MenuScreen extends Component{
 
   async getItems() {
     var URL=global.URL[0]+"//"+global.URL[2]+"/"+global.URL[3]+"/"+global.resNo;
-    // console.log(URL);
+     console.log(URL);
     this.setState({isLoading:true});
     var token = await AsyncStorage.getItem('userToken');
     var tokenStr=JSON.parse(token);
@@ -51,6 +53,7 @@ export default class MenuScreen extends Component{
         return res.json();
     })
     .then(function(data){
+      console.log(data)
         return data;
     });
     this.setState({isLoading:false});
@@ -74,15 +77,6 @@ async getWaitress(){
   }).catch(function(err){
         Alert.alert('Sunucuda bir sorun oluştu');
   });
-  }
-
-  //calısmıyor
-  componentWillReceiveProps(nextProps){
-      this.forceUpdate();
-  }
-
-  shouldComponentUpdate(){
-    return true;
   }
 
   setModal(visible){
@@ -127,13 +121,8 @@ async getWaitress(){
                               <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'rgb(237, 237, 237)',fontSize:18,marginLeft:'auto'}}>{item.price} ₺</Text>
                               <TouchableOpacity key={Math.floor(Math.random() * 10000) + 1} style={styles.addbutton} onPress={
                                   ()=>{
-                                      var menuitem={id:item.id,
-                                      item:item.item,
-                                      ingredients:item.ingredients,
-                                      price:item.price,
-                                      category:item.category};
+                                      CartStore.setMenuItem(item);
                                       this.setModal(true);
-                                      this.setState({menuItem:menuitem});
                                     }}>
                                   <Text key={Math.floor(Math.random() * 10000) + 1}> <Icon name='plus' color='#d7263d'/> </Text>
                                 </TouchableOpacity>
@@ -166,14 +155,13 @@ async getWaitress(){
             initValue={1}
             minValue={1}
             maxValue={15}
-            onChange={value => {this.setState({amount:value});
-                                console.log(this.state.amount)}}
+            onChange={value => CounterStore.setCount(value) }
             />
             <TouchableOpacity style={styles.addcontainerbutton2}
              onPress={()=>{
-               this.setModal(false)
-               // en son ekleneni state'ten çıkar
-               this.setState({menuItem:{}})
+               this.setModal(false);
+               CounterStore.setCount(1);
+               CartStore.setMenuItem({});
              }}>
             <Text style={{fontSize:16}}>İptal</Text>
             </TouchableOpacity>
@@ -181,16 +169,8 @@ async getWaitress(){
             <TouchableOpacity style={styles.addcontainerbutton}
             onPress={() => {
               this.setModal(false);
-              let arr=[];
-              for(let i=0;i<this.state.amount;i++){
-                arr.push(this.state.menuItem);
-              }
-              this.setState({cartArr:arr});
-              console.log(arr);
-              this.props.navigation.dispatch(NavigationActions.setParams({
-			             params: { mycart:arr},
-			                key: "Sepet",
-                    }));
+              CartStore.pushCart(CartStore.menuItem,CounterStore.count);
+              CounterStore.setCount(1);
             }}>
             <Text style={{fontSize:16}}>Sepete Ekle</Text>
             </TouchableOpacity>

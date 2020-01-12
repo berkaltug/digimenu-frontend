@@ -1,10 +1,13 @@
+import { observer } from 'mobx-react';
 import React, {Component} from 'react';
-import {View,Text,StyleSheet,TouchableOpacity,Modal,Image,AsyncStorage,ActivityIndicator} from 'react-native';
+import {View,Text,StyleSheet,TouchableOpacity,Modal,Image,AsyncStorage,ActivityIndicator,ScrollView} from 'react-native';
 import MenuScreen from './MenuScreen';
 import {NavigationActions} from 'react-navigation';
 import cartInstance from '../Globals/globalCart';
 import LinearGradient from 'react-native-linear-gradient';
+import CartStore from '../Store/CartStore';
 
+@observer
 export default class CartScreen extends Component{
 
   constructor(props){
@@ -30,27 +33,22 @@ export default class CartScreen extends Component{
       'Content-Type': 'application/json',
       'Authorization' : 'Basic ' + tokenStr
     },
-    body:JSON.stringify(this.state.sepetim),
+    body:JSON.stringify(CartStore.cart),
   }).then(function(response){
     console.log(response)
   });
  this.setState({isLoading:false});
 }
 
-
-shouldComponentUpdate(){
-  return true;
-}
   render(){
-    this.state.sepetim.push(this.props.navigation.getParam('mycart'));
-    console.log("-----cart screen içinde sepetim" + this.state.sepetim)
     return(
     <LinearGradient colors={['rgb(226, 54, 45)','rgb(245, 193, 153)']} style={{flex:1}}>
       <View style={styles.container}>
         <Text style={styles.textshadow}>Sepetim</Text>
         <View style={styles.sepet}>
+        <ScrollView>
         {
-          this.state.sepetim.map((item,index)=>{
+          CartStore.cart.map((item,index)=>{
             return (<View key={Math.floor(Math.random() * 10000) + 1} style={styles.cartrow}>
             <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:19}}>{item.item}</Text>
             <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:19,marginLeft:'auto'}}>{item.price} ₺</Text>
@@ -58,23 +56,24 @@ shouldComponentUpdate(){
           );
         })
        }
-        </View>
+      </ScrollView>
+      </View>
         <ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
         <View style={{flex:1/2,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
 
-            <TouchableOpacity style={styles.sepetbosaltbutton} onPress={()=>{
-            this.setState({sepetim:[]})
+            <TouchableOpacity style={styles.sepetbosaltbutton} onPress={ ()=>{
+                CartStore.flushCart();
             }}>
                   <Text style={{color:'rgb(237,237,237)',fontSize:17}}>Sepeti Boşalt</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.sepetonaybutton} onPress={  ()=>{
-              if(this.state.sepetim==0){
+            <TouchableOpacity style={styles.sepetonaybutton} onPress={ async () => {
+              if(CartStore.cart.length==0){
                 alert('Sepetiniz Boş');
               }else{
-                this.sendOrder();
+                await this.sendOrder();
                 this.setState({modalVisible:true});
-                this.setState({sepetim:[]});
+                CartStore.flushCart();
               }
             }}>
                   <Text style={{color:'rgb(237,237,237)',fontSize:17}}>Sipariş Ver</Text>
