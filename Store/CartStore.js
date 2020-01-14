@@ -10,6 +10,11 @@ class CartStore{
       }
   }
 
+  @action removeItem = (item)=>{
+      let index = this.cart.indexOf(item);
+      this.cart.splice(index, 1);
+  }
+
   @action flushCart = () => { this.cart=[] }
 
   @action setMenuItem = (obj) => { this.menuItem=obj }

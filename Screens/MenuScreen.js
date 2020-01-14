@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react';
 import React, {Component} from 'react';
-import {StyleSheet,View,Text,ScrollView,TouchableOpacity,Image,Modal,AsyncStorage,ActivityIndicator,Alert} from 'react-native';
+import {StyleSheet,View,Text,TextInput,ScrollView,TouchableOpacity,Image,Modal,AsyncStorage,ActivityIndicator,Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {NavigationActions} from 'react-navigation';
 import CartScreen from './CartScreen';
@@ -115,10 +115,10 @@ async getWaitress(){
 
                         <View key={Math.floor(Math.random() * 10000) + 1} style={styles.optionbutton}>
                               <View key={Math.floor(Math.random() * 10000) + 1} style={{}}>
-                                <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'rgb(237, 237, 237)',fontSize:18}}>{item.item}</Text>
-                                <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'rgb(237, 237, 237)',fontSize:14}}>{item.ingredients}</Text>
-                              </View>
-                              <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'rgb(237, 237, 237)',fontSize:18,marginLeft:'auto'}}>{item.price} ₺</Text>
+                                <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'#E2362D',fontSize:18}}>{item.item}</Text>
+                                <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'#E2362D',fontSize:14}}>{item.ingredients.split}</Text>
+                            </View>
+                              <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'#7B7C00',fontSize:18,marginLeft:'auto', marginRight:10}}>{item.price} ₺</Text>
                               <TouchableOpacity key={Math.floor(Math.random() * 10000) + 1} style={styles.addbutton} onPress={
                                   ()=>{
                                       CartStore.setMenuItem(item);
@@ -149,7 +149,7 @@ async getWaitress(){
       <View style={styles.container}>
         <Text style={{fontSize:40}}>{this.state.menuItem.name}</Text>
         <View style={styles.addcontainer}>
-        <Text style={{fontSize:25,fontWeight:'bold',flex:1,margin:3,textAlign:'center'}}>Sepete Eklemek İstediğinizden Emin Misiniz ?</Text>
+        <Text style={{fontSize:25,fontWeight:'bold',margin:3,textAlign:'center'}}>Sepete Eklemek İstediğinizden Emin Misiniz ?</Text>
           <View style={{flex:1,flexDirection:'row',justifyContent:'space-around',margin:3}}>
             <NumericInput
             initValue={1}
@@ -175,6 +175,9 @@ async getWaitress(){
             <Text style={{fontSize:16}}>Sepete Ekle</Text>
             </TouchableOpacity>
           </View>
+          <View style={{flexDirection:'row',justifyContent:'space-around',margin:5}}>
+            <TextInput multiline={true} numberOfLines={4} placeholder={'Açıklama'} style={{height: 70, width:330, borderColor: 'gray', borderWidth: 1, backgroundColor:'white', borderRadius: 10}}/>
+          </View>
         </View>
       </View>
       </Modal>
@@ -198,17 +201,18 @@ const styles = StyleSheet.create({
     alignItems:'center',
     width:320,
     elevation:4,
-    backgroundColor:'darkgray',
+    backgroundColor:'#ffffff',
     margin:5,
     padding:2,
-    height:50
+    minHeight:50,
+    borderRadius: 5
   },
   collapseHeader:{
     flex:1,
     alignItems:'center',
     width:320,
     elevation:4,
-    backgroundColor:'rgb(105, 105, 105)',
+    backgroundColor:'#664D8C',
     margin:5,
     padding:2
   },
@@ -229,7 +233,7 @@ const styles = StyleSheet.create({
     alignItems:'center'
   },
   addcontainer:{
-    flex:1/3,
+    flex:1/2.5,
     backgroundColor:'#f4f2cb',
     borderWidth:2,
     borderRadius:10,
