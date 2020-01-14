@@ -6,6 +6,7 @@ import {NavigationActions} from 'react-navigation';
 import cartInstance from '../Globals/globalCart';
 import LinearGradient from 'react-native-linear-gradient';
 import CartStore from '../Store/CartStore';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 @observer
 export default class CartScreen extends Component{
@@ -51,7 +52,13 @@ export default class CartScreen extends Component{
           CartStore.cart.map((item,index)=>{
             return (<View key={Math.floor(Math.random() * 10000) + 1} style={styles.cartrow}>
             <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:19}}>{item.item}</Text>
-            <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:19,marginLeft:'auto'}}>{item.price} ₺</Text>
+            <Text key={Math.floor(Math.random() * 10000) + 1} style={{fontSize:19,marginLeft:'auto', marginRight:20}}>{item.price} ₺</Text>
+            <TouchableOpacity key={Math.floor(Math.random() * 10000) + 1} style={styles.removeButton} onPress={
+                ()=>{
+                    CartStore.removeItem(item);
+                  }}>
+                <Text key={Math.floor(Math.random() * 10000) + 1}> <Icon name='close' color='#d7263d'/> </Text>
+              </TouchableOpacity>
             </View>
           );
         })
@@ -140,6 +147,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor:'#048223',
     margin:10
+  },
+  removeButton:{
+    backgroundColor:'rgb(237, 237, 237)',
+    elevation:12,
+    margin:3,
+    padding:3,
+    borderRadius:50,
+    width:26,
+    height:26,
+    justifyContent:'center',
+    alignItems:'center'
   },
   sepetbosaltbutton:{
     width:110,
