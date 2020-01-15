@@ -31,7 +31,8 @@ export default class MenuScreen extends Component{
   //menuyu çek
   // _.groupBy lodash kütüphanesinde reduce fonk kullanan hazır bir fonk direk internetten bulduk
   async componentWillMount(){
-    this.setState({menuArr: _.groupBy(await this.getItems(),'category')});
+    let response=await this.getItems();
+    this.setState({menuArr: _.groupBy(response.items,'category')});
   }
 
   async getItems() {
@@ -53,10 +54,10 @@ export default class MenuScreen extends Component{
         return res.json();
     })
     .then(function(data){
-      console.log(data)
-        return data;
+        return data;TextView
     });
     this.setState({isLoading:false});
+    console.log(response);
     return response;
 
 }
@@ -83,6 +84,17 @@ async getWaitress(){
     this.setState({modalVisible:visible});
   }
 
+  convertRequestItem(item){
+    return {
+        "id": item.id,
+        "item": item.item,
+        "ingredients": item.ingredients,
+        "price": item.price,
+        "category": item.category,
+         "message": ""
+    }
+  }
+
 
   render(){
     return(
@@ -92,40 +104,46 @@ async getWaitress(){
       <ScrollView >
       <Image style={{width:300,height:128,margin:7}} source={require("../Assets/whitelogo.png")}/>
       <Text style={{fontSize:22,fontWeight:'bold',color:'rgb(237, 237, 237)'}}>Menü</Text>
-      <ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
+
       <TouchableOpacity onPress={()=>{this.getWaitress()}} style={styles.waitressbutton}>
-        <Text style={{color:'rgb(203, 102, 102)'}}> Garson Çağır </Text>
+        <Text style={{color:'rgb(235, 235, 235)',fontWeight:'bold'}}> Garson Çağır  </Text><Icon name='hand-o-up' size={25} style={{color:'rgb(235, 235, 235)'}}/>
       </TouchableOpacity>
+
+      <ActivityIndicator animating={this.state.isLoading} size="large" color="#0000ff" />
 
       {
         Object.keys(this.state.menuArr).map((category,index)=>{
           return (
               <Collapse key={Math.floor(Math.random() * 10000) + 1}>
+
                 <CollapseHeader key={Math.floor(Math.random() * 10000) + 1} style={styles.collapseHeader}>
-                    <View key={Math.floor(Math.random() * 10000) + 1} >
-
+                    <View key={Math.floor(Math.random() * 10000) + 1}>
                       <Text style={styles.categoryHeader}> {category} </Text>
-
                     </View>
                 </CollapseHeader>
+
                 <CollapseBody key={Math.floor(Math.random() * 10000) + 1}>
                 {
                     this.state.menuArr[category].map((item,idx)=>{
                     return(
 
                         <View key={Math.floor(Math.random() * 10000) + 1} style={styles.optionbutton}>
-                              <View key={Math.floor(Math.random() * 10000) + 1} style={{}}>
-                                <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'#E2362D',fontSize:18}}>{item.item}</Text>
-                                <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'#E2362D',fontSize:14}}>{item.ingredients.split}</Text>
-                            </View>
-                              <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'#7B7C00',fontSize:18,marginLeft:'auto', marginRight:10}}>{item.price} ₺</Text>
-                              <TouchableOpacity key={Math.floor(Math.random() * 10000) + 1} style={styles.addbutton} onPress={
-                                  ()=>{
-                                      CartStore.setMenuItem(item);
-                                      this.setModal(true);
-                                    }}>
-                                  <Text key={Math.floor(Math.random() * 10000) + 1}> <Icon name='plus' color='#d7263d'/> </Text>
-                                </TouchableOpacity>
+
+                              <View key={Math.floor(Math.random() * 10000) + 1} style={{flex:3}}>
+                                  <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'#E2362D',fontSize:18}}>{item.item}</Text>
+                                  <Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'#E2362D',fontSize:14}}>{item.ingredients}</Text>
+                              </View>
+                              <View key={Math.floor(Math.random() * 10000) + 1} style={{flex:1,flexDirection:'row',justfyContent:'flex-end', alignItems:'center'}}>
+                                <View style={{marginLeft:'auto'}}><Text key={Math.floor(Math.random() * 10000) + 1} style={{color:'#7B7C00',fontSize:16}}>{item.price} ₺</Text></View>
+                                <TouchableOpacity key={Math.floor(Math.random() * 10000) + 1} style={styles.addbutton} onPress={
+                                    ()=>{
+                                        CartStore.setMenuItem(this.convertRequestItem(item));
+                                        this.setModal(true);
+                                      }}>
+                                    <Text key={Math.floor(Math.random() * 10000) + 1}> <Icon name='plus' color='#d7263d'/> </Text>
+                                  </TouchableOpacity>
+                              </View>
+
                             </View>
 
                     );
@@ -146,17 +164,23 @@ async getWaitress(){
       transparent={false}
       visible={this.state.modalVisible}
       onRequestClose={() => {}}>
+      <LinearGradient colors={['rgb(226, 54, 45)','rgb(245, 193, 153)']} style={{flex:1}}>
       <View style={styles.container}>
-        <Text style={{fontSize:40}}>{this.state.menuItem.name}</Text>
+        <Text style={{fontSize:30}}>{CartStore.menuItem.item}</Text>
         <View style={styles.addcontainer}>
         <Text style={{fontSize:25,fontWeight:'bold',margin:3,textAlign:'center'}}>Sepete Eklemek İstediğinizden Emin Misiniz ?</Text>
-          <View style={{flex:1,flexDirection:'row',justifyContent:'space-around',margin:3}}>
+            <View>
+              <Text>Adet:</Text>
+            </View>
             <NumericInput
             initValue={1}
             minValue={1}
             maxValue={15}
             onChange={value => CounterStore.setCount(value) }
             />
+          <View style={{flex:1,flexDirection:'row',justifyContent:'space-between',margin:3}}>
+
+          <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
             <TouchableOpacity style={styles.addcontainerbutton2}
              onPress={()=>{
                this.setModal(false);
@@ -165,7 +189,8 @@ async getWaitress(){
              }}>
             <Text style={{fontSize:16}}>İptal</Text>
             </TouchableOpacity>
-
+            </View>
+            <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
             <TouchableOpacity style={styles.addcontainerbutton}
             onPress={() => {
               this.setModal(false);
@@ -174,12 +199,19 @@ async getWaitress(){
             }}>
             <Text style={{fontSize:16}}>Sepete Ekle</Text>
             </TouchableOpacity>
+            </View>
           </View>
-          <View style={{flexDirection:'row',justifyContent:'space-around',margin:5}}>
-            <TextInput multiline={true} numberOfLines={4} placeholder={'Açıklama'} style={{height: 70, width:330, borderColor: 'gray', borderWidth: 1, backgroundColor:'white', borderRadius: 10}}/>
-          </View>
+            <TextInput multiline={true}
+                        numberOfLines={4}
+                        maxLength={140}
+                        defaultValue="" //gerekli yoksa menuitem.message null set eder restoran ekranını patlatır
+                        placeholder={'Özel isteğiniz varsa burada belirtiniz.'}
+                        style={{height: 70, width:330, borderColor: 'gray', borderWidth: 1, backgroundColor:'white', borderRadius: 10}}
+                        onChangeText={text=>{CartStore.menuItem.message=text}}
+            />
         </View>
       </View>
+      </LinearGradient>
       </Modal>
 
       </View>
@@ -201,7 +233,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
     width:320,
     elevation:4,
-    backgroundColor:'#ffffff',
+    backgroundColor:'#f9f7f5',
     margin:5,
     padding:2,
     minHeight:50,
@@ -212,14 +244,18 @@ const styles = StyleSheet.create({
     alignItems:'center',
     width:320,
     elevation:4,
-    backgroundColor:'#664D8C',
+    backgroundColor:'#e87159',
     margin:5,
-    padding:2
+    padding:2,
+    borderRadius:5,
+    borderBottomWidth:2,
+    borderRightWidth:1,
+    borderColor:'#af5a49'
   },
   categoryHeader:{
     fontSize:19,
     fontStyle:'italic',
-    color:'rgb(237, 237, 237)',
+    color:'rgb(235, 235, 235)',
   },
   addbutton:{
     backgroundColor:'rgb(237, 237, 237)',
@@ -234,12 +270,12 @@ const styles = StyleSheet.create({
   },
   addcontainer:{
     flex:1/2.5,
-    backgroundColor:'#f4f2cb',
-    borderWidth:2,
-    borderRadius:10,
-    borderColor:'grey',
-    justifyContent:'space-between',
-    width:350
+    backgroundColor:'#f4e2ca',
+    flexDirection:'column',
+    justifyContent:'center',
+    alignItems:'center',
+    width:350,
+    elevation:5
   },
   addcontainerbutton:{
     width:90,
@@ -247,7 +283,8 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     backgroundColor:'#95f98e',
-    borderRadius:3
+    borderRadius:3,
+    elevation:3
   },
   addcontainerbutton2:{
     width:90,
@@ -255,13 +292,15 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     backgroundColor:'tomato',
-    borderRadius:3
+    borderRadius:3,
+    elevation:3
   },
   waitressbutton:{
     width:320,
     height:40,
-    backgroundColor:'rgb(249, 244, 147)',
+    backgroundColor:'#e19c8e',
     elevation:8,
+    flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',
     margin:5,

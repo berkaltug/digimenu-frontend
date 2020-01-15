@@ -96,11 +96,7 @@ export default class QrCodeCamera extends Component {
               <Text>Demo Button</Text>
             </TouchableOpacity>
             */}
-            <TouchableOpacity style={styles.choicebutton2} onPress={()=>{}}>
-              <Text style={{fontSize: 26,fontWeight:'bold'}}>Restorana</Text>
-              <Text style={{fontSize: 26,fontWeight:'bold'}}>Gidiyorum</Text>
-              <Text>(Çok Yakında)</Text>
-            </TouchableOpacity>
+
             <TouchableOpacity style={styles.choicebutton3} onPress={this._signOutAsync}>
               <Text style={{fontSize:18,fontWeight:'bold'}}>Çıkış Yap</Text>
             </TouchableOpacity>
@@ -186,12 +182,13 @@ const styles = {
     width:220
   },
   choicebutton3:{
-    flex:1,
+    flex:0.5,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor:'#015eaa',
     margin:10,
     borderRadius:10,
-    width:150
+    width:150,
+
   }
 };

@@ -7,6 +7,7 @@ import cartInstance from '../Globals/globalCart';
 import LinearGradient from 'react-native-linear-gradient';
 import CartStore from '../Store/CartStore';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import OrderRequest from '../Entity/OrderRequest';
 
 @observer
 export default class CartScreen extends Component{
@@ -23,9 +24,11 @@ export default class CartScreen extends Component{
 
   async sendOrder(){
   var URL=global.URL[0]+"//"+global.URL[2]+"/table_orders/"+global.resNo+"/"+global.masaNo;
-  let sepet=global.cart; //değişkene atamadan fetch te kullanılamıyor
   var token = await AsyncStorage.getItem('userToken');
-  var tokenStr=JSON.parse(token);
+  var tokenStr = JSON.parse(token);
+  var request=new OrderRequest();
+  request.items=CartStore.cart;
+  request.kampanya=[];
   this.setState({isLoading:true});
   await fetch(URL, {
     method: 'POST',
@@ -34,9 +37,8 @@ export default class CartScreen extends Component{
       'Content-Type': 'application/json',
       'Authorization' : 'Basic ' + tokenStr
     },
-    body:JSON.stringify(CartStore.cart),
+    body:JSON.stringify(request),
   }).then(function(response){
-    console.log(response)
   });
  this.setState({isLoading:false});
 }
