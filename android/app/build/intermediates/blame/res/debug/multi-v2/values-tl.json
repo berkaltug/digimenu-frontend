@@ -21,6 +21,23 @@
                     }
                 },
                 {
+                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/b066a51892744612cf61cef8a711d477/res/values-tl/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "204",
+                        "endOffsets": "451"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "4062",
+                        "endColumns": "204",
+                        "endOffsets": "4262"
+                    }
+                },
+                {
                     "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/46365332a7ff7900c7ca15c74fa7506c/res/values-tl/values-tl.xml",
                     "from": {
                         "startLines": "2",
@@ -38,24 +55,7 @@
                     }
                 },
                 {
-                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/res/values-tl/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "204",
-                        "endOffsets": "451"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "4062",
-                        "endColumns": "204",
-                        "endOffsets": "4262"
-                    }
-                },
-                {
-                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/res/values-tl/values.xml",
+                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/60d046f6616adea30aad214a8fa4d867/res/values-tl/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",

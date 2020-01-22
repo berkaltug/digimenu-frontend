@@ -5,13 +5,14 @@ import QRCodeScanner from "react-native-qrcode-scanner";
 import Icon from "react-native-vector-icons/Ionicons";
 
 import * as Animatable from "react-native-animatable";
+import { withNavigationFocus } from 'react-navigation';
 
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
 console.disableYellowBox = true;
 
-export default class QrCodeCamera extends Component {
+class QrScreen extends Component {
 
   constructor(props){
     super(props);
@@ -49,63 +50,68 @@ export default class QrCodeCamera extends Component {
     };
 
   render() {
-    return (
-      <QRCodeScanner
-        showMarker
-        onRead={this.onSuccess.bind(this)}
-        cameraStyle={{ height: SCREEN_HEIGHT }}
-        customMarker={
-          <View style={styles.rectangleContainer}>
-            <View style={styles.topOverlay}>
-              <Text style={{ fontSize: 30, color: "white" }}>
-                Lütfen Masada Bulunan Qr Kodu Okutunuz
-              </Text>
-            </View>
-
-            <View style={{ flexDirection: "row" }}>
-              <View style={styles.leftAndRightOverlay} />
-
-              <View style={styles.rectangle}>
-              <Icon
-              name="ios-qr-scanner"
-              size={SCREEN_WIDTH * 0.7}
-              color={iconScanColor}
-              />
-              <Animatable.View
-              style={styles.scanBar}
-              direction="alternate-reverse"
-              iterationCount="infinite"
-              duration={1700}
-              easing="linear"
-              animation={this.makeSlideOutTranslation(
-                "translateY",
-                SCREEN_WIDTH * -0.54
-              )}
-              />
+    if(this.props.isFocused){
+      return (
+        <QRCodeScanner
+          showMarker
+          onRead={this.onSuccess.bind(this)}
+          cameraStyle={{ height: SCREEN_HEIGHT }}
+          customMarker={
+            <View style={styles.rectangleContainer}>
+              <View style={styles.topOverlay}>
+                <Text style={{ fontSize: 30, color: "white" }}>
+                  Lütfen Masada Bulunan Qr Kodu Okutunuz
+                </Text>
               </View>
 
-              <View style={styles.leftAndRightOverlay} />
+              <View style={{ flexDirection: "row" }}>
+                <View style={styles.leftAndRightOverlay} />
+
+                <View style={styles.rectangle}>
+                <Icon
+                name="ios-qr-scanner"
+                size={SCREEN_WIDTH * 0.7}
+                color={iconScanColor}
+                />
+                <Animatable.View
+                style={styles.scanBar}
+                direction="alternate-reverse"
+                iterationCount="infinite"
+                duration={1700}
+                easing="linear"
+                animation={this.makeSlideOutTranslation(
+                  "translateY",
+                  SCREEN_WIDTH * -0.54
+                )}
+                />
+                </View>
+
+                <View style={styles.leftAndRightOverlay} />
+              </View>
+
+
+
+              <View style={styles.bottomOverlay}>
+              {/*
+              <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Menu')}}
+              style={{backgroundColor:'blue',padding:3,marginTop:6}}>
+                <Text>Demo Button</Text>
+              </TouchableOpacity>
+              */}
+
+              <TouchableOpacity style={styles.choicebutton3} onPress={this._signOutAsync}>
+                <Text style={{fontSize:18,fontWeight:'bold'}}>Çıkış Yap</Text>
+              </TouchableOpacity>
+              </View>
             </View>
+          }
+        />
 
+      )
+    }else{
+      return null;
+    }
 
-
-            <View style={styles.bottomOverlay}>
-            {/*
-            <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Menu')}}
-            style={{backgroundColor:'blue',padding:3,marginTop:6}}>
-              <Text>Demo Button</Text>
-            </TouchableOpacity>
-            */}
-
-            <TouchableOpacity style={styles.choicebutton3} onPress={this._signOutAsync}>
-              <Text style={{fontSize:18,fontWeight:'bold'}}>Çıkış Yap</Text>
-            </TouchableOpacity>
-            </View>
-          </View>
-        }
-      />
-
-    );
   }
 }
 
@@ -192,3 +198,4 @@ const styles = {
 
   }
 };
+export default withNavigationFocus(QrScreen);
