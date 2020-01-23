@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react';
 import React, {Component} from 'react';
-import {View,Text,StyleSheet,TouchableOpacity,Modal,Image,AsyncStorage,ActivityIndicator,ScrollView} from 'react-native';
+import {View,Text,StyleSheet,TouchableOpacity,Modal,Image,AsyncStorage,ActivityIndicator,ScrollView,PermissionsAndroid,Platform} from 'react-native';
 import MenuScreen from './MenuScreen';
 import {NavigationActions} from 'react-navigation';
 import cartInstance from '../Globals/globalCart';
@@ -8,7 +8,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import CartStore from '../Store/CartStore';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import OrderRequest from '../Entity/OrderRequest';
-
+import GpsStore from '../Store/GpsStore';
+import Geolocation from 'react-native-geolocation-service';
 @observer
 export default class CartScreen extends Component{
 
@@ -18,8 +19,45 @@ export default class CartScreen extends Component{
       sepetim:[],
       totalbill:0,
       modalVisible:false,
-      isLoading:false
+      isLoading:false,
     };
+  }
+
+  async askGpsPermission(){
+    if(Platform.OS === "android"){
+      await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      {
+        title: 'GPS Bilgisi',
+        message:
+          'Sipariş verebilmeniz için konum servislerini aktif hale getirmeniz gerekmektedir.',
+        buttonNegative: 'İptal',
+        buttonPositive: 'Aç',
+      }
+    )
+  }
+}
+
+getCoordinates(request){
+  if(!PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION)){
+      askGpsPermission();
+  }
+    Geolocation.getCurrentPosition(
+      position => {
+        request.latitude=position.coords.latitude;
+        request.longitude=position.coords.longitude;
+      },
+      error => {
+        console.log(error.code, error.message);
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 15000,
+        maximumAge: 10000,
+        showLocationDialog: true,
+        forceRequestLocation: true
+      }
+    );
   }
 
   async sendOrder(){
@@ -29,6 +67,8 @@ export default class CartScreen extends Component{
   var request=new OrderRequest();
   request.items=CartStore.cart;
   request.kampanya=[];
+  this.getCoordinates(request);
+  console.log(request);
   this.setState({isLoading:true});
   await fetch(URL, {
     method: 'POST',

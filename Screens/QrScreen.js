@@ -7,6 +7,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import * as Animatable from "react-native-animatable";
 import { withNavigationFocus } from 'react-navigation';
 
+
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
