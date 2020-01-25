@@ -54,7 +54,7 @@ export default class MenuScreen extends Component{
         return res.json();
     })
     .then(function(data){
-        return data;TextView
+        return data;
     });
     this.setState({isLoading:false});
     console.log(response);
