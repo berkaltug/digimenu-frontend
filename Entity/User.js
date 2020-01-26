@@ -27,12 +27,18 @@ module.exports = class User{
         password: this.password
       }),
     }).then(function(response){
-      console.log(response);
-          return response;
-    }).then(function(data){
-      console.log(data._bodyText);
-      return data._bodyText;
+      console.log("register response");
+          return response.text();
+    }).then(function(body){
+      return body;
     });
+  }
+
+  signupAjax(){
+      $.ajax({
+        type:'POST'
+
+      })
   }
 
   forgetPassword(){
@@ -46,10 +52,9 @@ module.exports = class User{
       }),
     }).then(function(response){
       console.log(response);
-          return response;
-    }).then(function(data){
-      console.log(data._bodyText);
-      return data._bodyText;
+          return response.text();
+    }).then(function(body){
+        return body;
     });
   }
 
