@@ -22,7 +22,7 @@ import CartStore from "../Store/CartStore";
 import Icon from "react-native-vector-icons/FontAwesome";
 import OrderRequest from "../Entity/OrderRequest";
 import GpsStore from "../Store/GpsStore";
-import Geolocation from "react-native-geolocation-service";
+import Geolocation from "@react-native-community/geolocation";
 @observer
 export default class CartScreen extends Component {
   constructor(props) {
@@ -31,7 +31,10 @@ export default class CartScreen extends Component {
       sepetim: [],
       totalbill: 0,
       modalVisible: false,
-      isLoading: false
+      modalVisible2: false,
+      isLoading: false,
+      latitude:0.0,
+      longitude:0.0
     };
   }
 
@@ -49,27 +52,60 @@ export default class CartScreen extends Component {
     }
   }
 
-  async orderWithCoords(request) {
-    if (true) {
-      await this.askGpsPermission();
-    }
+  async orderWithCoords() {
+    this.setState({ isLoading: true });
+    await this.askGpsPermission();
     Geolocation.getCurrentPosition(
       position => {
-        console.log("gps bilgisi başarılı");
-        this.makeAjax(position);
+        if(position.mocked==true){
+          Alert.alert(
+            "Uyarı",
+            "Görünüşe göre bir vekil konum sunucusu kullanmaktasınız.Sipariş verebilmek için bu sunucuyu kapatmanız gerekmektedir.",
+            [
+              { text: "Kapat", onPress: () => {} }
+            ],
+            { cancelable: false }
+          );
+          this.setState({ isLoading: false });
+        }else{
+          this.makeAjax(position);
+        }
+
       },
       error => {
         Alert.alert("Android system error " + error.code, error.message);
+        this.setState({ isLoading: false });
       },
       {
-        enableHighAccuracy: true,
+        enableHighAccuracy: false,
         timeout: 15000,
-        maximumAge: 10000
+        maximumAge: 5000
       }
     );
+
   }
 
+getCoordsDemo(){
+  Geolocation.getCurrentPosition(
+    position => {
+      console.log(position);
+      this.setState({latitude:position.coords.latitude})
+      this.setState({longitude:position.coords.longitude})
+    },
+    error => {
+      Alert.alert("Android system error " + error.code, error.message);
+    },
+    {
+      enableHighAccuracy: false,
+      timeout: 15000,
+      maximumAge: 3000
+    }
+  );
+  this.setState({modalVisible2:true});
+
+}
   async makeAjax(position) {
+    var local_test="http://192.168.0.14:8080/table_orders/1/10";
     var URL =
       global.URL[0] +
       "//" +
@@ -78,6 +114,7 @@ export default class CartScreen extends Component {
       global.resNo +
       "/" +
       global.masaNo;
+
     var token = await AsyncStorage.getItem("userToken");
     var tokenStr = JSON.parse(token);
     var request = new OrderRequest();
@@ -86,7 +123,8 @@ export default class CartScreen extends Component {
     request.latitude = position.coords.latitude;
     request.longitude = position.coords.longitude;
     console.log(JSON.stringify(request));
-    this.setState({ isLoading: true });
+
+
     await fetch(URL, {
       method: "POST",
       headers: {
@@ -112,7 +150,7 @@ export default class CartScreen extends Component {
         );
       }
     });
-    this.setState({ isLoading: false });
+    this.setState({isLoading:false})
   }
 
   render() {
@@ -204,7 +242,6 @@ export default class CartScreen extends Component {
               </Text>
             </TouchableOpacity>
           </View>
-
           <Modal
             animationType="slide"
             transparent={false}
@@ -212,6 +249,7 @@ export default class CartScreen extends Component {
             onRequestClose={() => {}}
           >
             <View style={styles.container}>
+              <Icon name="check-circle" size={100} style={{color:'rgb(58, 164, 91)'}}/>
               <Text style={{ fontSize: 40 }}>Sipariş Başarılı</Text>
               <TouchableOpacity
                 style={{
@@ -225,6 +263,34 @@ export default class CartScreen extends Component {
                 }}
                 onPress={() => {
                   this.setState({ modalVisible: false });
+                }}
+              >
+                <Text style={{ fontSize: 17 }}>Kapat</Text>
+              </TouchableOpacity>
+            </View>
+          </Modal>
+
+          <Modal
+            animationType="slide"
+            transparent={false}
+            visible={this.state.modalVisible2}
+            onRequestClose={() => {}}
+          >
+            <View style={styles.container}>
+              <Text style={{ fontSize: 20 }}>{this.state.latitude}</Text>
+                <Text style={{ fontSize: 20 }}>{this.state.longitude}</Text>
+              <TouchableOpacity
+                style={{
+                  margin: 50,
+                  width: 90,
+                  height: 40,
+                  backgroundColor: "tomato",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: 10
+                }}
+                onPress={() => {
+                  this.setState({ modalVisible2: false });
                 }}
               >
                 <Text style={{ fontSize: 17 }}>Kapat</Text>
