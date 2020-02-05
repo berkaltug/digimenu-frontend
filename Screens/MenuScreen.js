@@ -11,7 +11,8 @@ import {
   Modal,
   AsyncStorage,
   ActivityIndicator,
-  Alert
+  Alert,
+  PermissionsAndroid
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { NavigationActions } from "react-navigation";
@@ -29,6 +30,9 @@ import {
 import _ from "lodash";
 import CartStore from "../Store/CartStore";
 import CounterStore from "../Store/CounterStore";
+import Geolocation from "@react-native-community/geolocation";
+import WaiterRequest from "../Entity/WaiterRequest";
+import BackgroundTimer from "react-native-background-timer";
 
 @observer
 export default class MenuScreen extends Component {
@@ -40,7 +44,8 @@ export default class MenuScreen extends Component {
       cartArr: new Array(),
       menuArr: new Array(),
       isLoading: false,
-      amount: 1
+      amount: 1,
+      isPressed: false
     };
   }
 
@@ -48,7 +53,8 @@ export default class MenuScreen extends Component {
   // _.groupBy lodash kütüphanesinde reduce fonk kullanan hazır bir fonk direk internetten bulduk
   async componentWillMount() {
     let response = await this.getItems();
-    this.setState({ menuArr: _.groupBy(response.items, "category") });
+    array = _.groupBy(response.items, "category");
+    this.setState({ menuArr: array });
   }
 
   async getItems() {
@@ -64,7 +70,7 @@ export default class MenuScreen extends Component {
     this.setState({ isLoading: true });
     var token = await AsyncStorage.getItem("userToken");
     var tokenStr = JSON.parse(token);
-    //console.log(token);
+
     const response = await fetch(URL, {
       method: "GET",
       headers: {
@@ -84,7 +90,58 @@ export default class MenuScreen extends Component {
     return response;
   }
 
-  async getWaitress() {
+  diff_minutes(dt1, dt2) {
+    return Math.round((dt2 - dt1) / 60000);
+  }
+
+  async getWaitressWithCoords() {
+    if (this.state.isPressed===true) {
+      Alert.alert("Uyarı", "5 dakika içinde bir seferden fazla basamazsınız.", [
+        { text: "Kapat", onPress: () => {} }
+      ]);
+    } else {
+      this.setState({ isLoading: true, isPressed: true });
+      if (Platform.OS === "ios") {
+        BackgroundTimer.start();
+      }
+      BackgroundTimer.setTimeout(() => {
+        this.setState({isPressed:false})
+        if (Platform.OS === "ios") {
+          BackgroundTimer.stop();
+        }
+      }, 60000);
+      await this.askGpsPermission();
+      Geolocation.getCurrentPosition(
+        position => {
+          if (position.mocked == true) {
+            Alert.alert(
+              "Uyarı",
+              "Görünüşe göre bir vekil konum sunucusu kullanmaktasınız.Uygulamayı kullanabilmek için bu sunucuyu kapatmanız gerekmektedir.",
+              [{ text: "Kapat", onPress: () => {} }],
+              { cancelable: false }
+            );
+            this.setState({ isLoading: false });
+          } else {
+            let request = new WaiterRequest();
+            request.latitude = position.coords.latitude;
+            request.longitude = position.coords.longitude;
+            this.makeAjaxWaitress(request);
+          }
+        },
+        error => {
+          Alert.alert("Android Gps Hatası " + error.code, error.message);
+          this.setState({ isLoading: false });
+        },
+        {
+          enableHighAccuracy: false,
+          timeout: 15000,
+          maximumAge: 5000
+        }
+      );
+    }
+  }
+
+  async makeAjaxWaitress(request) {
     var URL =
       global.URL[0] +
       "//" +
@@ -95,19 +152,24 @@ export default class MenuScreen extends Component {
       global.masaNo;
     var token = await AsyncStorage.getItem("userToken");
     var tokenStr = JSON.parse(token);
+    let test_url = "http://192.168.0.14:8080/table_orders/garson/1/5";
     await fetch(URL, {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
         Authorization: "Basic " + tokenStr
-      }
+      },
+      body: JSON.stringify(request)
     })
-      .then(function(res) {
+      .then(res => {
         Alert.alert("İsteğiniz restoran ekranına iletildi");
+        this.setState({ isLoading: false });
       })
-      .catch(function(err) {
+      .catch(err => {
         Alert.alert("Sunucuda bir sorun oluştu");
+        this.setState({ isLoading: false });
+        throw err;
       });
   }
 
@@ -124,6 +186,25 @@ export default class MenuScreen extends Component {
       category: item.category,
       message: ""
     };
+  }
+
+  async askGpsPermission() {
+    if (
+      Platform.OS === "android" &&
+      PermissionsAndroid.check(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+      )
+    ) {
+      await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        {
+          title: "GPS Bilgisi",
+          message:
+            "Garson çağırabilmek için konum \t servislerine izin vermeniz \t gerekmektedir.",
+          buttonPositive: "Aç"
+        }
+      );
+    }
   }
 
   render() {
@@ -149,8 +230,9 @@ export default class MenuScreen extends Component {
             </Text>
 
             <TouchableOpacity
-              onPress={() => {
-                this.getWaitress();
+              onPress={async () => {
+                AsyncStorage.setItem("isPressed", true);
+                await this.getWaitressWithCoords();
               }}
               style={styles.waitressbutton}
             >
@@ -171,82 +253,88 @@ export default class MenuScreen extends Component {
               color="#0000ff"
             />
 
-            {Object.keys(this.state.menuArr).map((category, index) => {
-              return (
-                <Collapse key={Math.floor(Math.random() * 10000) + 1}>
-                  <CollapseHeader
-                    key={Math.floor(Math.random() * 10000) + 1}
-                    style={styles.collapseHeader}
-                  >
-                    <View key={Math.floor(Math.random() * 10000) + 1}>
-                      <Text style={styles.categoryHeader}> {category} </Text>
-                    </View>
-                  </CollapseHeader>
+            {Object.keys(this.state.menuArr)
+              .sort(function(a, b) {
+                return a.localeCompare(b);
+              })
+              .map((category, index) => {
+                return (
+                  <Collapse key={Math.floor(Math.random() * 10000) + 1}>
+                    <CollapseHeader
+                      key={Math.floor(Math.random() * 10000) + 1}
+                      style={styles.collapseHeader}
+                    >
+                      <View key={Math.floor(Math.random() * 10000) + 1}>
+                        <Text style={styles.categoryHeader}> {category} </Text>
+                      </View>
+                    </CollapseHeader>
 
-                  <CollapseBody key={Math.floor(Math.random() * 10000) + 1}>
-                    {this.state.menuArr[category].map((item, idx) => {
-                      return (
-                        <View
-                          key={Math.floor(Math.random() * 10000) + 1}
-                          style={styles.optionbutton}
-                        >
+                    <CollapseBody key={Math.floor(Math.random() * 10000) + 1}>
+                      {this.state.menuArr[category].map((item, idx) => {
+                        return (
                           <View
                             key={Math.floor(Math.random() * 10000) + 1}
-                            style={{ flex: 3 }}
+                            style={styles.optionbutton}
                           >
-                            <Text
+                            <View
                               key={Math.floor(Math.random() * 10000) + 1}
-                              style={{ color: "#E2362D", fontSize: 18 }}
+                              style={{ flex: 3 }}
                             >
-                              {item.item}
-                            </Text>
-                            <Text
-                              key={Math.floor(Math.random() * 10000) + 1}
-                              style={{ color: "#E2362D", fontSize: 14 }}
-                            >
-                              {item.ingredients}
-                            </Text>
-                          </View>
-                          <View
-                            key={Math.floor(Math.random() * 10000) + 1}
-                            style={{
-                              flex: 1,
-                              flexDirection: "row",
-                              justfyContent: "flex-end",
-                              alignItems: "center"
-                            }}
-                          >
-                            <View style={{ marginLeft: "auto" }}>
                               <Text
                                 key={Math.floor(Math.random() * 10000) + 1}
-                                style={{ color: "#7B7C00", fontSize: 16 }}
+                                style={{ color: "#E2362D", fontSize: 18 }}
                               >
-                                {item.price} ₺
+                                {item.item}
+                              </Text>
+                              <Text
+                                key={Math.floor(Math.random() * 10000) + 1}
+                                style={{ color: "#E2362D", fontSize: 14 }}
+                              >
+                                {item.ingredients}
                               </Text>
                             </View>
-                            <TouchableOpacity
+                            <View
                               key={Math.floor(Math.random() * 10000) + 1}
-                              style={styles.addbutton}
-                              onPress={() => {
-                                CartStore.setMenuItem(
-                                  this.convertRequestItem(item)
-                                );
-                                this.setModal(true);
+                              style={{
+                                flex: 1,
+                                flexDirection: "row",
+                                justfyContent: "flex-end",
+                                alignItems: "center"
                               }}
                             >
-                              <Text key={Math.floor(Math.random() * 10000) + 1}>
-                                {" "}
-                                <Icon name="plus" color="#d7263d" />{" "}
-                              </Text>
-                            </TouchableOpacity>
+                              <View style={{ marginLeft: "auto" }}>
+                                <Text
+                                  key={Math.floor(Math.random() * 10000) + 1}
+                                  style={{ color: "#7B7C00", fontSize: 16 }}
+                                >
+                                  {item.price} ₺
+                                </Text>
+                              </View>
+                              <TouchableOpacity
+                                key={Math.floor(Math.random() * 10000) + 1}
+                                style={styles.addbutton}
+                                onPress={() => {
+                                  CartStore.setMenuItem(
+                                    this.convertRequestItem(item)
+                                  );
+                                  this.setModal(true);
+                                }}
+                              >
+                                <Text
+                                  key={Math.floor(Math.random() * 10000) + 1}
+                                >
+                                  {" "}
+                                  <Icon name="plus" color="#d7263d" />{" "}
+                                </Text>
+                              </TouchableOpacity>
+                            </View>
                           </View>
-                        </View>
-                      );
-                    })}
-                  </CollapseBody>
-                </Collapse>
-              );
-            })}
+                        );
+                      })}
+                    </CollapseBody>
+                  </Collapse>
+                );
+              })}
           </ScrollView>
           <Modal
             animationType="slide"
@@ -269,7 +357,7 @@ export default class MenuScreen extends Component {
                     Sepete Eklemek İstediğinizden Emin Misiniz ?
                   </Text>
                   <View style={styles.adetcontainer}>
-                    <Text style={{fontSize:20 }}>Adet Seçimi:</Text>
+                    <Text style={{ fontSize: 20 }}>Adet Seçimi:</Text>
 
                     <NumericInput
                       initValue={1}
@@ -277,34 +365,36 @@ export default class MenuScreen extends Component {
                       maxValue={15}
                       onChange={value => CounterStore.setCount(value)}
                     />
-                    </View>
-                    <View style={styles.buttoncontainer}>
-                  <TouchableOpacity
-                    style={styles.addcontainerbutton2}
-                    onPress={() => {
-                      this.setModal(false);
-                      CounterStore.setCount(1);
-                      CartStore.setMenuItem({});
-                    }}
-                  >
-                    <Text style={{ fontSize: 16 }}>İptal</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    style={styles.addcontainerbutton}
-                    onPress={() => {
-                      this.setModal(false);
-                      CartStore.pushCart(
-                        CartStore.menuItem,
-                        CounterStore.count
-                      );
-                      CounterStore.setCount(1);
-                    }}
-                  >
-                    <Text style={{ fontSize: 16 }}>Sepete Ekle</Text>
-                  </TouchableOpacity>
+                  </View>
+                  <View style={styles.buttoncontainer}>
+                    <TouchableOpacity
+                      style={styles.addcontainerbutton2}
+                      onPress={() => {
+                        this.setModal(false);
+                        CounterStore.setCount(1);
+                        CartStore.setMenuItem({});
+                      }}
+                    >
+                      <Text style={{ fontSize: 16 }}>İptal</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.addcontainerbutton}
+                      onPress={() => {
+                        this.setModal(false);
+                        CartStore.pushCart(
+                          CartStore.menuItem,
+                          CounterStore.count
+                        );
+                        CounterStore.setCount(1);
+                      }}
+                    >
+                      <Text style={{ fontSize: 16 }}>Sepete Ekle</Text>
+                    </TouchableOpacity>
                   </View>
                   <TextInput
-                    placeholder={"Lütfen özel isteğiniz varsa burada belirtiniz."}
+                    placeholder={
+                      "Lütfen özel isteğiniz varsa burada belirtiniz."
+                    }
                     multiline={true}
                     numberOfLines={4}
                     maxLength={140}
@@ -383,13 +473,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    alignSelf:"stretch"
+    alignSelf: "stretch"
   },
   buttoncontainer: {
-    flexDirection:"row",
+    flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    alignSelf:"stretch"
+    alignSelf: "stretch"
   },
   addcontainer: {
     flex: 1 / 1.5,
@@ -399,8 +489,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 350,
     elevation: 5,
-    borderRadius:10,
-    padding:2
+    borderRadius: 10,
+    padding: 2
   },
   addcontainerbutton: {
     width: 90,

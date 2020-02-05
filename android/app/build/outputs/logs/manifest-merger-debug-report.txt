@@ -7,6 +7,7 @@ INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android
 MERGED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:1:1-28:12
 MERGED from [:@react-native-community_geolocation] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/@react-native-community/geolocation/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:@react-native-community_masked-view] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-background-timer] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-background-timer/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-13:12
 MERGED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:2:1-18:12
 MERGED from [:react-native-geolocation-service] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-geolocation-service/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-14:12
 MERGED from [:react-native-gesture-handler] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
@@ -193,6 +194,8 @@ MERGED from [:@react-native-community_geolocation] /home/berk/Desktop/workspace/
 MERGED from [:@react-native-community_geolocation] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/@react-native-community/geolocation/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:@react-native-community_masked-view] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:@react-native-community_masked-view] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-background-timer] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-background-timer/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-background-timer] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-background-timer/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-geolocation-service] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-geolocation-service/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
@@ -329,6 +332,10 @@ uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml:5:5-77
 	android:name
 		ADDED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml:5:22-75
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [:react-native-background-timer] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-background-timer/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-68
+	android:name
+		ADDED from [:react-native-background-timer] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-background-timer/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:22-65
 uses-permission#android.permission.CAMERA
 ADDED from [:react-native-camera] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:9:5-65
 	android:name
