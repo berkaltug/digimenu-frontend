@@ -163,8 +163,17 @@ export default class MenuScreen extends Component {
       body: JSON.stringify(request)
     })
       .then(res => {
+        if(res.status===200){
         Alert.alert("İsteğiniz restoran ekranına iletildi");
         this.setState({ isLoading: false });
+      }else{
+        Alert.alert(
+          "Uyarı",
+          "İsteğinizin iletilebilmesi için restoran içerisinde olmanız gereklidir",
+          [{ text: "Kapat", onPress: () => {} }]
+        );
+        this.setState({ isLoading: false });
+      }
       })
       .catch(err => {
         Alert.alert("Sunucuda bir sorun oluştu");
