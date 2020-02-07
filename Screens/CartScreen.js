@@ -33,13 +33,18 @@ export default class CartScreen extends Component {
       modalVisible: false,
       modalVisible2: false,
       isLoading: false,
-      latitude:0.0,
-      longitude:0.0
+      latitude: 0.0,
+      longitude: 0.0
     };
   }
 
   async askGpsPermission() {
-    if (Platform.OS === "android" && PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION)) {
+    if (
+      Platform.OS === "android" &&
+      PermissionsAndroid.check(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+      )
+    ) {
       await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
         {
@@ -57,20 +62,17 @@ export default class CartScreen extends Component {
     await this.askGpsPermission();
     Geolocation.getCurrentPosition(
       position => {
-        if(position.mocked==true){
+        if (position.mocked == true) {
           Alert.alert(
             "Uyarı",
             "Görünüşe göre bir vekil konum sunucusu kullanmaktasınız.Sipariş verebilmek için bu sunucuyu kapatmanız gerekmektedir.",
-            [
-              { text: "Kapat", onPress: () => {} }
-            ],
+            [{ text: "Kapat", onPress: () => {} }],
             { cancelable: false }
           );
           this.setState({ isLoading: false });
-        }else{
+        } else {
           this.makeAjax(position);
         }
-
       },
       error => {
         Alert.alert("Android system error " + error.code, error.message);
@@ -82,30 +84,28 @@ export default class CartScreen extends Component {
         maximumAge: 5000
       }
     );
-
   }
 
-getCoordsDemo(){
-  Geolocation.getCurrentPosition(
-    position => {
-      console.log(position);
-      this.setState({latitude:position.coords.latitude})
-      this.setState({longitude:position.coords.longitude})
-    },
-    error => {
-      Alert.alert("Android system error " + error.code, error.message);
-    },
-    {
-      enableHighAccuracy: false,
-      timeout: 15000,
-      maximumAge: 3000
-    }
-  );
-  this.setState({modalVisible2:true});
-
-}
+  getCoordsDemo() {
+    Geolocation.getCurrentPosition(
+      position => {
+        console.log(position);
+        this.setState({ latitude: position.coords.latitude });
+        this.setState({ longitude: position.coords.longitude });
+      },
+      error => {
+        Alert.alert("Android system error " + error.code, error.message);
+      },
+      {
+        enableHighAccuracy: false,
+        timeout: 15000,
+        maximumAge: 3000
+      }
+    );
+    this.setState({ modalVisible2: true });
+  }
   async makeAjax(position) {
-    var local_test="http://192.168.0.14:8080/table_orders/1/10";
+    var local_test = "http://192.168.0.14:8080/table_orders/1/10";
     var URL =
       global.URL[0] +
       "//" +
@@ -124,8 +124,7 @@ getCoordsDemo(){
     request.longitude = position.coords.longitude;
     console.log(JSON.stringify(request));
 
-
-    await fetch(URL, {
+    await fetch(local_test, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -143,14 +142,12 @@ getCoordsDemo(){
         Alert.alert(
           "Uyarı",
           "Sipariş verebilmek için restoran içerisinde bulunmanız gerekmektedir.",
-          [
-            { text: "Kapat", onPress: () => {} }
-          ],
+          [{ text: "Kapat", onPress: () => {} }],
           { cancelable: false }
         );
       }
     });
-    this.setState({isLoading:false})
+    this.setState({ isLoading: false });
   }
 
   render() {
@@ -249,7 +246,11 @@ getCoordsDemo(){
             onRequestClose={() => {}}
           >
             <View style={styles.container}>
-              <Icon name="check-circle" size={100} style={{color:'rgb(58, 164, 91)'}}/>
+              <Icon
+                name="check-circle"
+                size={100}
+                style={{ color: "rgb(58, 164, 91)" }}
+              />
               <Text style={{ fontSize: 40 }}>Sipariş Başarılı</Text>
               <TouchableOpacity
                 style={{
@@ -278,7 +279,7 @@ getCoordsDemo(){
           >
             <View style={styles.container}>
               <Text style={{ fontSize: 20 }}>{this.state.latitude}</Text>
-                <Text style={{ fontSize: 20 }}>{this.state.longitude}</Text>
+              <Text style={{ fontSize: 20 }}>{this.state.longitude}</Text>
               <TouchableOpacity
                 style={{
                   margin: 50,
