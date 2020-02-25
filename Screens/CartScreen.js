@@ -124,7 +124,7 @@ export default class CartScreen extends Component {
     request.longitude = position.coords.longitude;
     console.log(JSON.stringify(request));
 
-    await fetch(local_test, {
+    await fetch(URL, {
       method: "POST",
       headers: {
         Accept: "application/json",

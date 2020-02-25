@@ -4,7 +4,24 @@
             "outputFile": "/home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml",
             "map": [
                 {
-                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/b066a51892744612cf61cef8a711d477/res/values-vi/values.xml",
+                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/46365332a7ff7900c7ca15c74fa7506c/res/values-vi/values-vi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "48",
+                        "startColumns": "4",
+                        "startOffsets": "5629",
+                        "endColumns": "100",
+                        "endOffsets": "5725"
+                    }
+                },
+                {
+                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/2ba7d0befdd051294b22777509971fb4/res/values-vi/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/60d046f6616adea30aad214a8fa4d867/res/values-vi/values.xml",
+                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/43f15fcb76836c000400b00607bb3d43/res/values-vi/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -35,23 +52,6 @@
                         "startOffsets": "2798,2902,3096,3223,3332,3556,3688,3845,4173,4413,4522,4714,4846,5064,5243,5341,5435",
                         "endColumns": "103,193,126,108,223,131,156,132,239,108,191,131,217,178,97,93,109",
                         "endOffsets": "2897,3091,3218,3327,3551,3683,3840,3973,4408,4517,4709,4841,5059,5238,5336,5430,5540"
-                    }
-                },
-                {
-                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/46365332a7ff7900c7ca15c74fa7506c/res/values-vi/values-vi.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "48",
-                        "startColumns": "4",
-                        "startOffsets": "5629",
-                        "endColumns": "100",
-                        "endOffsets": "5725"
                     }
                 },
                 {

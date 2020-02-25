@@ -21,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/b066a51892744612cf61cef8a711d477/res/values-el/values.xml",
+                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/46365332a7ff7900c7ca15c74fa7506c/res/values-el/values-el.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "48",
+                        "startColumns": "4",
+                        "startOffsets": "5826",
+                        "endColumns": "100",
+                        "endOffsets": "5922"
+                    }
+                },
+                {
+                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/2ba7d0befdd051294b22777509971fb4/res/values-el/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -38,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/60d046f6616adea30aad214a8fa4d867/res/values-el/values.xml",
+                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/43f15fcb76836c000400b00607bb3d43/res/values-el/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -52,23 +69,6 @@
                         "startOffsets": "2886,2999,3217,3351,3464,3704,3831,3979,4336,4584,4694,4895,5026,5263,5438,5537,5629",
                         "endColumns": "112,217,133,112,239,126,147,133,247,109,200,130,236,174,98,91,111",
                         "endOffsets": "2994,3212,3346,3459,3699,3826,3974,4108,4579,4689,4890,5021,5258,5433,5532,5624,5736"
-                    }
-                },
-                {
-                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/46365332a7ff7900c7ca15c74fa7506c/res/values-el/values-el.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "48",
-                        "startColumns": "4",
-                        "startOffsets": "5826",
-                        "endColumns": "100",
-                        "endOffsets": "5922"
                     }
                 }
             ]
