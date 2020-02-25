@@ -100,16 +100,7 @@ export default class MenuScreen extends Component {
         { text: "Kapat", onPress: () => {} }
       ]);
     } else {
-      this.setState({ isLoading: true, isPressed: true });
-      if (Platform.OS === "ios") {
-        BackgroundTimer.start();
-      }
-      BackgroundTimer.setTimeout(() => {
-        this.setState({isPressed:false})
-        if (Platform.OS === "ios") {
-          BackgroundTimer.stop();
-        }
-      }, 60000);
+      this.setState({ isLoading: true });
       await this.askGpsPermission();
       Geolocation.getCurrentPosition(
         position => {
@@ -129,12 +120,12 @@ export default class MenuScreen extends Component {
           }
         },
         error => {
-          Alert.alert("Android Gps Hatası " + error.code, error.message);
+          Alert.alert("Hata Kodu: " + error.code + " Gps ile ilgili bir sorun oluştu.Lütfen tekrar deneyiniz.");
           this.setState({ isLoading: false });
         },
         {
           enableHighAccuracy: false,
-          timeout: 15000,
+          timeout: 25000,
           maximumAge: 5000
         }
       );
@@ -165,7 +156,17 @@ export default class MenuScreen extends Component {
       .then(res => {
         if(res.status===200){
         Alert.alert("İsteğiniz restoran ekranına iletildi");
+        if (Platform.OS === "ios") {
+          BackgroundTimer.start();
+        }
+        BackgroundTimer.setTimeout(() => {
+          this.setState({isPressed:false})
+          if (Platform.OS === "ios") {
+            BackgroundTimer.stop();
+          }
+        }, 60000);
         this.setState({ isLoading: false });
+        this.setState({isPressed:true});
       }else{
         Alert.alert(
           "Uyarı",
@@ -240,7 +241,6 @@ export default class MenuScreen extends Component {
 
             <TouchableOpacity
               onPress={async () => {
-                AsyncStorage.setItem("isPressed", true);
                 await this.getWaitressWithCoords();
               }}
               style={styles.waitressbutton}
