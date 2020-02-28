@@ -16,18 +16,18 @@ MERGED from [:react-native-permissions] /home/berk/Desktop/workspace/reactnative
 MERGED from [:react-native-reanimated] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-safe-area-context] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-vector-icons] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/b9e979fba919f483860a8763deeec634/AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/6b654b80ea6798bed1fc996aabb7ac8d/AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.appcompat:appcompat:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/b042c42958cd14ca4a41fd2047a0a37f/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-vision:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/8e1a49ac70c5c08f84856b649985feca/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-location:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/df491c970fc25990a5edeedd703a0c74/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/432642c2c518828619e21e1495c8aae8/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/d0867aa5ea9ba915cee932a5f375a851/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-location:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/132e95245fe04807e2bdaa910cf6045e/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/a05c392ef248ba93bd64b90e76481e06/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/dee504b72e08c6eb8f99ce8d7edf0255/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/a79e78c35812342e14e4f60d9b5ad906/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/1bba6f20c193276a3571a7f018c7682c/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/43f15fcb76836c000400b00607bb3d43/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/43aff87d24895cc70e2d4fc8b7995f9e/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/6fbb6cf628493111dd02951299a5c474/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/d32c5edf31806647a94d9ea5123d3a8c/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/2ba7d0befdd051294b22777509971fb4/AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/b6eb59a9901cc09fd1b23f2480a418c2/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/1b65285a8bde1ae66bee21ad5ae374a5/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/7fdc63ae6d1cb1a5e9f97e83faafe4e8/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02] /home/berk/.gradle/caches/transforms-2/files-2.1/80476c46f3258654d76aa9529f668f72/AndroidManifest.xml:17:1-24:12
@@ -70,7 +70,7 @@ MERGED from [androidx.print:print:1.0.0] /home/berk/.gradle/caches/transforms-2/
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/00e7444e1eb87be16a39905da911fd1d/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/ee9eb51ef4b800adaa8de090418ba9f0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/4fb61d0b965fc6976046b67ef7054e87/AndroidManifest.xml:17:1-22:12
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/5cae1a37c76d912985415fa1f7818d3c/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/81cc465ede1353b11475a4c530748697/AndroidManifest.xml:2:1-9:12
 INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml:2:1-8:12
@@ -115,26 +115,26 @@ MERGED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/a
 MERGED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/main/AndroidManifest.xml:8:5-26:19
 MERGED from [:react-native-code-push] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-code-push/android/app/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:5-15:19
 MERGED from [:react-native-code-push] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-code-push/android/app/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:5-15:19
-MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/b9e979fba919f483860a8763deeec634/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/b9e979fba919f483860a8763deeec634/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/6b654b80ea6798bed1fc996aabb7ac8d/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/6b654b80ea6798bed1fc996aabb7ac8d/AndroidManifest.xml:11:5-20
 MERGED from [com.google.android.gms:play-services-vision:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/8e1a49ac70c5c08f84856b649985feca/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-vision:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/8e1a49ac70c5c08f84856b649985feca/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-location:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/df491c970fc25990a5edeedd703a0c74/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-location:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/df491c970fc25990a5edeedd703a0c74/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/432642c2c518828619e21e1495c8aae8/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/432642c2c518828619e21e1495c8aae8/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/d0867aa5ea9ba915cee932a5f375a851/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/d0867aa5ea9ba915cee932a5f375a851/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/1bba6f20c193276a3571a7f018c7682c/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/1bba6f20c193276a3571a7f018c7682c/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/43f15fcb76836c000400b00607bb3d43/AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/43f15fcb76836c000400b00607bb3d43/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-location:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/132e95245fe04807e2bdaa910cf6045e/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/132e95245fe04807e2bdaa910cf6045e/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/a05c392ef248ba93bd64b90e76481e06/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/a05c392ef248ba93bd64b90e76481e06/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/dee504b72e08c6eb8f99ce8d7edf0255/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/dee504b72e08c6eb8f99ce8d7edf0255/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/43aff87d24895cc70e2d4fc8b7995f9e/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/43aff87d24895cc70e2d4fc8b7995f9e/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/6fbb6cf628493111dd02951299a5c474/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/6fbb6cf628493111dd02951299a5c474/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/d32c5edf31806647a94d9ea5123d3a8c/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/d32c5edf31806647a94d9ea5123d3a8c/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/2ba7d0befdd051294b22777509971fb4/AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/2ba7d0befdd051294b22777509971fb4/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/b6eb59a9901cc09fd1b23f2480a418c2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/b6eb59a9901cc09fd1b23f2480a418c2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:22:5-26:19
 MERGED from [com.facebook.soloader:soloader:0.6.0] /home/berk/.gradle/caches/transforms-2/files-2.1/0911d1a593fe96a61eb9b341208d9409/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.6.0] /home/berk/.gradle/caches/transforms-2/files-2.1/0911d1a593fe96a61eb9b341208d9409/AndroidManifest.xml:11:5-20
 MERGED from [androidx.core:core:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/46365332a7ff7900c7ca15c74fa7506c/AndroidManifest.xml:24:5-89
@@ -219,30 +219,30 @@ MERGED from [:react-native-safe-area-context] /home/berk/Desktop/workspace/react
 MERGED from [:react-native-safe-area-context] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-vector-icons] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/b9e979fba919f483860a8763deeec634/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/b9e979fba919f483860a8763deeec634/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/6b654b80ea6798bed1fc996aabb7ac8d/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] /home/berk/.gradle/caches/transforms-2/files-2.1/6b654b80ea6798bed1fc996aabb7ac8d/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.appcompat:appcompat:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/b042c42958cd14ca4a41fd2047a0a37f/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.1.0-rc01] /home/berk/.gradle/caches/transforms-2/files-2.1/b042c42958cd14ca4a41fd2047a0a37f/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-vision:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/8e1a49ac70c5c08f84856b649985feca/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-vision:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/8e1a49ac70c5c08f84856b649985feca/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-location:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/df491c970fc25990a5edeedd703a0c74/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-location:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/df491c970fc25990a5edeedd703a0c74/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/432642c2c518828619e21e1495c8aae8/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/432642c2c518828619e21e1495c8aae8/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/d0867aa5ea9ba915cee932a5f375a851/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/d0867aa5ea9ba915cee932a5f375a851/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-location:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/132e95245fe04807e2bdaa910cf6045e/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/132e95245fe04807e2bdaa910cf6045e/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/a05c392ef248ba93bd64b90e76481e06/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /home/berk/.gradle/caches/transforms-2/files-2.1/a05c392ef248ba93bd64b90e76481e06/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/dee504b72e08c6eb8f99ce8d7edf0255/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/dee504b72e08c6eb8f99ce8d7edf0255/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/a79e78c35812342e14e4f60d9b5ad906/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/a79e78c35812342e14e4f60d9b5ad906/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/1bba6f20c193276a3571a7f018c7682c/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/1bba6f20c193276a3571a7f018c7682c/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/43f15fcb76836c000400b00607bb3d43/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/43f15fcb76836c000400b00607bb3d43/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/43aff87d24895cc70e2d4fc8b7995f9e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/43aff87d24895cc70e2d4fc8b7995f9e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/6fbb6cf628493111dd02951299a5c474/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/6fbb6cf628493111dd02951299a5c474/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/d32c5edf31806647a94d9ea5123d3a8c/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/d32c5edf31806647a94d9ea5123d3a8c/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/2ba7d0befdd051294b22777509971fb4/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/2ba7d0befdd051294b22777509971fb4/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/b6eb59a9901cc09fd1b23f2480a418c2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/b6eb59a9901cc09fd1b23f2480a418c2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/1b65285a8bde1ae66bee21ad5ae374a5/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/1b65285a8bde1ae66bee21ad5ae374a5/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/7fdc63ae6d1cb1a5e9f97e83faafe4e8/AndroidManifest.xml:20:5-44
@@ -327,8 +327,8 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/berk/.gradl
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/ee9eb51ef4b800adaa8de090418ba9f0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/4fb61d0b965fc6976046b67ef7054e87/AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/4fb61d0b965fc6976046b67ef7054e87/AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/5cae1a37c76d912985415fa1f7818d3c/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/5cae1a37c76d912985415fa1f7818d3c/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/81cc465ede1353b11475a4c530748697/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/berk/.gradle/caches/transforms-2/files-2.1/81cc465ede1353b11475a4c530748697/AndroidManifest.xml:5:5-7:41
 INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml
 INJECTED from /home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/src/debug/AndroidManifest.xml
 	android:targetSdkVersion
@@ -370,16 +370,16 @@ ADDED from [:react-native-geolocation-service] /home/berk/Desktop/workspace/reac
 	android:name
 		ADDED from [:react-native-geolocation-service] /home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-geolocation-service/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:22-78
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/43f15fcb76836c000400b00607bb3d43/AndroidManifest.xml:23:9-26:75
+ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:23:9-26:75
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/43f15fcb76836c000400b00607bb3d43/AndroidManifest.xml:25:13-37
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:25:13-37
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/43f15fcb76836c000400b00607bb3d43/AndroidManifest.xml:26:13-72
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:26:13-72
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/43f15fcb76836c000400b00607bb3d43/AndroidManifest.xml:24:13-79
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/berk/.gradle/caches/transforms-2/files-2.1/94517464bc3c8df86285d696fd7a303e/AndroidManifest.xml:24:13-79
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/2ba7d0befdd051294b22777509971fb4/AndroidManifest.xml:23:9-25:69
+ADDED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/2ba7d0befdd051294b22777509971fb4/AndroidManifest.xml:25:13-66
+		ADDED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:25:13-66
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/2ba7d0befdd051294b22777509971fb4/AndroidManifest.xml:24:13-58
+		ADDED from [com.google.android.gms:play-services-basement:16.1.0] /home/berk/.gradle/caches/transforms-2/files-2.1/bf9c9d25e1bf161ee517887f661ed342/AndroidManifest.xml:24:13-58

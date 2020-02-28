@@ -15,10 +15,11 @@ import QrScreen from './Screens/QrScreen';
 import MenuScreen from './Screens/MenuScreen';
 import CartScreen from './Screens/CartScreen';
 import OptionScreen from './Screens/OptionScreen';
-import AuthLoadingScreen from './Screens/AuthLoadingScreen'
-import ForgetPasswordScreen from './Screens/ForgetPasswordScreen'
+import AuthLoadingScreen from './Screens/AuthLoadingScreen';
+import ForgetPasswordScreen from './Screens/ForgetPasswordScreen';
+import codePush from "react-native-code-push";
 type Props = {};
-export default class App extends Component<Props> {
+class App extends Component<Props> {
   render() {
     return (
       <AppContainer/>
@@ -90,3 +91,5 @@ const MainNavigator = createSwitchNavigator(
   }
 );
 const AppContainer = createAppContainer(MainNavigator);
+const codePushOptions ={ checkFrequency:codePush.CheckFrequency.ON_APP_START};
+export default codePush(codePushOptions)(App);
