@@ -43,6 +43,8 @@ export default class MenuScreen extends Component {
       menuItem: {},
       cartArr: new Array(),
       menuArr: new Array(),
+      favouriteArr: new Array(),
+      campaignArr: new Array(),
       isLoading: false,
       amount: 1,
       isPressed: false
@@ -54,7 +56,11 @@ export default class MenuScreen extends Component {
   async componentWillMount() {
     let response = await this.getItems();
     array = _.groupBy(response.items, "category");
-    this.setState({ menuArr: array });
+    this.setState({
+      menuArr: array,
+      favouriteArr: response.favourites,
+      campaignArr: response.campaigns
+    });
   }
 
   async getItems() {
@@ -70,8 +76,8 @@ export default class MenuScreen extends Component {
     this.setState({ isLoading: true });
     var token = await AsyncStorage.getItem("userToken");
     var tokenStr = JSON.parse(token);
-
-    const response = await fetch(URL, {
+    var test_url = "http://192.168.0.14:8080/menu/1";
+    const response = await fetch(test_url, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -86,7 +92,6 @@ export default class MenuScreen extends Component {
         return data;
       });
     this.setState({ isLoading: false });
-    console.log(response);
     return response;
   }
 
@@ -95,7 +100,7 @@ export default class MenuScreen extends Component {
   }
 
   async getWaitressWithCoords() {
-    if (this.state.isPressed===true) {
+    if (this.state.isPressed === true) {
       Alert.alert("Uyarı", "5 dakika içinde bir seferden fazla basamazsınız.", [
         { text: "Kapat", onPress: () => {} }
       ]);
@@ -120,7 +125,11 @@ export default class MenuScreen extends Component {
           }
         },
         error => {
-          Alert.alert("Hata Kodu: " + error.code + " Gps ile ilgili bir sorun oluştu.Lütfen tekrar deneyiniz.");
+          Alert.alert(
+            "Hata Kodu: " +
+              error.code +
+              " Gps ile ilgili bir sorun oluştu.Lütfen tekrar deneyiniz."
+          );
           this.setState({ isLoading: false });
         },
         {
@@ -154,27 +163,27 @@ export default class MenuScreen extends Component {
       body: JSON.stringify(request)
     })
       .then(res => {
-        if(res.status===200){
-        Alert.alert("İsteğiniz restoran ekranına iletildi");
-        if (Platform.OS === "ios") {
-          BackgroundTimer.start();
-        }
-        BackgroundTimer.setTimeout(() => {
-          this.setState({isPressed:false})
+        if (res.status === 200) {
+          Alert.alert("İsteğiniz restoran ekranına iletildi");
           if (Platform.OS === "ios") {
-            BackgroundTimer.stop();
+            BackgroundTimer.start();
           }
-        }, 60000);
-        this.setState({ isLoading: false });
-        this.setState({isPressed:true});
-      }else{
-        Alert.alert(
-          "Uyarı",
-          "İsteğinizin iletilebilmesi için restoran içerisinde olmanız gereklidir",
-          [{ text: "Kapat", onPress: () => {} }]
-        );
-        this.setState({ isLoading: false });
-      }
+          BackgroundTimer.setTimeout(() => {
+            this.setState({ isPressed: false });
+            if (Platform.OS === "ios") {
+              BackgroundTimer.stop();
+            }
+          }, 60000);
+          this.setState({ isLoading: false });
+          this.setState({ isPressed: true });
+        } else {
+          Alert.alert(
+            "Uyarı",
+            "İsteğinizin iletilebilmesi için restoran içerisinde olmanız gereklidir",
+            [{ text: "Kapat", onPress: () => {} }]
+          );
+          this.setState({ isLoading: false });
+        }
       })
       .catch(err => {
         Alert.alert("Sunucuda bir sorun oluştu");
@@ -194,6 +203,16 @@ export default class MenuScreen extends Component {
       ingredients: item.ingredients,
       price: item.price,
       category: item.category,
+      message: ""
+    };
+  }
+  convertRequestCampaign(camp) {
+    return {
+      id: camp.id,
+      item: camp.name,
+      ingredients: camp.contents,
+      price: camp.price,
+      category: "",
       message: ""
     };
   }
@@ -246,13 +265,12 @@ export default class MenuScreen extends Component {
               style={styles.waitressbutton}
             >
               <Text style={{ color: "rgb(235, 235, 235)", fontWeight: "bold" }}>
-                {" "}
-                Garson Çağır{" "}
+                Garson Çağır
               </Text>
               <Icon
                 name="hand-o-up"
                 size={25}
-                style={{ color: "rgb(235, 235, 235)" }}
+                style={{ color: "rgb(235, 235, 235)", marginRight: 2 }}
               />
             </TouchableOpacity>
 
@@ -261,6 +279,180 @@ export default class MenuScreen extends Component {
               size="large"
               color="#0000ff"
             />
+            {(() => {
+              if (this.state.campaignArr.length > 0) {
+                return (
+                  <View>
+                    <Collapse>
+                      <CollapseHeader style={styles.campCollapseHeader}>
+                        <View>
+                          <Text style={styles.campHeaderText}>
+                            Kampanyalar
+                            <Icon
+                              name="bullhorn"
+                              size={22}
+                              style={{
+                                color: "rgb(235, 235, 235)",
+                                marginRight: 2
+                              }}
+                            />
+                          </Text>
+                        </View>
+                      </CollapseHeader>
+                      <CollapseBody>
+                        {this.state.campaignArr.map((camp, index) => {
+                          return (
+                            <View
+                              key={Math.floor(Math.random() * 10000) + 1}
+                              style={styles.optionbutton}
+                            >
+                              <View
+                                key={Math.floor(Math.random() * 10000) + 1}
+                                style={{ flex: 3 }}
+                              >
+                                <Text
+                                  key={Math.floor(Math.random() * 10000) + 1}
+                                  style={{ color: "#E2362D", fontSize: 18 }}
+                                >
+                                  {camp.name}
+                                </Text>
+                                <Text
+                                  key={Math.floor(Math.random() * 10000) + 1}
+                                  style={{ color: "#E2362D", fontSize: 14 }}
+                                >
+                                  {camp.contents}
+                                </Text>
+                              </View>
+                              <View
+                                key={Math.floor(Math.random() * 10000) + 1}
+                                style={{
+                                  flex: 1,
+                                  flexDirection: "row",
+                                  justfyContent: "flex-end",
+                                  alignItems: "center"
+                                }}
+                              >
+                                <View style={{ marginLeft: "auto" }}>
+                                  <Text
+                                    key={Math.floor(Math.random() * 10000) + 1}
+                                    style={{ color: "#7B7C00", fontSize: 16 }}
+                                  >
+                                    {camp.price} ₺
+                                  </Text>
+                                </View>
+                                <TouchableOpacity
+                                  key={Math.floor(Math.random() * 10000) + 1}
+                                  style={styles.addbutton}
+                                  onPress={() => {
+                                    CartStore.setMenuItem(
+                                      this.convertRequestCampaign(camp)
+                                    );
+                                    this.setModal(true);
+                                  }}
+                                >
+                                  <Text
+                                    key={Math.floor(Math.random() * 10000) + 1}
+                                  >
+                                    {" "}
+                                    <Icon name="plus" color="#d7263d" />{" "}
+                                  </Text>
+                                </TouchableOpacity>
+                              </View>
+                            </View>
+                          );
+                        })}
+                      </CollapseBody>
+                    </Collapse>
+                  </View>
+                );
+              }
+            })()}
+
+            {(() => {
+              if (this.state.favouriteArr.length > 0) {
+                return (
+                  <View>
+                    <Collapse>
+                      <CollapseHeader style={styles.favCollapseHeader}>
+                        <View>
+                          <Text style={styles.favHeaderText}>
+                            Favori Ürünler
+                            <Icon
+                              name="star"
+                              size={20}
+                              style={{ color: "rgb(235, 235, 235)",marginRight:2 }}
+                            />
+                          </Text>
+                        </View>
+                      </CollapseHeader>
+                      <CollapseBody>
+                        {this.state.favouriteArr.map((fav, index) => {
+                          return (
+                            <View
+                              key={Math.floor(Math.random() * 10000) + 1}
+                              style={styles.optionbutton}
+                            >
+                              <View
+                                key={Math.floor(Math.random() * 10000) + 1}
+                                style={{ flex: 3 }}
+                              >
+                                <Text
+                                  key={Math.floor(Math.random() * 10000) + 1}
+                                  style={{ color: "#E2362D", fontSize: 18 }}
+                                >
+                                  {fav.item}
+                                </Text>
+                                <Text
+                                  key={Math.floor(Math.random() * 10000) + 1}
+                                  style={{ color: "#E2362D", fontSize: 14 }}
+                                >
+                                  {fav.ingredients}
+                                </Text>
+                              </View>
+                              <View
+                                key={Math.floor(Math.random() * 10000) + 1}
+                                style={{
+                                  flex: 1,
+                                  flexDirection: "row",
+                                  justfyContent: "flex-end",
+                                  alignItems: "center"
+                                }}
+                              >
+                                <View style={{ marginLeft: "auto" }}>
+                                  <Text
+                                    key={Math.floor(Math.random() * 10000) + 1}
+                                    style={{ color: "#7B7C00", fontSize: 16 }}
+                                  >
+                                    {fav.price} ₺
+                                  </Text>
+                                </View>
+                                <TouchableOpacity
+                                  key={Math.floor(Math.random() * 10000) + 1}
+                                  style={styles.addbutton}
+                                  onPress={() => {
+                                    CartStore.setMenuItem(
+                                      this.convertRequestItem(fav)
+                                    );
+                                    this.setModal(true);
+                                  }}
+                                >
+                                  <Text
+                                    key={Math.floor(Math.random() * 10000) + 1}
+                                  >
+                                    {" "}
+                                    <Icon name="plus" color="#d7263d" />{" "}
+                                  </Text>
+                                </TouchableOpacity>
+                              </View>
+                            </View>
+                          );
+                        })}
+                      </CollapseBody>
+                    </Collapse>
+                  </View>
+                );
+              }
+            })()}
 
             {Object.keys(this.state.menuArr)
               .sort(function(a, b) {
@@ -529,5 +721,41 @@ const styles = StyleSheet.create({
     alignItems: "center",
     margin: 5,
     padding: 2
+  },
+  favCollapseHeader: {
+    flex: 1,
+    alignItems: "center",
+    width: 320,
+    elevation: 4,
+    backgroundColor: "#faa613",
+    margin: 5,
+    padding: 2,
+    borderRadius: 5,
+    borderBottomWidth: 2,
+    borderRightWidth: 1,
+    borderColor: "#b17710"
+  },
+  favHeaderText: {
+    fontSize: 21,
+    fontStyle: "italic",
+    color: "rgb(235, 235, 235)"
+  },
+  campCollapseHeader: {
+    flex: 1,
+    alignItems: "center",
+    width: 320,
+    elevation: 4,
+    backgroundColor: "#688e26",
+    margin: 5,
+    padding: 2,
+    borderRadius: 5,
+    borderBottomWidth: 2,
+    borderRightWidth: 1,
+    borderColor: "#5c7c23"
+  },
+  campHeaderText: {
+    fontSize: 22,
+    fontStyle: "italic",
+    color: "rgb(235, 235, 235)"
   }
 });

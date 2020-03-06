@@ -21,7 +21,6 @@ import LinearGradient from "react-native-linear-gradient";
 import CartStore from "../Store/CartStore";
 import Icon from "react-native-vector-icons/FontAwesome";
 import OrderRequest from "../Entity/OrderRequest";
-import GpsStore from "../Store/GpsStore";
 import Geolocation from "@react-native-community/geolocation";
 @observer
 export default class CartScreen extends Component {
@@ -75,12 +74,14 @@ export default class CartScreen extends Component {
         }
       },
       error => {
-        Alert.alert("Android system error " + error.code, error.message);
+        Alert.alert("Hata Kodu: " +
+          error.code +
+          " Gps ile ilgili bir sorun oluştu.Lütfen tekrar deneyiniz.");
         this.setState({ isLoading: false });
       },
       {
         enableHighAccuracy: false,
-        timeout: 15000,
+        timeout: 25000,
         maximumAge: 5000
       }
     );
@@ -124,7 +125,7 @@ export default class CartScreen extends Component {
     request.longitude = position.coords.longitude;
     console.log(JSON.stringify(request));
 
-    await fetch(URL, {
+    await fetch(local_test, {
       method: "POST",
       headers: {
         Accept: "application/json",
