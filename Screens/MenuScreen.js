@@ -714,7 +714,7 @@ const styles = StyleSheet.create({
   waitressbutton: {
     width: 320,
     height: 40,
-    backgroundColor: "#e19c8e",
+    backgroundColor: "#84343D",
     elevation: 8,
     flexDirection: "row",
     justifyContent: "center",
@@ -731,9 +731,9 @@ const styles = StyleSheet.create({
     margin: 5,
     padding: 2,
     borderRadius: 5,
-    borderBottomWidth: 2,
+    borderBottomWidth: 1.5,
     borderRightWidth: 1,
-    borderColor: "#b17710"
+    borderColor: "#ab7d2c"
   },
   favHeaderText: {
     fontSize: 21,
@@ -751,7 +751,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderBottomWidth: 2,
     borderRightWidth: 1,
-    borderColor: "#5c7c23"
+    borderColor: "#515d3c"
   },
   campHeaderText: {
     fontSize: 22,
