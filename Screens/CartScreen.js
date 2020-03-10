@@ -22,6 +22,8 @@ import CartStore from "../Store/CartStore";
 import Icon from "react-native-vector-icons/FontAwesome";
 import OrderRequest from "../Entity/OrderRequest";
 import Geolocation from "@react-native-community/geolocation";
+import {showGpsError} from "../Globals/Errors";
+
 @observer
 export default class CartScreen extends Component {
   constructor(props) {
@@ -74,9 +76,7 @@ export default class CartScreen extends Component {
         }
       },
       error => {
-        Alert.alert("Hata Kodu: " +
-          error.code +
-          " Gps ile ilgili bir sorun oluştu.Lütfen tekrar deneyiniz.");
+        showGpsError(error);
         this.setState({ isLoading: false });
       },
       {
@@ -87,24 +87,6 @@ export default class CartScreen extends Component {
     );
   }
 
-  getCoordsDemo() {
-    Geolocation.getCurrentPosition(
-      position => {
-        console.log(position);
-        this.setState({ latitude: position.coords.latitude });
-        this.setState({ longitude: position.coords.longitude });
-      },
-      error => {
-        Alert.alert("Android system error " + error.code, error.message);
-      },
-      {
-        enableHighAccuracy: false,
-        timeout: 15000,
-        maximumAge: 3000
-      }
-    );
-    this.setState({ modalVisible2: true });
-  }
   async makeAjax(position) {
     var local_test = "http://192.168.0.14:8080/table_orders/1/10";
     var URL =

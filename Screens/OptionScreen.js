@@ -49,14 +49,14 @@ export default class OptionScreen extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.optionbutton}
-            onPress={()=>{this.soon()}}
+            onPress={this.soon}
           >
             <Text>Dil</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.optionbutton}
-            onPress={()=>{this.goToWebPage()}}
+            onPress={this.goToWebPage}
           >
             <Text>Yardım Merkezi</Text>
           </TouchableOpacity>

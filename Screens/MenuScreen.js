@@ -17,7 +17,6 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 import { NavigationActions } from "react-navigation";
 import CartScreen from "./CartScreen";
-import cartInstance from "../Globals/globalCart";
 import base64 from "base-64";
 import LinearGradient from "react-native-linear-gradient";
 import NumericInput from "react-native-numeric-input";
@@ -33,6 +32,13 @@ import CounterStore from "../Store/CounterStore";
 import Geolocation from "@react-native-community/geolocation";
 import WaiterRequest from "../Entity/WaiterRequest";
 import BackgroundTimer from "react-native-background-timer";
+import { AddButton } from "../Components/AddButton";
+import { ItemContainer } from "../Components/ItemContainer";
+import { CampaignCollapseHeader } from "../Components/CampaignCollapseHeader";
+import { FavCollapseHeader } from "../Components/FavCollapseHeader";
+import {ItemCollapseHeader} from "../Components/ItemCollapseHeader";
+
+import {showGpsError} from "../Globals/Errors.js";
 
 @observer
 export default class MenuScreen extends Component {
@@ -125,11 +131,7 @@ export default class MenuScreen extends Component {
           }
         },
         error => {
-          Alert.alert(
-            "Hata Kodu: " +
-              error.code +
-              " Gps ile ilgili bir sorun oluştu.Lütfen tekrar deneyiniz."
-          );
+          showGpsError(error);
           this.setState({ isLoading: false });
         },
         {
@@ -153,7 +155,7 @@ export default class MenuScreen extends Component {
     var token = await AsyncStorage.getItem("userToken");
     var tokenStr = JSON.parse(token);
     let test_url = "http://192.168.0.14:8080/table_orders/garson/1/5";
-    await fetch(URL, {
+    await fetch(test_url, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -196,6 +198,10 @@ export default class MenuScreen extends Component {
     this.setState({ modalVisible: visible });
   }
 
+  modalCallback = data => {
+    this.setState({ modalVisible: data });
+  };
+
   convertRequestItem(item) {
     return {
       id: item.id,
@@ -206,6 +212,7 @@ export default class MenuScreen extends Component {
       message: ""
     };
   }
+
   convertRequestCampaign(camp) {
     return {
       id: camp.id,
@@ -265,7 +272,7 @@ export default class MenuScreen extends Component {
               style={styles.waitressbutton}
             >
               <Text style={{ color: "rgb(235, 235, 235)", fontWeight: "bold" }}>
-                Garson Çağır
+                Garson Çağır{"  "}
               </Text>
               <Icon
                 name="hand-o-up"
@@ -284,81 +291,17 @@ export default class MenuScreen extends Component {
                 return (
                   <View>
                     <Collapse>
-                      <CollapseHeader style={styles.campCollapseHeader}>
-                        <View>
-                          <Text style={styles.campHeaderText}>
-                            Kampanyalar
-                            <Icon
-                              name="bullhorn"
-                              size={22}
-                              style={{
-                                color: "rgb(235, 235, 235)",
-                                marginRight: 2
-                              }}
-                            />
-                          </Text>
-                        </View>
+                      <CollapseHeader>
+                        <CampaignCollapseHeader />
                       </CollapseHeader>
                       <CollapseBody>
                         {this.state.campaignArr.map((camp, index) => {
                           return (
-                            <View
-                              key={Math.floor(Math.random() * 10000) + 1}
-                              style={styles.optionbutton}
-                            >
-                              <View
-                                key={Math.floor(Math.random() * 10000) + 1}
-                                style={{ flex: 3 }}
-                              >
-                                <Text
-                                  key={Math.floor(Math.random() * 10000) + 1}
-                                  style={{ color: "#E2362D", fontSize: 18 }}
-                                >
-                                  {camp.name}
-                                </Text>
-                                <Text
-                                  key={Math.floor(Math.random() * 10000) + 1}
-                                  style={{ color: "#E2362D", fontSize: 14 }}
-                                >
-                                  {camp.contents}
-                                </Text>
-                              </View>
-                              <View
-                                key={Math.floor(Math.random() * 10000) + 1}
-                                style={{
-                                  flex: 1,
-                                  flexDirection: "row",
-                                  justfyContent: "flex-end",
-                                  alignItems: "center"
-                                }}
-                              >
-                                <View style={{ marginLeft: "auto" }}>
-                                  <Text
-                                    key={Math.floor(Math.random() * 10000) + 1}
-                                    style={{ color: "#7B7C00", fontSize: 16 }}
-                                  >
-                                    {camp.price} ₺
-                                  </Text>
-                                </View>
-                                <TouchableOpacity
-                                  key={Math.floor(Math.random() * 10000) + 1}
-                                  style={styles.addbutton}
-                                  onPress={() => {
-                                    CartStore.setMenuItem(
-                                      this.convertRequestCampaign(camp)
-                                    );
-                                    this.setModal(true);
-                                  }}
-                                >
-                                  <Text
-                                    key={Math.floor(Math.random() * 10000) + 1}
-                                  >
-                                    {" "}
-                                    <Icon name="plus" color="#d7263d" />{" "}
-                                  </Text>
-                                </TouchableOpacity>
-                              </View>
-                            </View>
+                            <ItemContainer
+                              item={camp}
+                              itemType="campaign"
+                              parentCallback1={this.modalCallback}
+                            />
                           );
                         })}
                       </CollapseBody>
@@ -373,78 +316,13 @@ export default class MenuScreen extends Component {
                 return (
                   <View>
                     <Collapse>
-                      <CollapseHeader style={styles.favCollapseHeader}>
-                        <View>
-                          <Text style={styles.favHeaderText}>
-                            Favori Ürünler
-                            <Icon
-                              name="star"
-                              size={20}
-                              style={{ color: "rgb(235, 235, 235)",marginRight:2 }}
-                            />
-                          </Text>
-                        </View>
+                      <CollapseHeader>
+                        <FavCollapseHeader/>
                       </CollapseHeader>
                       <CollapseBody>
                         {this.state.favouriteArr.map((fav, index) => {
                           return (
-                            <View
-                              key={Math.floor(Math.random() * 10000) + 1}
-                              style={styles.optionbutton}
-                            >
-                              <View
-                                key={Math.floor(Math.random() * 10000) + 1}
-                                style={{ flex: 3 }}
-                              >
-                                <Text
-                                  key={Math.floor(Math.random() * 10000) + 1}
-                                  style={{ color: "#E2362D", fontSize: 18 }}
-                                >
-                                  {fav.item}
-                                </Text>
-                                <Text
-                                  key={Math.floor(Math.random() * 10000) + 1}
-                                  style={{ color: "#E2362D", fontSize: 14 }}
-                                >
-                                  {fav.ingredients}
-                                </Text>
-                              </View>
-                              <View
-                                key={Math.floor(Math.random() * 10000) + 1}
-                                style={{
-                                  flex: 1,
-                                  flexDirection: "row",
-                                  justfyContent: "flex-end",
-                                  alignItems: "center"
-                                }}
-                              >
-                                <View style={{ marginLeft: "auto" }}>
-                                  <Text
-                                    key={Math.floor(Math.random() * 10000) + 1}
-                                    style={{ color: "#7B7C00", fontSize: 16 }}
-                                  >
-                                    {fav.price} ₺
-                                  </Text>
-                                </View>
-                                <TouchableOpacity
-                                  key={Math.floor(Math.random() * 10000) + 1}
-                                  style={styles.addbutton}
-                                  onPress={() => {
-                                    CartStore.setMenuItem(
-                                      this.convertRequestItem(fav)
-                                    );
-                                    this.setModal(true);
-                                  }}
-                                >
-                                  <Text
-                                    key={Math.floor(Math.random() * 10000) + 1}
-                                  >
-                                    {" "}
-                                    <Icon name="plus" color="#d7263d" />{" "}
-                                  </Text>
-                                </TouchableOpacity>
-                              </View>
-                            </View>
+                            <ItemContainer item={fav} itemType="item" parentCallback1={this.modalCallback}/>
                           );
                         })}
                       </CollapseBody>
@@ -460,76 +338,15 @@ export default class MenuScreen extends Component {
               })
               .map((category, index) => {
                 return (
-                  <Collapse key={Math.floor(Math.random() * 10000) + 1}>
-                    <CollapseHeader
-                      key={Math.floor(Math.random() * 10000) + 1}
-                      style={styles.collapseHeader}
-                    >
-                      <View key={Math.floor(Math.random() * 10000) + 1}>
-                        <Text style={styles.categoryHeader}> {category} </Text>
-                      </View>
+                  <Collapse>
+                    <CollapseHeader>
+                      <ItemCollapseHeader category={category}/>
                     </CollapseHeader>
 
-                    <CollapseBody key={Math.floor(Math.random() * 10000) + 1}>
+                    <CollapseBody>
                       {this.state.menuArr[category].map((item, idx) => {
                         return (
-                          <View
-                            key={Math.floor(Math.random() * 10000) + 1}
-                            style={styles.optionbutton}
-                          >
-                            <View
-                              key={Math.floor(Math.random() * 10000) + 1}
-                              style={{ flex: 3 }}
-                            >
-                              <Text
-                                key={Math.floor(Math.random() * 10000) + 1}
-                                style={{ color: "#E2362D", fontSize: 18 }}
-                              >
-                                {item.item}
-                              </Text>
-                              <Text
-                                key={Math.floor(Math.random() * 10000) + 1}
-                                style={{ color: "#E2362D", fontSize: 14 }}
-                              >
-                                {item.ingredients}
-                              </Text>
-                            </View>
-                            <View
-                              key={Math.floor(Math.random() * 10000) + 1}
-                              style={{
-                                flex: 1,
-                                flexDirection: "row",
-                                justfyContent: "flex-end",
-                                alignItems: "center"
-                              }}
-                            >
-                              <View style={{ marginLeft: "auto" }}>
-                                <Text
-                                  key={Math.floor(Math.random() * 10000) + 1}
-                                  style={{ color: "#7B7C00", fontSize: 16 }}
-                                >
-                                  {item.price} ₺
-                                </Text>
-                              </View>
-                              <TouchableOpacity
-                                key={Math.floor(Math.random() * 10000) + 1}
-                                style={styles.addbutton}
-                                onPress={() => {
-                                  CartStore.setMenuItem(
-                                    this.convertRequestItem(item)
-                                  );
-                                  this.setModal(true);
-                                }}
-                              >
-                                <Text
-                                  key={Math.floor(Math.random() * 10000) + 1}
-                                >
-                                  {" "}
-                                  <Icon name="plus" color="#d7263d" />{" "}
-                                </Text>
-                              </TouchableOpacity>
-                            </View>
-                          </View>
+                        <ItemContainer item={item} itemType="item" parentCallback1={this.modalCallback} />
                         );
                       })}
                     </CollapseBody>
@@ -719,43 +536,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    alignSelf: "stretch",
     margin: 5,
     padding: 2
-  },
-  favCollapseHeader: {
-    flex: 1,
-    alignItems: "center",
-    width: 320,
-    elevation: 4,
-    backgroundColor: "#faa613",
-    margin: 5,
-    padding: 2,
-    borderRadius: 5,
-    borderBottomWidth: 1.5,
-    borderRightWidth: 1,
-    borderColor: "#ab7d2c"
-  },
-  favHeaderText: {
-    fontSize: 21,
-    fontStyle: "italic",
-    color: "rgb(235, 235, 235)"
-  },
-  campCollapseHeader: {
-    flex: 1,
-    alignItems: "center",
-    width: 320,
-    elevation: 4,
-    backgroundColor: "#688e26",
-    margin: 5,
-    padding: 2,
-    borderRadius: 5,
-    borderBottomWidth: 2,
-    borderRightWidth: 1,
-    borderColor: "#515d3c"
-  },
-  campHeaderText: {
-    fontSize: 22,
-    fontStyle: "italic",
-    color: "rgb(235, 235, 235)"
   }
 });
