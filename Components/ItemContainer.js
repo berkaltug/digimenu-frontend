@@ -21,12 +21,12 @@ export class ItemContainer extends Component {
           <Text
             style={{ color: "#E2362D", fontSize: 18 }}
           >
-            {this.props.item.name}
+            {this.props.item.name || this.props.item.item }
           </Text>
           <Text
             style={{ color: "#E2362D", fontSize: 14 }}
           >
-            {this.props.item.contents}
+            {this.props.item.contents || this.props.item.ingredients }
           </Text>
         </View>
         <View

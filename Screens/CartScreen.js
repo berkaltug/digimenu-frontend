@@ -23,7 +23,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import OrderRequest from "../Entity/OrderRequest";
 import Geolocation from "@react-native-community/geolocation";
 import {showGpsError} from "../Globals/Errors";
-
+import {OrderSuccessModal} from "../Components/OrderSuccessModal";
 @observer
 export default class CartScreen extends Component {
   constructor(props) {
@@ -38,7 +38,9 @@ export default class CartScreen extends Component {
       longitude: 0.0
     };
   }
-
+  modalCallback = data => {
+    this.setState({ modalVisible: data });
+  };
   async askGpsPermission() {
     if (
       Platform.OS === "android" &&
@@ -222,65 +224,7 @@ export default class CartScreen extends Component {
               </Text>
             </TouchableOpacity>
           </View>
-          <Modal
-            animationType="slide"
-            transparent={false}
-            visible={this.state.modalVisible}
-            onRequestClose={() => {}}
-          >
-            <View style={styles.container}>
-              <Icon
-                name="check-circle"
-                size={100}
-                style={{ color: "rgb(58, 164, 91)" }}
-              />
-              <Text style={{ fontSize: 40 }}>Sipariş Başarılı</Text>
-              <TouchableOpacity
-                style={{
-                  margin: 50,
-                  width: 90,
-                  height: 40,
-                  backgroundColor: "tomato",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: 10
-                }}
-                onPress={() => {
-                  this.setState({ modalVisible: false });
-                }}
-              >
-                <Text style={{ fontSize: 17 }}>Kapat</Text>
-              </TouchableOpacity>
-            </View>
-          </Modal>
-
-          <Modal
-            animationType="slide"
-            transparent={false}
-            visible={this.state.modalVisible2}
-            onRequestClose={() => {}}
-          >
-            <View style={styles.container}>
-              <Text style={{ fontSize: 20 }}>{this.state.latitude}</Text>
-              <Text style={{ fontSize: 20 }}>{this.state.longitude}</Text>
-              <TouchableOpacity
-                style={{
-                  margin: 50,
-                  width: 90,
-                  height: 40,
-                  backgroundColor: "tomato",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: 10
-                }}
-                onPress={() => {
-                  this.setState({ modalVisible2: false });
-                }}
-              >
-                <Text style={{ fontSize: 17 }}>Kapat</Text>
-              </TouchableOpacity>
-            </View>
-          </Modal>
+          <OrderSuccessModal modalVisible={this.state.modalVisible} parentCallback={this.modalCallback} />
         </View>
       </LinearGradient>
     );

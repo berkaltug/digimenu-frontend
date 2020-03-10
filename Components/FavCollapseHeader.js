@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {StyleSheet , View , Text} from 'react-native';
 import Icon from "react-native-vector-icons/FontAwesome";
-export class favCollapseHeader extends Component{
+export class FavCollapseHeader extends Component{
   constructor(props){
     super(props)
   }

@@ -16,7 +16,6 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { NavigationActions } from "react-navigation";
-import CartScreen from "./CartScreen";
 import base64 from "base-64";
 import LinearGradient from "react-native-linear-gradient";
 import NumericInput from "react-native-numeric-input";
@@ -36,9 +35,9 @@ import { AddButton } from "../Components/AddButton";
 import { ItemContainer } from "../Components/ItemContainer";
 import { CampaignCollapseHeader } from "../Components/CampaignCollapseHeader";
 import { FavCollapseHeader } from "../Components/FavCollapseHeader";
-import {ItemCollapseHeader} from "../Components/ItemCollapseHeader";
-
-import {showGpsError} from "../Globals/Errors.js";
+import { ItemCollapseHeader } from "../Components/ItemCollapseHeader";
+import {ItemAddingModal} from "../Components/ItemAddingModal";
+import { showGpsError } from "../Globals/Errors.js";
 
 @observer
 export default class MenuScreen extends Component {
@@ -286,51 +285,47 @@ export default class MenuScreen extends Component {
               size="large"
               color="#0000ff"
             />
-            {(() => {
-              if (this.state.campaignArr.length > 0) {
-                return (
-                  <View>
-                    <Collapse>
-                      <CollapseHeader>
-                        <CampaignCollapseHeader />
-                      </CollapseHeader>
-                      <CollapseBody>
-                        {this.state.campaignArr.map((camp, index) => {
-                          return (
-                            <ItemContainer
-                              item={camp}
-                              itemType="campaign"
-                              parentCallback1={this.modalCallback}
-                            />
-                          );
-                        })}
-                      </CollapseBody>
-                    </Collapse>
-                  </View>
-                );
-              }
-            })()}
+            {this.state.campaignArr.length > 0 && (
+              <View>
+                <Collapse>
+                  <CollapseHeader>
+                    <CampaignCollapseHeader />
+                  </CollapseHeader>
+                  <CollapseBody>
+                    {this.state.campaignArr.map((camp, index) => {
+                      return (
+                        <ItemContainer
+                          item={camp}
+                          itemType="campaign"
+                          parentCallback1={this.modalCallback}
+                        />
+                      );
+                    })}
+                  </CollapseBody>
+                </Collapse>
+              </View>
+            )}
 
-            {(() => {
-              if (this.state.favouriteArr.length > 0) {
-                return (
-                  <View>
-                    <Collapse>
-                      <CollapseHeader>
-                        <FavCollapseHeader/>
-                      </CollapseHeader>
-                      <CollapseBody>
-                        {this.state.favouriteArr.map((fav, index) => {
-                          return (
-                            <ItemContainer item={fav} itemType="item" parentCallback1={this.modalCallback}/>
-                          );
-                        })}
-                      </CollapseBody>
-                    </Collapse>
-                  </View>
-                );
-              }
-            })()}
+            {this.state.favouriteArr.length > 0 && (
+              <View>
+                <Collapse>
+                  <CollapseHeader>
+                    <FavCollapseHeader />
+                  </CollapseHeader>
+                  <CollapseBody>
+                    {this.state.favouriteArr.map((fav, index) => {
+                      return (
+                        <ItemContainer
+                          item={fav}
+                          itemType="item"
+                          parentCallback1={this.modalCallback}
+                        />
+                      );
+                    })}
+                  </CollapseBody>
+                </Collapse>
+              </View>
+            )}
 
             {Object.keys(this.state.menuArr)
               .sort(function(a, b) {
@@ -340,13 +335,17 @@ export default class MenuScreen extends Component {
                 return (
                   <Collapse>
                     <CollapseHeader>
-                      <ItemCollapseHeader category={category}/>
+                      <ItemCollapseHeader category={category} />
                     </CollapseHeader>
 
                     <CollapseBody>
                       {this.state.menuArr[category].map((item, idx) => {
                         return (
-                        <ItemContainer item={item} itemType="item" parentCallback1={this.modalCallback} />
+                          <ItemContainer
+                            item={item}
+                            itemType="item"
+                            parentCallback1={this.modalCallback}
+                          />
                         );
                       })}
                     </CollapseBody>
@@ -354,85 +353,7 @@ export default class MenuScreen extends Component {
                 );
               })}
           </ScrollView>
-          <Modal
-            animationType="slide"
-            transparent={false}
-            visible={this.state.modalVisible}
-            onRequestClose={() => {}}
-          >
-            <LinearGradient
-              colors={["rgb(226, 54, 45)", "rgb(245, 193, 153)"]}
-              style={{ flex: 1 }}
-            >
-              <View style={styles.container}>
-                <Text style={{ fontSize: 30, fontWeight: "bold", margin: 3 }}>
-                  {CartStore.menuItem.item}
-                </Text>
-                <View style={styles.addcontainer}>
-                  <Text
-                    style={{ fontSize: 25, margin: 3, textAlign: "center" }}
-                  >
-                    Sepete Eklemek İstediğinizden Emin Misiniz ?
-                  </Text>
-                  <View style={styles.adetcontainer}>
-                    <Text style={{ fontSize: 20 }}>Adet Seçimi:</Text>
-
-                    <NumericInput
-                      initValue={1}
-                      minValue={1}
-                      maxValue={15}
-                      onChange={value => CounterStore.setCount(value)}
-                    />
-                  </View>
-                  <View style={styles.buttoncontainer}>
-                    <TouchableOpacity
-                      style={styles.addcontainerbutton2}
-                      onPress={() => {
-                        this.setModal(false);
-                        CounterStore.setCount(1);
-                        CartStore.setMenuItem({});
-                      }}
-                    >
-                      <Text style={{ fontSize: 16 }}>İptal</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                      style={styles.addcontainerbutton}
-                      onPress={() => {
-                        this.setModal(false);
-                        CartStore.pushCart(
-                          CartStore.menuItem,
-                          CounterStore.count
-                        );
-                        CounterStore.setCount(1);
-                      }}
-                    >
-                      <Text style={{ fontSize: 16 }}>Sepete Ekle</Text>
-                    </TouchableOpacity>
-                  </View>
-                  <TextInput
-                    placeholder={
-                      "Lütfen özel isteğiniz varsa burada belirtiniz."
-                    }
-                    multiline={true}
-                    numberOfLines={4}
-                    maxLength={140}
-                    defaultValue="" //gerekli yoksa menuitem.message null set eder restoran ekranını patlatır
-                    style={{
-                      height: 70,
-                      width: 330,
-                      borderColor: "gray",
-                      borderWidth: 1,
-                      backgroundColor: "white",
-                      borderRadius: 10
-                    }}
-                    onChangeText={text => {
-                      CartStore.menuItem.message = text;
-                    }}
-                  />
-                </View>
-              </View>
-            </LinearGradient>
-          </Modal>
+          <ItemAddingModal modalVisible={this.state.modalVisible} parentCallback={this.modalCallback} />
         </View>
       </LinearGradient>
     );
@@ -445,88 +366,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "transparent"
-  },
-  optionbutton: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    width: 320,
-    elevation: 4,
-    backgroundColor: "#f9f7f5",
-    margin: 5,
-    padding: 2,
-    minHeight: 50,
-    borderRadius: 5
-  },
-  collapseHeader: {
-    flex: 1,
-    alignItems: "center",
-    width: 320,
-    elevation: 4,
-    backgroundColor: "#e87159",
-    margin: 5,
-    padding: 2,
-    borderRadius: 5,
-    borderBottomWidth: 2,
-    borderRightWidth: 1,
-    borderColor: "#af5a49"
-  },
-  categoryHeader: {
-    fontSize: 19,
-    fontStyle: "italic",
-    color: "rgb(235, 235, 235)"
-  },
-  addbutton: {
-    backgroundColor: "rgb(237, 237, 237)",
-    elevation: 12,
-    margin: 3,
-    padding: 3,
-    borderRadius: 50,
-    width: 26,
-    height: 26,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  adetcontainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    alignSelf: "stretch"
-  },
-  buttoncontainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    alignSelf: "stretch"
-  },
-  addcontainer: {
-    flex: 1 / 1.5,
-    backgroundColor: "#f1a281",
-    flexDirection: "column",
-    justifyContent: "space-around",
-    alignItems: "center",
-    width: 350,
-    elevation: 5,
-    borderRadius: 10,
-    padding: 2
-  },
-  addcontainerbutton: {
-    width: 90,
-    height: 40,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#95f98e",
-    borderRadius: 3,
-    elevation: 3
-  },
-  addcontainerbutton2: {
-    width: 90,
-    height: 40,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "tomato",
-    borderRadius: 3,
-    elevation: 3
   },
   waitressbutton: {
     width: 320,
