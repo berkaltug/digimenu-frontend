@@ -77,12 +77,11 @@ export default class MenuScreen extends Component {
       global.URL[3] +
       "/" +
       global.resNo;
-    console.log(URL);
     this.setState({ isLoading: true });
     var token = await AsyncStorage.getItem("userToken");
     var tokenStr = JSON.parse(token);
     var test_url = "http://192.168.0.14:8080/menu/1";
-    const response = await fetch(test_url, {
+    const response = await fetch(URL, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -154,7 +153,7 @@ export default class MenuScreen extends Component {
     var token = await AsyncStorage.getItem("userToken");
     var tokenStr = JSON.parse(token);
     let test_url = "http://192.168.0.14:8080/table_orders/garson/1/5";
-    await fetch(test_url, {
+    await fetch(URL, {
       method: "POST",
       headers: {
         Accept: "application/json",

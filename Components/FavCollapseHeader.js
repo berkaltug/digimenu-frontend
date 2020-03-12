@@ -10,7 +10,7 @@ export class FavCollapseHeader extends Component{
     return(
       <View style={styles.favCollapseHeader}>
         <Text style={styles.favHeaderText}>
-          Favori Ürünler{" "}
+          Sık Tercih Edilenler{" "}
           <Icon
             name="star"
             size={20}
