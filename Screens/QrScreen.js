@@ -60,8 +60,8 @@ class QrScreen extends Component {
           customMarker={
             <View style={styles.rectangleContainer}>
               <View style={styles.topOverlay}>
-                <Text style={{ fontSize: 30, color: "white" }}>
-                  Lütfen Masada Bulunan Qr Kodu Okutunuz
+                <Text style={{ fontSize: 30, color: "white" ,textAlign:"center"}}>
+                  Lütfen Masada Bulunan{"\n"} Qr Kodu Okutunuz
                 </Text>
               </View>
 
@@ -153,7 +153,6 @@ const styles = {
     backgroundColor: overlayColor,
     justifyContent: "center",
     alignItems: "center",
-    textAlign:"center"
   },
 
   bottomOverlay: {
