@@ -22,8 +22,8 @@ import CartStore from "../Store/CartStore";
 import Icon from "react-native-vector-icons/FontAwesome";
 import OrderRequest from "../Entity/OrderRequest";
 import Geolocation from "@react-native-community/geolocation";
-import {showGpsError} from "../Globals/Errors";
-import {OrderSuccessModal} from "../Components/OrderSuccessModal";
+import { showGpsError } from "../Globals/Errors";
+import { OrderSuccessModal } from "../Components/OrderSuccessModal";
 @observer
 export default class CartScreen extends Component {
   constructor(props) {
@@ -118,7 +118,6 @@ export default class CartScreen extends Component {
       },
       body: JSON.stringify(request)
     }).then(response => {
-      console.log(JSON.stringify(response, null, "\t"));
       if (response.status === 201) {
         console.log("success içinde");
         this.setState({ modalVisible: true });
@@ -224,7 +223,10 @@ export default class CartScreen extends Component {
               </Text>
             </TouchableOpacity>
           </View>
-          <OrderSuccessModal modalVisible={this.state.modalVisible} parentCallback={this.modalCallback} />
+          <OrderSuccessModal
+            modalVisible={this.state.modalVisible}
+            parentCallback={this.modalCallback}
+          />
         </View>
       </LinearGradient>
     );
