@@ -12,6 +12,7 @@ import {
   Modal
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
+
 import{PastOrdersModal} from "../Components/PastOrdersModal";
 export default class OptionScreen extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ export default class OptionScreen extends Component {
   setModal = visible => {
     this.setState({ modalVisible: visible });
   };
-  setModal2 = visible => {
+  setPastModal = visible => {
     this.setState({ modalVisible2: visible });
   };
 
@@ -52,7 +53,7 @@ export default class OptionScreen extends Component {
         <View style={styles.container}>
           <ScrollView>
             {/*2 farklı fonksiyon çağırımı onPress içerisinde*/}
-            <TouchableOpacity style={styles.optionbutton} onPress={()=>{this.setModal2(true)}}>
+            <TouchableOpacity style={styles.optionbutton} onPress={()=>{this.setPastModal(true)}}>
               <Text>Geçmişim</Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -92,7 +93,7 @@ export default class OptionScreen extends Component {
           </ScrollView>
           <PastOrdersModal
             modalVisible={this.state.modalVisible2}
-            parentCallback={this.setModal2}
+            parentCallback={this.setPastModal}
           />
           <Modal
             animationType="slide"

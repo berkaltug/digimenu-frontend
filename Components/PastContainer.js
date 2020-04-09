@@ -1,11 +1,18 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text,TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 export class PastContainer extends Component {
   constructor(props) {
     super(props);
   }
 
+  sendContainerData = () => {
+    this.props.voteModalCallback(true);
+  };
+
+  sendRestaurantData = (name) => {
+    this.props.restaurantCallback(name);
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -27,8 +34,14 @@ export class PastContainer extends Component {
               </View>
             );
           })}
-        <TouchableOpacity style={styles.vote}>
-          <Text style={{color:"rgb(237, 237, 237)"}}>Puan Ver</Text>
+        <TouchableOpacity
+          style={styles.vote}
+          onPress={() => {
+            this.sendContainerData();
+            this.sendRestaurantData(this.props.restaurantName);
+          }}
+        >
+          <Text style={{ color: "rgb(237, 237, 237)" }}>Puan Ver</Text>
         </TouchableOpacity>
       </View>
     );
@@ -84,12 +97,11 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center"
   },
-  vote:{
-    backgroundColor:"#faa613",
-    paddingHorizontal:20,
-    paddingVertical:8,
-    margin:5,
-    borderRadius:8
-
+  vote: {
+    backgroundColor: "#faa613",
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+    margin: 5,
+    borderRadius: 8
   }
 });

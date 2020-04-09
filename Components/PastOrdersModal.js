@@ -10,13 +10,16 @@ import {
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { PastContainer } from "./PastContainer";
-
+import { VoteModal } from "./VoteModal";
 export class PastOrdersModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
       past: {},
-      isLoading: false
+      isLoading: false,
+      modalVisible: false,
+      clickedRestaurantName: null,
+      clickedRestaurantId: null
     };
   }
 
@@ -43,48 +46,62 @@ export class PastOrdersModal extends Component {
     this.setState({ past: response });
   }
 
+  setRestaurant = (name) => {
+    this.setState({ clickedRestaurantName: name });
+  };
+
+  setVoteModal = value => {
+    this.setState({ modalVisible: value });
+  };
+
   sendModalData = () => {
     this.props.parentCallback(false);
   };
 
   render() {
     return (
-
       <Modal
         animationType="slide"
         transparent={false}
         visible={this.props.modalVisible}
         onRequestClose={() => {}}
       >
-      <LinearGradient
-        colors={["rgb(226, 54, 45)", "rgb(245, 193, 153)"]}
-        style={{ flex: 1 }}
-      >
-        <View style={styles.container}>
-        <View style={styles.header}>
-        <Text style={{fontSize:23}}>Geçmişim</Text>
-          <TouchableOpacity
-            style={styles.closeButton}
-            onPress={this.sendModalData}
-          >
-            <Text style={{color:"rgb(237, 237, 237)"}}>Kapat</Text>
-          </TouchableOpacity>
-        </View>
+        <LinearGradient
+          colors={["rgb(226, 54, 45)", "rgb(245, 193, 153)"]}
+          style={{ flex: 1 }}
+        >
+          <View style={styles.container}>
+            <View style={styles.header}>
+              <Text style={{ fontSize: 23, fontWeight: "bold" }}>Geçmişim</Text>
+              <TouchableOpacity
+                style={styles.closeButton}
+                onPress={this.sendModalData}
+              >
+                <Text style={{ color: "rgb(237, 237, 237)" }}>Kapat</Text>
+              </TouchableOpacity>
+            </View>
 
-          <ScrollView>
-            {this.state.past.pastOrders &&
-              this.state.past.pastOrders.map((pastOrder, index) => {
-                console.log(this.state.past);
-                return (
-                  <PastContainer
-                    restaurantName={pastOrder.restaurantName}
-                    orderDate={pastOrder.orderDate}
-                    orders={pastOrder.orders}
-                  />
-                );
-              })}
-          </ScrollView>
-        </View>
+            <ScrollView>
+              {this.state.past.pastOrders &&
+                this.state.past.pastOrders.map((pastOrder, index) => {
+                  console.log(this.state.past);
+                  return (
+                    <PastContainer
+                      restaurantName={pastOrder.restaurantName}
+                      orderDate={pastOrder.orderDate}
+                      orders={pastOrder.orders}
+                      voteModalCallback={this.setVoteModal}
+                      restaurantCallback={this.setRestaurant}
+                    />
+                  );
+                })}
+            </ScrollView>
+            <VoteModal
+              modalVisible={this.state.modalVisible}
+              voteModalCallback={this.setVoteModal}
+              restaurantName={this.state.clickedRestaurantName}
+            />
+          </View>
         </LinearGradient>
       </Modal>
     );
@@ -102,16 +119,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "flex-end",
     backgroundColor: "#3d405b",
-    fontSize:18,
-    padding:7,
-    borderRadius:8
+    fontSize: 18,
+    padding: 7,
+    borderRadius: 8
   },
-  header:{
-    flexDirection:"row",
-    justifyContent:"space-between",
-    alignItems:"center",
-    alignSelf:"stretch",
-    marginHorizontal:30,
-    marginVertical:18
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    alignSelf: "stretch",
+    marginHorizontal: 30,
+    marginVertical: 18
   }
 });
