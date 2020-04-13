@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import PastStore from "../Store/PastStore";
 
 export class PastContainer extends Component {
   constructor(props) {
@@ -38,7 +39,8 @@ export class PastContainer extends Component {
           style={styles.vote}
           onPress={() => {
             this.sendContainerData();
-            this.sendRestaurantData(this.props.restaurantName);
+            PastStore.setClickedRestaurantName(this.props.restaurantName);
+            PastStore.setClickedPastOrderList(this.props.orders);
           }}
         >
           <Text style={{ color: "rgb(237, 237, 237)" }}>Puan Ver</Text>

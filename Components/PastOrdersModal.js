@@ -17,14 +17,12 @@ export class PastOrdersModal extends Component {
     this.state = {
       past: {},
       isLoading: false,
-      modalVisible: false,
-      clickedRestaurantName: null,
-      clickedRestaurantId: null
+      modalVisible: false
     };
   }
 
   async componentWillMount() {
-    const test_url = "http://192.168.0.14:8080/table_orders/pastOrders";
+    const test_url = "http://192.168.0.14:8080/table_orders/past-orders";
     const token = await AsyncStorage.getItem("userToken");
     const tokenStr = JSON.parse(token);
     const response = await fetch(test_url, {
@@ -45,10 +43,6 @@ export class PastOrdersModal extends Component {
       });
     this.setState({ past: response });
   }
-
-  setRestaurant = (name) => {
-    this.setState({ clickedRestaurantName: name });
-  };
 
   setVoteModal = value => {
     this.setState({ modalVisible: value });
@@ -91,7 +85,6 @@ export class PastOrdersModal extends Component {
                       orderDate={pastOrder.orderDate}
                       orders={pastOrder.orders}
                       voteModalCallback={this.setVoteModal}
-                      restaurantCallback={this.setRestaurant}
                     />
                   );
                 })}
@@ -99,7 +92,6 @@ export class PastOrdersModal extends Component {
             <VoteModal
               modalVisible={this.state.modalVisible}
               voteModalCallback={this.setVoteModal}
-              restaurantName={this.state.clickedRestaurantName}
             />
           </View>
         </LinearGradient>

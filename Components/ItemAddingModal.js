@@ -9,7 +9,7 @@ export class ItemAddingModal extends Component{
   constructor(props){
     super(props)
   }
-  
+
   sendModalData(){
     this.props.parentCallback(false);
   }

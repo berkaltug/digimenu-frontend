@@ -5,18 +5,31 @@ import StarRating from "react-native-star-rating";
 export class VoteContainer extends Component {
   constructor(props){
     super(props)
+    this.state = {
+      starCount: 4
+    };
   }
+
+  onStarRatingPress(rating) {
+      this.setState({
+        starCount: rating
+      });
+    }
+
 
   render(){
     return (
         <View style={styles.container}>
-          {this.props.orderlist && this.props.orderlist.map((order,index)=>{
-            return(
-              <View>
-                <Text>{order}</Text>
+              <View style={styles.ratingItem}>
+                <Text  style={{ fontSize:15 }}>{this.props.orderName}</Text>
+                <StarRating
+                halfStarEnabled={false}
+                starSize={30}
+                fullStarColor={"#faa613"}
+                rating={this.state.starCount}
+                selectedStar={(rating)=>this.onStarRatingPress(rating)}
+                />
               </View>
-            )
-          })}
         </View>
     )
   }
@@ -25,8 +38,7 @@ export class VoteContainer extends Component {
 
 const styles=StyleSheet.create({
   container:{
-    flex:1,
-    justifyContent:"space-between",
+    justifyContent:"center",
     alignItems:"center",
     width:340,
     borderWidth:0.5,
@@ -35,5 +47,11 @@ const styles=StyleSheet.create({
     marginTop: 10,
     padding: 3,
     backgroundColor: "#f4f1de"
+  },
+  ratingItem:{
+    flexDirection:"row",
+    justifyContent:"space-between",
+    alignItems:"center",
+    alignSelf:"stretch"
   }
 });
