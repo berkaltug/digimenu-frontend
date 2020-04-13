@@ -352,7 +352,7 @@ export default class MenuScreen extends Component {
                 );
               })}
           </ScrollView>
-          <ItemAddingModal modalVisible={this.state.modalVisible} parentCallback={this.modalCallback} />
+          <ItemAddingModal modalVisible={this.state.modalVisible} parentCallback={this.modalCallback}/>
         </View>
       </LinearGradient>
     );

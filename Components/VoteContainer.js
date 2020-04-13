@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text,TouchableOpacity } from "react-native";
 import StarRating from "react-native-star-rating";
+import RatingStore from "../Store/RatingStore";
+import {RatingTuple} from "../Entity/RatingTuple";
 
 export class VoteContainer extends Component {
   constructor(props){
@@ -10,11 +12,19 @@ export class VoteContainer extends Component {
     };
   }
 
-  onStarRatingPress(rating) {
+  componentDidMount(){
+      let tuple=new RatingTuple(this.props.orderName,this.state.starCount);
+      RatingStore.addTuple(tuple);
+  }
+
+  onStarRatingPress(name,rating) {
       this.setState({
         starCount: rating
       });
+      let tuple=new RatingTuple(name,rating);
+      RatingStore.addTuple(tuple);
     }
+
 
 
   render(){
@@ -27,7 +37,7 @@ export class VoteContainer extends Component {
                 starSize={30}
                 fullStarColor={"#faa613"}
                 rating={this.state.starCount}
-                selectedStar={(rating)=>this.onStarRatingPress(rating)}
+                selectedStar={(rating)=>this.onStarRatingPress(this.props.orderName,rating)}
                 />
               </View>
         </View>

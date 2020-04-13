@@ -13,6 +13,8 @@ import LinearGradient from "react-native-linear-gradient";
 import { VoteContainer } from "./VoteContainer";
 import PastStore from "../Store/PastStore";
 import { observer } from "mobx-react";
+import RatingStore from "../Store/RatingStore";
+
 @observer
 export class VoteModal extends Component {
   constructor(props) {
@@ -22,6 +24,22 @@ export class VoteModal extends Component {
   closeModal = () => {
     this.props.voteModalCallback(false);
   };
+
+  async sendVoting() {
+    URL = "https://digimenu.herokuapp.com/comment/makeComment";
+    var token = await AsyncStorage.getItem("userToken");
+    var tokenStr = JSON.parse(token);
+
+    fetch(URL, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Basic " + tokenStr
+      },
+      body: JSON.stringify(request)
+    });
+  }
 
   render() {
     return (
@@ -75,7 +93,9 @@ export class VoteModal extends Component {
                 style={styles.textinput}
                 onChangeText={text => {}}
               />
-              <TouchableOpacity style={styles.votebutton} onPress={() => {}}>
+              <TouchableOpacity style={styles.votebutton} onPress={() => {
+                console.log(RatingStore.tupleList);
+              }}>
                 <Text
                   style={{
                     fontSize: 20,

@@ -33,12 +33,9 @@ export class PastOrdersModal extends Component {
       }
     })
       .then(function(res) {
-        console.log(res);
         return res.json();
-        console.log(res.json());
       })
       .then(function(data) {
-        console.log("past orders heree" + data.pastOrders);
         return data;
       });
     this.setState({ past: response });
@@ -78,7 +75,6 @@ export class PastOrdersModal extends Component {
             <ScrollView>
               {this.state.past.pastOrders &&
                 this.state.past.pastOrders.map((pastOrder, index) => {
-                  console.log(this.state.past);
                   return (
                     <PastContainer
                       restaurantName={pastOrder.restaurantName}

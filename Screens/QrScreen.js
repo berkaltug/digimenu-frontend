@@ -28,9 +28,9 @@ class QrScreen extends Component {
     global.masaNo=global.URL[5];
     global.resNo=global.URL[4];
      //alert(global.masaNo);
-    // console.log("url "+global.URL);
-    // console.log("masa "+global.masaNo);
-    // console.log("res "+global.resNo);
+     console.log("url "+global.URL);
+     console.log("masa "+global.masaNo);
+     console.log("res "+global.resNo);
     this.props.navigation.navigate('Menu');
   }
 
