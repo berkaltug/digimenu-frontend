@@ -67,6 +67,7 @@ export class VoteModal extends Component {
         );
       }
     });
+    RatingStore.setTupleList([]);
     this.setState({ isSending: false });
   }
 

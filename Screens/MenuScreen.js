@@ -36,7 +36,7 @@ import { ItemContainer } from "../Components/ItemContainer";
 import { CampaignCollapseHeader } from "../Components/CampaignCollapseHeader";
 import { FavCollapseHeader } from "../Components/FavCollapseHeader";
 import { ItemCollapseHeader } from "../Components/ItemCollapseHeader";
-import {ItemAddingModal} from "../Components/ItemAddingModal";
+import { ItemAddingModal } from "../Components/ItemAddingModal";
 import { showGpsError } from "../Globals/Errors.js";
 
 @observer
@@ -80,8 +80,8 @@ export default class MenuScreen extends Component {
     this.setState({ isLoading: true });
     var token = await AsyncStorage.getItem("userToken");
     var tokenStr = JSON.parse(token);
-    var test_url = "http://192.168.0.14:8080/menu/1";
-    const response = await fetch(URL, {
+    var TEST_URL = "http://192.168.0.14:8080/menu/1";
+    const response = await fetch(TEST_URL, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -352,7 +352,10 @@ export default class MenuScreen extends Component {
                 );
               })}
           </ScrollView>
-          <ItemAddingModal modalVisible={this.state.modalVisible} parentCallback={this.modalCallback}/>
+          <ItemAddingModal
+            modalVisible={this.state.modalVisible}
+            parentCallback={this.modalCallback}
+          />
         </View>
       </LinearGradient>
     );
