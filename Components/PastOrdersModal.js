@@ -77,8 +77,11 @@ export class PastOrdersModal extends Component {
                 this.state.past.pastOrders.map((pastOrder, index) => {
                   return (
                     <PastContainer
+                      orderId={pastOrder.orderId}
+                      restaurantId={pastOrder.restaurantId}
                       restaurantName={pastOrder.restaurantName}
                       orderDate={pastOrder.orderDate}
+                      isVoted={pastOrder.isVoted}
                       orders={pastOrder.orders}
                       voteModalCallback={this.setVoteModal}
                     />

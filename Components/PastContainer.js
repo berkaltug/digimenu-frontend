@@ -11,7 +11,7 @@ export class PastContainer extends Component {
     this.props.voteModalCallback(true);
   };
 
-  sendRestaurantData = (name) => {
+  sendRestaurantData = name => {
     this.props.restaurantCallback(name);
   };
   render() {
@@ -36,14 +36,19 @@ export class PastContainer extends Component {
             );
           })}
         <TouchableOpacity
+          disabled={this.props.isVoted}
           style={styles.vote}
           onPress={() => {
             this.sendContainerData();
+            PastStore.setClickedOrderId(this.props.orderId);
+            PastStore.setClickedRestaurantId(this.props.restaurantId);
             PastStore.setClickedRestaurantName(this.props.restaurantName);
             PastStore.setClickedPastOrderList(this.props.orders);
           }}
         >
-          <Text style={{ color: "rgb(237, 237, 237)" }}>Puan Ver</Text>
+          <Text style={{ color: "rgb(237, 237, 237)" }}>
+          {this.props.isVoted ? "Puan Verildi" : "Puan Ver"}
+          </Text>
         </TouchableOpacity>
       </View>
     );
