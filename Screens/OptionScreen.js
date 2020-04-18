@@ -44,6 +44,8 @@ export default class OptionScreen extends Component {
     );
   };
 
+
+
   render() {
     return (
       <LinearGradient

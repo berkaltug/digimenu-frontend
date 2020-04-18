@@ -21,11 +21,30 @@ export class PastOrdersModal extends Component {
     };
   }
 
-  async componentWillMount() {
-    const test_url = "http://192.168.0.14:8080/table_orders/past-orders";
+  async componentWillReceiveProps(nextProps) {
+    const response = await this.fetchPast();
+    this.setState({ past: response });
+  }
+
+  async componentDidMount() {
+    const response = await this.fetchPast();
+    this.setState({ past: response });
+  }
+
+  setVoteModal = async value => {
+    const response = await this.fetchPast();
+    this.setState({ past: response,modalVisible: value });
+  };
+
+  sendModalData = () => {
+    this.props.parentCallback(false);
+  };
+
+  async fetchPast() {
+    const TEST_URL = "http://192.168.0.14:8080/table_orders/past-orders";
     const token = await AsyncStorage.getItem("userToken");
     const tokenStr = JSON.parse(token);
-    const response = await fetch(test_url, {
+    const response = await fetch(TEST_URL, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -38,16 +57,8 @@ export class PastOrdersModal extends Component {
       .then(function(data) {
         return data;
       });
-    this.setState({ past: response });
+    return response;
   }
-
-  setVoteModal = value => {
-    this.setState({ modalVisible: value });
-  };
-
-  sendModalData = () => {
-    this.props.parentCallback(false);
-  };
 
   render() {
     return (
@@ -73,7 +84,8 @@ export class PastOrdersModal extends Component {
             </View>
 
             <ScrollView>
-              {this.state.past.pastOrders &&
+              {this.state.past &&
+                this.state.past.pastOrders &&
                 this.state.past.pastOrders.map((pastOrder, index) => {
                   return (
                     <PastContainer
