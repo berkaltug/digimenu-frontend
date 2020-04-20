@@ -21,9 +21,17 @@ export class PastOrdersModal extends Component {
     };
   }
 
-  async componentWillReceiveProps(nextProps) {
+  // async componentWillReceiveProps(nextProps) {
+  //   const response = await this.fetchPast();
+  //   this.setState({ past: response });
+  // }
+
+async  componentDidUpdate() {
     const response = await this.fetchPast();
-    this.setState({ past: response });
+    if(this.state.past !== response){
+      this.setState({ past: response });
+    }
+
   }
 
   async componentDidMount() {
@@ -33,7 +41,7 @@ export class PastOrdersModal extends Component {
 
   setVoteModal = async value => {
     const response = await this.fetchPast();
-    this.setState({ past: response,modalVisible: value });
+    this.setState({ past: response, modalVisible: value });
   };
 
   sendModalData = () => {

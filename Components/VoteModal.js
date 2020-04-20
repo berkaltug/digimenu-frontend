@@ -31,6 +31,7 @@ export class VoteModal extends Component {
   }
 
   closeModal = () => {
+    this.setState({ isSend : false });
     this.props.voteModalCallback(false);
   };
 
@@ -127,9 +128,9 @@ export class VoteModal extends Component {
               />
 
               <Button
-                title="Gönder"
+                title={ this.state.isSend===true ? "Gönderildi" : "Gönder" }
                 loading={this.state.isSending}
-                disabled={this.state.isLogging}
+                disabled={this.state.isSending || this.state.isSend }
                 buttonStyle={styles.votebutton}
                 disabledStyle={{ backgroundColor: "#4b671b" }}
                 onPress={() => {
