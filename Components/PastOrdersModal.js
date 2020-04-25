@@ -21,17 +21,17 @@ export class PastOrdersModal extends Component {
     };
   }
 
+  //bunu getDerivedStateFromProps ile değiştiremediğimiz için didUpdate kullandık
   // async componentWillReceiveProps(nextProps) {
   //   const response = await this.fetchPast();
   //   this.setState({ past: response });
   // }
-
-async  componentDidUpdate() {
+  //async yapmazsan sonsuz döngüye girer
+  async componentDidUpdate() {
     const response = await this.fetchPast();
-    if(this.state.past !== response){
+    if (this.state.past !== response) {
       this.setState({ past: response });
     }
-
   }
 
   async componentDidMount() {

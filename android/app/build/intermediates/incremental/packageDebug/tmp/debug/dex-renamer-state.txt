@@ -1,4 +1,4 @@
-#Mon Apr 20 16:22:04 EET 2020
+#Sat Apr 25 17:58:49 TRT 2020
 base.0=/home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
