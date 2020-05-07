@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { View, Dimensions, Text ,TouchableOpacity, Modal,AsyncStorage} from "react-native";
 import QRCodeScanner from "react-native-qrcode-scanner";
 import Icon from "react-native-vector-icons/Ionicons";
-
+import {PastOrdersModal} from "../Components/PastOrdersModal";
 import * as Animatable from "react-native-animatable";
 import { withNavigationFocus } from 'react-navigation';
 
@@ -45,13 +45,17 @@ class QrScreen extends Component {
     };
   }
 
+  setPastModal = visible => {
+    this.setState({modalVisible:visible})
+  }
+
   _signOutAsync = async () => {
       await  AsyncStorage.removeItem('userToken');
       this.props.navigation.navigate('AuthLoading');
     };
 
   render() {
-    if(this.props.isFocused){
+    if(this.props.isFocused && !this.state.modalVisible){
       return (
         <QRCodeScanner
           showMarker
@@ -93,23 +97,28 @@ class QrScreen extends Component {
 
 
               <View style={styles.bottomOverlay}>
-              {/*
-              <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Menu')}}
-              style={{backgroundColor:'blue',padding:3,marginTop:6}}>
-                <Text>Demo Button</Text>
+
+              <TouchableOpacity style={styles.pastbutton} onPress={()=>{this.setPastModal(true)}}>
+                <Text style={{fontSize:18,fontWeight:'bold'}}> Geçmişim </Text>
               </TouchableOpacity>
-              */}
 
               <TouchableOpacity style={styles.choicebutton3} onPress={this._signOutAsync}>
                 <Text style={{fontSize:18,fontWeight:'bold'}}>Çıkış Yap</Text>
               </TouchableOpacity>
               </View>
+
             </View>
           }
         />
 
       )
-    }else{
+    }else if (this.state.modalVisible){
+      return(<PastOrdersModal
+        modalVisible={this.state.modalVisible}
+        parentCallback={this.setPastModal}
+      />)
+    }
+    else{
       return null;
     }
 
@@ -196,6 +205,16 @@ const styles = {
     borderRadius:10,
     width:150,
 
+  },
+  pastbutton:{
+    flex:0.5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:'#688e26',
+    margin:10,
+    borderRadius:10,
+    width:150,
+    marginTop:30
   }
 };
 export default withNavigationFocus(QrScreen);

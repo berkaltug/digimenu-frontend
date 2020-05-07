@@ -20,12 +20,7 @@ export class PastOrdersModal extends Component {
       modalVisible: false
     };
   }
-
   //bunu getDerivedStateFromProps ile değiştiremediğimiz için didUpdate kullandık
-  // async componentWillReceiveProps(nextProps) {
-  //   const response = await this.fetchPast();
-  //   this.setState({ past: response });
-  // }
   //async yapmazsan sonsuz döngüye girer
   async componentDidUpdate() {
     const response = await this.fetchPast();
@@ -49,10 +44,11 @@ export class PastOrdersModal extends Component {
   };
 
   async fetchPast() {
+    const URL= "https://digimenu.herokuapp.com/table_orders/past-orders";
     const TEST_URL = "http://192.168.0.14:8080/table_orders/past-orders";
     const token = await AsyncStorage.getItem("userToken");
     const tokenStr = JSON.parse(token);
-    const response = await fetch(TEST_URL, {
+    const response = await fetch(URL, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -107,6 +103,9 @@ export class PastOrdersModal extends Component {
                     />
                   );
                 })}
+              {this.state.past.pastOrders===[] && (
+                <Text style={{fontSize:18}}>Geçmiş siparişiniz bulunmamaktadır.</Text>
+              )}
             </ScrollView>
             <VoteModal
               modalVisible={this.state.modalVisible}

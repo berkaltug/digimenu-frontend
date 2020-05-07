@@ -90,7 +90,7 @@ export default class CartScreen extends Component {
   }
 
   async makeAjax(position) {
-    var local_test = "http://192.168.0.14:8080/table_orders/1/10";
+    var TEST_URL = "http://192.168.0.14:8080/table_orders/1/10";
     var URL =
       global.URL[0] +
       "//" +

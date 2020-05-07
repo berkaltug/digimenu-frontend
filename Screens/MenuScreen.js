@@ -58,7 +58,7 @@ export default class MenuScreen extends Component {
 
   //menuyu çek
   // _.groupBy lodash kütüphanesinde reduce fonk kullanan hazır bir fonk direk internetten bulduk
-  async componentWillMount() {
+  async componentDidMount() {
     let response = await this.getItems();
     array = _.groupBy(response.items, "category");
     this.setState({
@@ -81,7 +81,7 @@ export default class MenuScreen extends Component {
     var token = await AsyncStorage.getItem("userToken");
     var tokenStr = JSON.parse(token);
     var TEST_URL = "http://192.168.0.14:8080/menu/1";
-    const response = await fetch(TEST_URL, {
+    const response = await fetch(URL, {
       method: "GET",
       headers: {
         Accept: "application/json",
