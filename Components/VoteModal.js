@@ -49,7 +49,7 @@ export class VoteModal extends Component {
     );
     this.setState({ isSending: true });
     console.log(JSON.stringify(ratingRequest, null, 2));
-    await fetch(TEST_URL, {
+    await fetch(URL, {
       method: "POST",
       headers: {
         Accept: "application/json",

@@ -50,7 +50,7 @@ export class PastOrdersModal extends Component {
     const TEST_URL = "http://192.168.0.14:8080/table_orders/past-orders";
     const token = await AsyncStorage.getItem("userToken");
     const tokenStr = JSON.parse(token);
-    const response = await fetch(TEST_URL, {
+    const response = await fetch(URL, {
       method: "GET",
       headers: {
         Accept: "application/json",
