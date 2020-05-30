@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import PastStore from "../Store/PastStore";
+import { myColors } from "../Globals/colors";
 
 export class PastContainer extends Component {
   constructor(props) {
@@ -46,8 +47,8 @@ export class PastContainer extends Component {
             PastStore.setClickedPastOrderList(this.props.orders);
           }}
         >
-          <Text style={{ color: "rgb(237, 237, 237)" }}>
-          {this.props.isVoted ? "Puan Verildi" : "Puan Ver"}
+          <Text style={{ color: myColors.lightShade }}>
+            {this.props.isVoted ? "Puan Verildi" : "Puan Ver"}
           </Text>
         </TouchableOpacity>
       </View>
@@ -62,11 +63,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 340,
     borderRadius: 8,
-    borderWidth: 0.5,
-    borderColor: "rgb(145, 105, 105)",
+    borderWidth: 0.8,
+    borderColor: myColors.main,
     marginTop: 10,
     padding: 5,
-    backgroundColor: "#f4f1de"
+    backgroundColor: myColors.lightShade,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+    elevation: 6
   },
   header: {
     flexDirection: "row",
@@ -105,7 +114,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   vote: {
-    backgroundColor: "#faa613",
+    backgroundColor: myColors.main,
     paddingHorizontal: 20,
     paddingVertical: 8,
     margin: 5,

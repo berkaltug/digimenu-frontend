@@ -11,6 +11,8 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 import { PastContainer } from "./PastContainer";
 import { VoteModal } from "./VoteModal";
+import { myColors } from "../Globals/colors";
+
 export class PastOrdersModal extends Component {
   constructor(props) {
     super(props);
@@ -48,7 +50,7 @@ export class PastOrdersModal extends Component {
     const TEST_URL = "http://192.168.0.14:8080/table_orders/past-orders";
     const token = await AsyncStorage.getItem("userToken");
     const tokenStr = JSON.parse(token);
-    const response = await fetch(URL, {
+    const response = await fetch(TEST_URL, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -72,18 +74,14 @@ export class PastOrdersModal extends Component {
         visible={this.props.modalVisible}
         onRequestClose={() => {}}
       >
-        <LinearGradient
-          colors={["rgb(226, 54, 45)", "rgb(245, 193, 153)"]}
-          style={{ flex: 1 }}
-        >
           <View style={styles.container}>
             <View style={styles.header}>
-              <Text style={{ fontSize: 23, fontWeight: "bold" }}>Geçmişim</Text>
+              <Text style={{ fontSize: 23, fontWeight: "bold",color:myColors.darkAccent }}>Geçmişim</Text>
               <TouchableOpacity
                 style={styles.closeButton}
                 onPress={this.sendModalData}
               >
-                <Text style={{ color: "rgb(237, 237, 237)" }}>Kapat</Text>
+                <Text style={{ color:myColors.lightShade }}>Kapat</Text>
               </TouchableOpacity>
             </View>
 
@@ -112,7 +110,6 @@ export class PastOrdersModal extends Component {
               voteModalCallback={this.setVoteModal}
             />
           </View>
-        </LinearGradient>
       </Modal>
     );
   }
@@ -122,13 +119,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor:myColors.lightAccent
   },
   closeButton: {
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "flex-end",
-    backgroundColor: "#3d405b",
+    backgroundColor: myColors.mainComplementary,
     fontSize: 18,
     padding: 7,
     borderRadius: 8

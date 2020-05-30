@@ -6,7 +6,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import {PastOrdersModal} from "../Components/PastOrdersModal";
 import * as Animatable from "react-native-animatable";
 import { withNavigationFocus } from 'react-navigation';
-
+import { myColors } from "../Globals/colors";
 
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 const SCREEN_WIDTH = Dimensions.get("window").width;
@@ -99,11 +99,11 @@ class QrScreen extends Component {
               <View style={styles.bottomOverlay}>
 
               <TouchableOpacity style={styles.pastbutton} onPress={()=>{this.setPastModal(true)}}>
-                <Text style={{fontSize:18,fontWeight:'bold'}}> Geçmişim </Text>
+                <Text style={{fontSize:18,fontWeight:'bold',color: myColors.lightText}}> Geçmişim </Text>
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.choicebutton3} onPress={this._signOutAsync}>
-                <Text style={{fontSize:18,fontWeight:'bold'}}>Çıkış Yap</Text>
+                <Text style={{fontSize:18,fontWeight:'bold',color: myColors.lightText}}>Çıkış Yap</Text>
               </TouchableOpacity>
               </View>
 
@@ -200,7 +200,7 @@ const styles = {
     flex:0.5,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#015eaa',
+    backgroundColor: myColors.main,
     margin:10,
     borderRadius:10,
     width:150,
@@ -210,7 +210,7 @@ const styles = {
     flex:0.5,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#688e26',
+    backgroundColor:myColors.mainComplementary,
     margin:10,
     borderRadius:10,
     width:150,

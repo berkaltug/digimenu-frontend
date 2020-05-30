@@ -4,7 +4,7 @@
             "outputFile": "/home/berk/Desktop/workspace/reactnative/digimenu-frontend/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rTW/values-zh-rTW.xml",
             "map": [
                 {
-                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/1a87eecb2193e8596332c0b95d3dd953/res/values-zh-rTW/values.xml",
+                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/b83ee0c63a4bed6f133a90e404b50f31/res/values-zh-rTW/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

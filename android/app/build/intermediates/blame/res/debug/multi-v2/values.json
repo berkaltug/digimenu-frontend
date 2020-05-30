@@ -34,6 +34,21 @@
                     }
                 },
                 {
+                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/b83ee0c63a4bed6f133a90e404b50f31/res/values/values.xml",
+                    "from": {
+                        "startLines": "-1,-1",
+                        "startColumns": "-1,-1",
+                        "startOffsets": "-1,-1"
+                    },
+                    "to": {
+                        "startLines": "283,355",
+                        "startColumns": "4,4",
+                        "startOffsets": "18273,25141",
+                        "endColumns": "67,166",
+                        "endOffsets": "18336,25303"
+                    }
+                },
+                {
                     "source": "/home/berk/Desktop/workspace/reactnative/digimenu-frontend/node_modules/react-native-camera/android/build/intermediates/packaged_res/general/debug/values/values.xml",
                     "from": {
                         "startLines": "-1",
@@ -65,21 +80,6 @@
                     }
                 },
                 {
-                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/1a87eecb2193e8596332c0b95d3dd953/res/values/values.xml",
-                    "from": {
-                        "startLines": "-1,-1",
-                        "startColumns": "-1,-1",
-                        "startOffsets": "-1,-1"
-                    },
-                    "to": {
-                        "startLines": "283,355",
-                        "startColumns": "4,4",
-                        "startOffsets": "18273,25141",
-                        "endColumns": "67,166",
-                        "endOffsets": "18336,25303"
-                    }
-                },
-                {
                     "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/46365332a7ff7900c7ca15c74fa7506c/res/values/values.xml",
                     "from": {
                         "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
@@ -96,7 +96,7 @@
                     }
                 },
                 {
-                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/b9e979fba919f483860a8763deeec634/res/values/values.xml",
+                    "source": "/home/berk/.gradle/caches/transforms-2/files-2.1/fd66e69a1c2e0f3a309e734f88f01121/res/values/values.xml",
                     "from": {
                         "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
                         "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { AddButton } from "./AddButton";
 import StarRating from "react-native-star-rating";
+import { myColors } from "../Globals/colors";
 
 export class ItemContainer extends Component {
   constructor(props) {
@@ -13,20 +14,26 @@ export class ItemContainer extends Component {
     return (
       <View style={styles.optionbutton}>
         <View style={{ flex: 3, paddingHorizontal: 2 }}>
-          <Text style={{ color: "#E2362D", fontSize: 18 }}>
+          <Text
+            style={{
+              color: myColors.darkShade,
+              fontSize: 18,
+              fontWeight: "bold"
+            }}
+          >
             {this.props.item.name || this.props.item.item}
           </Text>
-          {this.props.item.rating !== 0.0 && (
+          { ( this.props.item.rating!==null && this.props.item.rating !== 0.0 ) && (
             <View style={{ flexDirection: "row" }}>
               <StarRating
                 disabled={true}
                 starSize={16}
-                fullStarColor={"#faa613"}
+                fullStarColor={myColors.favourite}
                 rating={this.props.item.rating}
               />
             </View>
           )}
-          <Text style={{ color: "#E2362D", fontSize: 14 }}>
+          <Text style={{ color: myColors.darkShade, fontSize: 14 }}>
             {this.props.item.contents || this.props.item.ingredients}
           </Text>
         </View>
@@ -39,7 +46,7 @@ export class ItemContainer extends Component {
           }}
         >
           <View style={{ marginLeft: "auto" }}>
-            <Text style={{ color: "#7B7C00", fontSize: 16 }}>
+            <Text style={{ color: myColors.darkShade, fontSize: 16 }}>
               {this.props.item.price} ₺
             </Text>
           </View>
@@ -61,7 +68,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 320,
     elevation: 4,
-    backgroundColor: "#f9f7f5",
+    backgroundColor: myColors.lightShade,
     margin: 5,
     padding: 2,
     minHeight: 50,

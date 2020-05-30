@@ -14,6 +14,8 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 
 import{PastOrdersModal} from "../Components/PastOrdersModal";
+import { myColors } from "../Globals/colors";
+
 export default class OptionScreen extends Component {
   constructor(props) {
     super(props);
@@ -48,34 +50,30 @@ export default class OptionScreen extends Component {
 
   render() {
     return (
-      <LinearGradient
-        colors={["rgb(226, 54, 45)", "rgb(245, 193, 153)"]}
-        style={{ flex: 1 }}
-      >
         <View style={styles.container}>
           <ScrollView>
             {/*2 farklı fonksiyon çağırımı onPress içerisinde*/}
             <TouchableOpacity style={styles.optionbutton} onPress={()=>{this.setPastModal(true)}}>
-              <Text>Geçmişim</Text>
+              <Text style={styles.font}>Geçmişim</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.optionbutton}
               onPress={this.soon}
             >
-              <Text>Dil</Text>
+              <Text style={styles.font}>Dil</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
               style={styles.optionbutton}
               onPress={this.goToWebPage}
             >
-              <Text>Yardım Merkezi</Text>
+              <Text style={styles.font}>Yardım Merkezi</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.optionbutton}
               onPress={this.goToWebPage}
             >
-              <Text>Sorun Bildir</Text>
+              <Text style={styles.font}>Sorun Bildir</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.optionbutton}
@@ -83,14 +81,14 @@ export default class OptionScreen extends Component {
                 this.setModal(true);
               }}
             >
-              <Text>Gizlilik İlkesi ve Kullanım Koşulları</Text>
+              <Text style={styles.font}>Gizlilik İlkesi ve Kullanım Koşulları</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
               style={styles.optionbutton}
               onPress={this._signOutAsync}
             >
-              <Text>Çıkış Yap</Text>
+              <Text style={styles.font} >Çıkış Yap</Text>
             </TouchableOpacity>
           </ScrollView>
           <PastOrdersModal
@@ -279,14 +277,14 @@ export default class OptionScreen extends Component {
             </ScrollView>
           </Modal>
         </View>
-      </LinearGradient>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: myColors.lightAccent
   },
   optionbutton: {
     textAlign: "left",
@@ -294,11 +292,15 @@ const styles = StyleSheet.create({
     marginLeft: 17,
     marginRight: 17,
     marginTop: 7,
-    backgroundColor: "rgb(236, 236, 236)",
+    backgroundColor: myColors.main,
     fontSize: 14,
     borderRadius: 10,
     borderWidth: 1.2,
-    borderColor: "black"
+    borderColor: myColors.darkShade
+  },
+  font:{
+    color:myColors.lightShade,
+    fontWeight:"bold",
   },
   customAwesomeButton: {
     margin: 4,

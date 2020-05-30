@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import StarRating from "react-native-star-rating";
 import RatingStore from "../Store/RatingStore";
 import { RatingTuple } from "../Entity/RatingTuple";
+import { myColors } from "../Globals/colors";
 
 export class VoteContainer extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ export class VoteContainer extends Component {
           <StarRating
             halfStarEnabled={false}
             starSize={30}
-            fullStarColor={"#faa613"}
+            fullStarColor={myColors.favourite}
             rating={this.state.starCount}
             selectedStar={rating =>
               this.onStarRatingPress(this.props.orderName, rating)
@@ -50,12 +51,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: 340,
-    borderWidth: 0.5,
+    borderWidth: 1,
     borderRadius: 8,
-    borderColor: "rgb(145, 105, 105)",
+    borderColor: myColors.main,
     marginTop: 10,
     padding: 3,
-    backgroundColor: "#f4f1de"
+    backgroundColor: myColors.lightShade,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+
+    elevation: 6
   },
   ratingItem: {
     flexDirection: "row",

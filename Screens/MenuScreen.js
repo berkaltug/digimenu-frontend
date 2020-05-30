@@ -38,6 +38,7 @@ import { FavCollapseHeader } from "../Components/FavCollapseHeader";
 import { ItemCollapseHeader } from "../Components/ItemCollapseHeader";
 import { ItemAddingModal } from "../Components/ItemAddingModal";
 import { showGpsError } from "../Globals/Errors.js";
+import { myColors } from "../Globals/colors";
 
 @observer
 export default class MenuScreen extends Component {
@@ -81,7 +82,7 @@ export default class MenuScreen extends Component {
     var token = await AsyncStorage.getItem("userToken");
     var tokenStr = JSON.parse(token);
     var TEST_URL = "http://192.168.0.14:8080/menu/1";
-    const response = await fetch(URL, {
+    const response = await fetch(TEST_URL, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -243,79 +244,101 @@ export default class MenuScreen extends Component {
 
   render() {
     return (
-      <LinearGradient
-        colors={["rgb(226, 54, 45)", "rgb(245, 193, 153)"]}
-        style={{ flex: 1 }}
-      >
-        <View style={styles.container}>
-          <ScrollView>
-            <Image
-              style={{ width: 300, height: 128, margin: 7 }}
-              source={require("../Assets/whitelogo.png")}
-            />
-            <Text
-              style={{
-                fontSize: 22,
-                fontWeight: "bold",
-                color: "rgb(237, 237, 237)"
-              }}
-            >
-              Menü
+      <View style={styles.container}>
+        <ScrollView>
+          <Image
+            style={{ width: 300, height: 128, margin: 7 }}
+            source={require("../Assets/logo.png")}
+          />
+          <Text
+            style={{
+              fontSize: 22,
+              fontWeight: "bold",
+              color: myColors.darkShade
+            }}
+          >
+            Menü
+          </Text>
+
+          <TouchableOpacity
+            onPress={async () => {
+              await this.getWaitressWithCoords();
+            }}
+            style={styles.waitressbutton}
+          >
+            <Text style={{ color: myColors.lightShade, fontWeight: "bold" }}>
+              Garson Çağır{"  "}
             </Text>
-
-            <TouchableOpacity
-              onPress={async () => {
-                await this.getWaitressWithCoords();
-              }}
-              style={styles.waitressbutton}
-            >
-              <Text style={{ color: "rgb(235, 235, 235)", fontWeight: "bold" }}>
-                Garson Çağır{"  "}
-              </Text>
-              <Icon
-                name="hand-o-up"
-                size={25}
-                style={{ color: "rgb(235, 235, 235)", marginRight: 2 }}
-              />
-            </TouchableOpacity>
-
-            <ActivityIndicator
-              animating={this.state.isLoading}
-              size="large"
-              color="#0000ff"
+            <Icon
+              name="hand-o-up"
+              size={25}
+              style={{ color: myColors.lightShade, marginRight: 2 }}
             />
-            {this.state.campaignArr.length > 0 && (
-              <View>
-                <Collapse>
-                  <CollapseHeader>
-                    <CampaignCollapseHeader />
-                  </CollapseHeader>
-                  <CollapseBody>
-                    {this.state.campaignArr.map((camp, index) => {
-                      return (
-                        <ItemContainer
-                          item={camp}
-                          itemType="campaign"
-                          parentCallback1={this.modalCallback}
-                        />
-                      );
-                    })}
-                  </CollapseBody>
-                </Collapse>
-              </View>
-            )}
+          </TouchableOpacity>
 
-            {this.state.favouriteArr.length > 0 && (
-              <View>
+          <ActivityIndicator
+            animating={this.state.isLoading}
+            size="large"
+            color="#0000ff"
+          />
+          {this.state.campaignArr.length > 0 && (
+            <View>
+              <Collapse>
+                <CollapseHeader>
+                  <CampaignCollapseHeader />
+                </CollapseHeader>
+                <CollapseBody>
+                  {this.state.campaignArr.map((camp, index) => {
+                    return (
+                      <ItemContainer
+                        item={camp}
+                        itemType="campaign"
+                        parentCallback1={this.modalCallback}
+                      />
+                    );
+                  })}
+                </CollapseBody>
+              </Collapse>
+            </View>
+          )}
+
+          {this.state.favouriteArr.length > 0 && (
+            <View>
+              <Collapse>
+                <CollapseHeader>
+                  <FavCollapseHeader />
+                </CollapseHeader>
+                <CollapseBody>
+                  {this.state.favouriteArr.map((fav, index) => {
+                    return (
+                      <ItemContainer
+                        item={fav}
+                        itemType="item"
+                        parentCallback1={this.modalCallback}
+                      />
+                    );
+                  })}
+                </CollapseBody>
+              </Collapse>
+            </View>
+          )}
+
+          {Object.keys(this.state.menuArr)
+            .sort(function(a, b) {
+              return a.localeCompare(b);
+            })
+            .map((category, index) => {
+              return (
                 <Collapse>
                   <CollapseHeader>
-                    <FavCollapseHeader />
+                    <ItemCollapseHeader category={category} />
                   </CollapseHeader>
+
                   <CollapseBody>
-                    {this.state.favouriteArr.map((fav, index) => {
+                    {this.state.menuArr[category].map((item, idx) => {
                       return (
                         <ItemContainer
-                          item={fav}
+                          item={item}
                           itemType="item"
                           parentCallback1={this.modalCallback}
                         />
@@ -323,41 +346,14 @@ export default class MenuScreen extends Component {
                     })}
                   </CollapseBody>
                 </Collapse>
-              </View>
-            )}
-
-            {Object.keys(this.state.menuArr)
-              .sort(function(a, b) {
-                return a.localeCompare(b);
-              })
-              .map((category, index) => {
-                return (
-                  <Collapse>
-                    <CollapseHeader>
-                      <ItemCollapseHeader category={category} />
-                    </CollapseHeader>
-
-                    <CollapseBody>
-                      {this.state.menuArr[category].map((item, idx) => {
-                        return (
-                          <ItemContainer
-                            item={item}
-                            itemType="item"
-                            parentCallback1={this.modalCallback}
-                          />
-                        );
-                      })}
-                    </CollapseBody>
-                  </Collapse>
-                );
-              })}
-          </ScrollView>
-          <ItemAddingModal
-            modalVisible={this.state.modalVisible}
-            parentCallback={this.modalCallback}
-          />
-        </View>
-      </LinearGradient>
+              );
+            })}
+        </ScrollView>
+        <ItemAddingModal
+          modalVisible={this.state.modalVisible}
+          parentCallback={this.modalCallback}
+        />
+      </View>
     );
   }
 }
@@ -367,12 +363,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "transparent"
+    backgroundColor: myColors.lightAccent
   },
   waitressbutton: {
     width: 320,
     height: 40,
-    backgroundColor: "#84343D",
+    backgroundColor: myColors.mainComplementary,
     elevation: 8,
     flexDirection: "row",
     justifyContent: "center",

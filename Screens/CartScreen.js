@@ -14,6 +14,7 @@ import {
   Platform,
   Alert
 } from "react-native";
+
 import MenuScreen from "./MenuScreen";
 import { NavigationActions } from "react-navigation";
 import cartInstance from "../Globals/globalCart";
@@ -24,6 +25,8 @@ import OrderRequest from "../Entity/OrderRequest";
 import Geolocation from "@react-native-community/geolocation";
 import { showGpsError } from "../Globals/Errors";
 import { OrderSuccessModal } from "../Components/OrderSuccessModal";
+import { myColors } from "../Globals/colors";
+
 @observer
 export default class CartScreen extends Component {
   constructor(props) {
@@ -109,7 +112,7 @@ export default class CartScreen extends Component {
     request.longitude = position.coords.longitude;
     console.log(JSON.stringify(request));
 
-    await fetch(URL, {
+    await fetch(TEST_URL, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -174,8 +177,7 @@ export default class CartScreen extends Component {
                       }}
                     >
                       <Text key={Math.floor(Math.random() * 10000) + 1}>
-                        {" "}
-                        <Icon name="close" color="#d7263d" />{" "}
+                        <Icon name="close" color={myColors.lightShade} />
                       </Text>
                     </TouchableOpacity>
                   </View>
@@ -237,21 +239,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: myColors.lightAccent
   },
   textshadow: {
-    textShadowColor: "rgba(0, 0, 0, 0.5)",
-    textShadowOffset: { width: 0, height: 2 },
-    textShadowRadius: 10,
+
     fontSize: 30,
     fontWeight: "bold",
     marginRight: "auto",
     marginLeft: 20,
-    color: "rgb(237, 237, 237)"
+    color: myColors.darkShade
   },
   sepet: {
     flex: 1 / 1.5,
-    backgroundColor: "rgb(236, 236, 236)",
+    backgroundColor: myColors.lightShade,
     borderRadius: 10,
     elevation: 16,
     marginTop: 5,
@@ -269,14 +270,13 @@ const styles = StyleSheet.create({
     elevation: 10,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#048223",
+    backgroundColor: myColors.main,
     margin: 10
   },
   removeButton: {
-    backgroundColor: "rgb(237, 237, 237)",
+    backgroundColor: myColors.main,
     elevation: 12,
     margin: 3,
-    padding: 3,
     borderRadius: 50,
     width: 26,
     height: 26,
@@ -289,7 +289,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#db461f",
+    backgroundColor: myColors.mainComplementary,
     borderRadius: 2,
     elevation: 10,
     margin: 10

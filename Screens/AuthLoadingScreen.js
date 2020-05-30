@@ -14,6 +14,7 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 import { getAppstoreAppMetadata } from "react-native-appstore-version-checker";
 import { getVersion } from "react-native-device-info";
+import {myColors} from "../Globals/colors";
 
 export default class AuthLoadingScreen extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ export default class AuthLoadingScreen extends React.Component {
 
   // Fetch the token from storage then navigate to our appropriate place
   _bootstrapAsync = async () => {
+    const userToken = await AsyncStorage.getItem("userToken");
     let appID = null;
     Platform.OS === "android"
       ? (appID = "com.digimenu")
@@ -34,7 +36,6 @@ export default class AuthLoadingScreen extends React.Component {
     getAppstoreAppMetadata(appID).then(metadata => {
       const storeVersion = metadata.version;
       const appVersion = getVersion();
-      const userToken = AsyncStorage.getItem("userToken");
       console.log(storeVersion);
       console.log(appVersion);
       if (storeVersion !== appVersion) {
@@ -60,31 +61,31 @@ export default class AuthLoadingScreen extends React.Component {
 
   render() {
     return (
-      <LinearGradient
-        colors={["rgb(226, 54, 45)", "rgb(245, 193, 153)"]}
-        style={{ flex: 1 }}
-      >
         <View style={styles.container}>
           {this.state.isLoading && (
             <ActivityIndicator animating={true} size="large" color="#0000ff" />
           )}
           {!this.state.isUpdated && !this.state.isLoading && (
             <View style={styles.container}>
-            <Image style={{width:100,height:100}} source={require('../Assets/devekusu.png')} />
-              <Text style={{ fontSize: 25 , textAlign:"center" , margin:10 }}>
-                Uygulamanız Güncel Değil ! Uygulamamızı Kullanabilmek İçin Lütfen
-                Son Sürüme Güncelleyiniz.
+              <Image
+                style={{ width: 100, height: 100 }}
+                source={require("../Assets/devekusu.png")}
+              />
+              <Text style={{ fontSize: 25, textAlign: "center", margin: 10 }}>
+                Uygulamanız Güncel Değil ! Uygulamamızı Kullanabilmek İçin
+                Lütfen Son Sürüme Güncelleyiniz.
               </Text>
               <TouchableOpacity
                 style={styles.updateBtn}
                 onPress={this.goToStore}
               >
-                <Text style={{ fontSize: 20, color: "rgb(237,237,237)" }}>Güncelle</Text>
+                <Text style={{ fontSize: 20, color: "rgb(237,237,237)" }}>
+                  Güncelle
+                </Text>
               </TouchableOpacity>
             </View>
           )}
         </View>
-      </LinearGradient>
     );
   }
 }
@@ -94,13 +95,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: myColors.darkShade,
   },
   updateBtn: {
     justifyContent: "center",
     alignItems: "center",
-    width:250,
-    height:50,
-    backgroundColor:"#faa613",
-    borderRadius:10
+    width: 250,
+    height: 50,
+    backgroundColor: "#faa613",
+    borderRadius: 10
   }
 });

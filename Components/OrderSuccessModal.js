@@ -1,18 +1,20 @@
-import React,{Component} from "react";
-import {Modal,View,Text,TouchableOpacity,StyleSheet} from "react-native";
+import React, { Component } from "react";
+import { Modal, View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-export class OrderSuccessModal extends Component{
-  constructor(props){
-    super(props)
+import { myColors } from "../Globals/colors";
+
+export class OrderSuccessModal extends Component {
+  constructor(props) {
+    super(props);
   }
 
-  sendModalData=()=>{
+  sendModalData = () => {
     this.props.parentCallback(false);
-  }
+  };
 
-  render(){
-    return(
+  render() {
+    return (
       <Modal
         animationType="slide"
         transparent={false}
@@ -31,25 +33,26 @@ export class OrderSuccessModal extends Component{
               margin: 50,
               width: 90,
               height: 40,
-              backgroundColor: "tomato",
+              backgroundColor: myColors.main,
               justifyContent: "center",
               alignItems: "center",
               borderRadius: 10
             }}
             onPress={this.sendModalData}
           >
-            <Text style={{ fontSize: 17 }}>Kapat</Text>
+            <Text style={{ fontSize: 17,color: myColors.lightShade }}>Kapat</Text>
           </TouchableOpacity>
         </View>
       </Modal>
-    )
+    );
   }
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: myColors.lightAccent
   }
-})
+});

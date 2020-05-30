@@ -18,6 +18,7 @@ import { observer } from "mobx-react";
 import RatingStore from "../Store/RatingStore";
 import { RatingRequest } from "../Entity/RatingRequest";
 import { Button } from "react-native-elements";
+import { myColors } from "../Globals/colors";
 
 @observer
 export class VoteModal extends Component {
@@ -31,7 +32,7 @@ export class VoteModal extends Component {
   }
 
   closeModal = () => {
-    this.setState({ isSend : false });
+    this.setState({ isSend: false });
     this.props.voteModalCallback(false);
   };
 
@@ -47,8 +48,8 @@ export class VoteModal extends Component {
       RatingStore.tupleList
     );
     this.setState({ isSending: true });
-    console.log(JSON.stringify(ratingRequest,null,2));
-    await fetch(URL, {
+    console.log(JSON.stringify(ratingRequest, null, 2));
+    await fetch(TEST_URL, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -80,36 +81,19 @@ export class VoteModal extends Component {
         visible={this.props.modalVisible}
         onRequestClose={() => {}}
       >
-        <LinearGradient
-          colors={["rgb(226, 54, 45)", "rgb(245, 193, 153)"]}
-          style={{ flex: 1 }}
-        >
+        <View style={styles.modalContainer}>
           <View style={styles.header}>
-            <Text
-              style={{
-                color: "rgb(65, 58, 58)",
-                fontSize: 25,
-                fontWeight: "bold"
-              }}
-            >
-              Puan Ver
-            </Text>
+            <Text style={styles.headerFont}>Puan Ver</Text>
             <TouchableOpacity
               style={styles.closeButton}
               onPress={this.closeModal}
             >
-              <Text style={{ color: "rgb(237,237,237)" }}>Kapat</Text>
+              <Text style={{ color: myColors.lightShade }}>Kapat</Text>
             </TouchableOpacity>
           </View>
           <ScrollView>
             <KeyboardAvoidingView style={styles.container} behaviour="padding">
-              <Text
-                style={{
-                  color: "rgb(65, 58, 58)",
-                  fontSize: 27,
-                  fontWeight: "bold"
-                }}
-              >
+              <Text style={styles.resName}>
                 {PastStore.clickedRestaurantName}
               </Text>
               {PastStore.clickedPastOrderList.map((order, index) => {
@@ -128,9 +112,9 @@ export class VoteModal extends Component {
               />
 
               <Button
-                title={ this.state.isSend===true ? "Gönderildi" : "Gönder" }
+                title={this.state.isSend === true ? "Gönderildi" : "Gönder"}
                 loading={this.state.isSending}
-                disabled={this.state.isSending || this.state.isSend }
+                disabled={this.state.isSending || this.state.isSend}
                 buttonStyle={styles.votebutton}
                 disabledStyle={{ backgroundColor: "#4b671b" }}
                 onPress={() => {
@@ -140,13 +124,17 @@ export class VoteModal extends Component {
               />
             </KeyboardAvoidingView>
           </ScrollView>
-        </LinearGradient>
+        </View>
       </Modal>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  modalContainer: {
+    flex: 1,
+    backgroundColor: myColors.lightAccent
+  },
   container: {
     flex: 1,
     justifyContent: "flex-start",
@@ -156,7 +144,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "flex-end",
-    backgroundColor: "#3d405b",
+    backgroundColor: myColors.mainComplementary,
     fontSize: 18,
     padding: 7,
     borderRadius: 8
@@ -169,21 +157,40 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
     marginVertical: 18
   },
+  headerFont: {
+    color: myColors.darkAccent,
+    fontSize: 25,
+    fontWeight: "bold"
+  },
+  resName: {
+    color: myColors.darkAccent,
+    fontSize: 27,
+    fontWeight: "bold"
+  },
   textinput: {
     height: 70,
     width: 340,
-    borderColor: "gray",
+    borderColor: myColors.main,
     borderWidth: 1,
-    backgroundColor: "rgb(237,237,237)",
+    backgroundColor: myColors.lightShade,
     borderRadius: 8,
-    margin: 10
+    margin: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+
+    elevation: 6
   },
   votebutton: {
     justifyContent: "center",
     alignItems: "center",
     width: 340,
     padding: 5,
-    backgroundColor: "#688e26",
+    backgroundColor: myColors.main,
     borderRadius: 8
   }
 });

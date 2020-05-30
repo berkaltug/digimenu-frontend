@@ -3,6 +3,7 @@ import { observer } from "mobx-react";
 import CartStore from "../Store/CartStore";
 import { TouchableOpacity, Text, View, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { myColors } from "../Globals/colors";
 
 @observer
 export class AddButton extends Component {
@@ -54,7 +55,7 @@ export class AddButton extends Component {
         <TouchableOpacity
           style={styles.addbutton}
           onPress={this.onPressEvent}>
-          <Text><Icon name="plus" color="#d7263d"/></Text>
+          <Text><Icon name="plus" color={myColors.lightShade} /></Text>
         </TouchableOpacity>
       </View>
     );
@@ -63,7 +64,7 @@ export class AddButton extends Component {
 
 const styles = StyleSheet.create({
   addbutton: {
-    backgroundColor: "rgb(237, 237, 237)",
+    backgroundColor: myColors.main,
     elevation: 12,
     margin: 3,
     padding: 3,

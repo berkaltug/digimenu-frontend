@@ -1,36 +1,41 @@
-import React,{Component} from 'react';
-import {StyleSheet , View , Text} from 'react-native';
+import React, { Component } from "react";
+import { StyleSheet, View, Text } from "react-native";
+import { myColors } from "../Globals/colors";
 
-export class ItemCollapseHeader extends Component{
-  constructor(props){
-    super(props)
+export class ItemCollapseHeader extends Component {
+  constructor(props) {
+    super(props);
   }
-  render(){
-    return(
+  render() {
+    return (
       <View style={styles.collapseHeader}>
         <Text style={styles.categoryHeader}> {this.props.category} </Text>
       </View>
-    )
+    );
   }
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
   collapseHeader: {
     flex: 1,
     alignItems: "center",
     width: 320,
-    elevation: 4,
-    backgroundColor: "#e87159",
-    margin: 5,
+    backgroundColor: myColors.main,
+    margin: 7,
     padding: 2,
-    borderRadius: 5,
-    borderBottomWidth: 2,
-    borderRightWidth: 1,
-    borderColor: "#af5a49"
+    borderRadius: 3,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5
   },
   categoryHeader: {
     fontSize: 19,
-    fontStyle: "italic",
-    color: "rgb(235, 235, 235)"
+    color: myColors.lightShade
   }
-})
+});

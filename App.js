@@ -18,6 +18,8 @@ import OptionScreen from './Screens/OptionScreen';
 import AuthLoadingScreen from './Screens/AuthLoadingScreen';
 import ForgetPasswordScreen from './Screens/ForgetPasswordScreen';
 import codePush from "react-native-code-push";
+
+import { myColors } from "./Globals/colors";
 type Props = {};
 class App extends Component<Props> {
   render() {
@@ -63,8 +65,8 @@ const MenuNavigator = createBottomTabNavigator(
     }
     }),
     tabBarOptions: {
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
+      activeTintColor: myColors.main,
+      inactiveTintColor: myColors.darkShade,
     },
 
   }

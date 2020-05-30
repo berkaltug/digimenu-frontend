@@ -5,6 +5,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import userInstance from '../Globals/globalUser';
 import base64 from 'base-64';
 import LinearGradient from 'react-native-linear-gradient';
+
+import { myColors } from "../Globals/colors";
+
 export default class LoginScreen extends Component{
 
     constructor(props){
@@ -26,7 +29,6 @@ export default class LoginScreen extends Component{
 
     render() {
       return (
-        <LinearGradient colors={['rgb(226, 54, 45)','rgb(245, 193, 153)']} style={{flex:1}}>
         <View style={styles.container}>
 
           <Modal
@@ -36,11 +38,12 @@ export default class LoginScreen extends Component{
             onRequestClose={() => {}}>
             <View style={styles.container}>
                 <Text style={{fontSize:30,textAlign:'center'}}>
-                  Giriş Yapılamadı!
-                  Lütfen Girdiğiniz Bilgileri Kontrol Edip Tekrar Deneyin.
-                  {this.state.status}
+                  Giriş Yapılamadı!{"\n"}
+                  Lütfen Girdiğiniz Bilgileri Kontrol Edip Tekrar Deneyin.{"\n"}
+                  Hata Kodu : {this.state.status}
                 </Text>
                 <Button
+                buttonStyle={{ backgroundColor: myColors.mainComplementary }}
                 title="Kapat"
                   onPress={() => {
                     this.setIndicator(false);
@@ -52,19 +55,20 @@ export default class LoginScreen extends Component{
             </View>
           </Modal>
 
-          <Image style={{width:262,height:120}} source={require('../Assets/whitelogo.png')} />
-          <Text style={styles.welcome}>Digimenu'ye Hoş Geldiniz</Text>
+          <Image style={{width:262,height:120}} source={require('../Assets/logo.png')} />
+          <Text style={styles.welcome}>Digimenu'ye{"\n"} Hoş Geldiniz</Text>
           {/*}<Text style={{marginLeft:55,marginRight:'auto'}}>Kullanıcı Adı</Text>*/}
-          <TextInput style={styles.input} placeholder={"Kullanıcı Adı"} placeholderTextColor='rgb(237, 237, 237)'
+          <TextInput style={styles.input} placeholder={"Kullanıcı Adı"} placeholderTextColor={myColors.darkAccent}
               onChangeText={(data) => { this.state.user.username = data; }}/>
           {/*}<Text style={{marginLeft:55,marginRight:'auto'}}>Parola</Text>*/}
-          <TextInput secureTextEntry={true} style={styles.input} placeholder={"Parola"} placeholderTextColor='rgb(237, 237, 237)'
+          <TextInput secureTextEntry={true} style={styles.input} placeholder={"Parola"} placeholderTextColor={myColors.darkAccent}
               onChangeText={(data) => { this.state.user.password = data; }}/>
 
           <View style={{flexDirection:'column'}}>
           <Button
           buttonStyle = {styles.customAwesomeButton}
           title="Giriş Yap"
+          titleStyle={{color:myColors.lightShade}}
           loading={this.state.isLogging}
           disabled={this.state.isLogging}
           disabledStyle={{backgroundColor:'rgb(94, 55, 55)'}}
@@ -86,12 +90,14 @@ export default class LoginScreen extends Component{
           <Button
           buttonStyle = {styles.customAwesomeButton}
           title="Kayıt Ol"
+          titleStyle={{color:myColors.lightShade}}
           onPress = {()=>{
             this.props.navigation.navigate('SignUp');
           }}
           />
           <Button
           buttonStyle = {styles.customAwesomeButton}
+          titleStyle={{color:myColors.lightShade}}
           title="Parolamı Unuttum"
           onPress = {()=>{
             this.props.navigation.navigate('ForgetPassword');
@@ -99,7 +105,6 @@ export default class LoginScreen extends Component{
           />
           </View>
         </View>
-        </LinearGradient>
       );
     }
 
@@ -110,26 +115,26 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'transparent'
+    backgroundColor: myColors.lightAccent,
   },
   welcome: {
     fontSize: 35,
     fontWeight:'bold',
     textAlign: 'center',
     margin: 10,
-    color:'rgb(237, 237, 237)'
+    color:myColors.darkAccent
   },
   input:{
     width:300,
     height:40,
-    borderColor:'rgb(237, 237, 237)',
+    borderColor:myColors.darkAccent,
     borderTopWidth:0,
     borderLeftWidth:0,
     borderRightWidth:0,
     borderBottomWidth:2,
     borderRadius:5,
     backgroundColor:'transparent',
-    color:'rgb(237, 237, 237)'
+    color:myColors.darkAccent
   },
   passinput:{
     width:300,
@@ -140,7 +145,7 @@ const styles = StyleSheet.create({
   },
   customAwesomeButton:{
     margin:9,
-    backgroundColor:'rgb(237, 75, 66)',
+    backgroundColor:myColors.main,
     borderRadius:15,
     width:300,
     height:30

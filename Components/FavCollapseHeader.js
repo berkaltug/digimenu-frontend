@@ -1,47 +1,54 @@
-import React,{Component} from 'react';
-import {StyleSheet , View , Text} from 'react-native';
+import React, { Component } from "react";
+import { StyleSheet, View, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-export class FavCollapseHeader extends Component{
-  constructor(props){
-    super(props)
+import { myColors } from "../Globals/colors";
+
+export class FavCollapseHeader extends Component {
+  constructor(props) {
+    super(props);
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <View style={styles.favCollapseHeader}>
         <Text style={styles.favHeaderText}>
-          Sık Tercih Edilenler{" "}
+          Sık Tercih Edilenler{"  "}
           <Icon
             name="star"
             size={20}
             style={{
-              color: "rgb(235, 235, 235)",
+              color: myColors.lightShade,
               marginRight: 2
             }}
           />
         </Text>
       </View>
-    )
+    );
   }
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
   favCollapseHeader: {
     flex: 1,
     alignItems: "center",
     width: 320,
-    elevation: 4,
-    backgroundColor: "#faa613",
-    margin: 5,
+    backgroundColor: myColors.main,
+    margin: 7,
     padding: 2,
-    borderRadius: 5,
-    borderBottomWidth: 1.5,
-    borderRightWidth: 1,
-    borderColor: "#ab7d2c"
+    borderRadius: 3,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5
   },
   favHeaderText: {
     fontSize: 21,
     fontStyle: "italic",
-    color: "rgb(235, 235, 235)"
+    color: myColors.lightShade
   }
-})
+});

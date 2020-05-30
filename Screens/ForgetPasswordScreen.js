@@ -3,7 +3,10 @@ import {StyleSheet, View, Text, TextInput, TouchableOpacity, Modal, TouchableHig
 import userInstance from '../Globals/globalUser';
 import { Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
+import { myColors} from "../Globals/colors";
+
 export default class ForgetPasswordScreen extends Component{
+
 
   constructor(props){
     super(props);
@@ -25,7 +28,6 @@ export default class ForgetPasswordScreen extends Component{
 
   render(){
     return(
-    <LinearGradient colors={['rgb(226, 54, 45)','rgb(245, 193, 153)']} style={{flex:1}}>
       <View style={styles.container}>
       {/*Modal Section  -- ReactJS'de yorum satırı bu şekilde olmalıymış */}
         <Modal
@@ -91,7 +93,6 @@ export default class ForgetPasswordScreen extends Component{
           </ScrollView>
         </Modal>
       </View>
-    </LinearGradient>
     );
   }
 }
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'transparent',
+    backgroundColor: myColors.darkShade,
   },
   input:{
     width:300,
